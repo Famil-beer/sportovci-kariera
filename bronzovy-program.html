@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bronzový program - 499 Kč | Kariéra sportovců</title>
+    <meta name="description" content="Bronzový program pro sportovce za 499 Kč. Vzdělávací materiály, audio nahrávky, vyhodnocení dovedností a 20minutová konzultace.">
+    <link rel="canonical" href="https://sportovci-kariera.cz/bronzovy-program.html">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #007BFF;
+            --bronze: #CD7F32;
+            --dark: #0A0E27;
+            --light: #F7F9FC;
+        }
+        body {
+            font-family: 'Inter', -apple-system, system-ui, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: white;
+        }
+        nav {
+            position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(20px);
+            padding: 1rem 2rem; border-radius: 50px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1); z-index: 1000;
+            display: flex; gap: 2rem; align-items: center; max-width: 90%;
+        }
+        .logo { font-weight: 900; font-size: 1.2rem; color: var(--primary); text-decoration: none; }
+        nav a { text-decoration: none; color: var(--dark); font-weight: 600; font-size: 0.9rem; }
+        .hero-program {
+            background: linear-gradient(135deg, var(--bronze), #B8792C);
+            padding: 10rem 2rem 4rem; text-align: center; color: white;
+        }
+        .badge {
+            display: inline-block; background: rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 1.5rem; border-radius: 50px; font-weight: 700;
+            margin-bottom: 1rem; border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .hero-program h1 { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 900; margin-bottom: 1rem; }
+        .price-big { font-size: 4rem; font-weight: 900; margin: 1rem 0; }
+        .hero-program p { font-size: 1.3rem; opacity: 0.95; margin-bottom: 2rem; }
+        .btn {
+            display: inline-block; padding: 1.2rem 3rem;
+            background: white; color: var(--bronze); border-radius: 15px;
+            font-weight: 700; font-size: 1.1rem; text-decoration: none;
+            transition: all 0.3s; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4); }
+        .content { max-width: 1000px; margin: 0 auto; padding: 6rem 2rem; }
+        .section { margin-bottom: 5rem; }
+        .section h2 { font-size: 2.5rem; font-weight: 900; color: var(--dark); margin-bottom: 2rem; }
+        .section p { font-size: 1.15rem; line-height: 1.9; color: var(--dark); opacity: 0.85; margin-bottom: 1.5rem; }
+        .checklist {
+            background: white; padding: 2.5rem; border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+        .checklist h3 { font-size: 1.8rem; font-weight: 800; color: var(--bronze); margin-bottom: 2rem; }
+        .checklist ul { list-style: none; }
+        .checklist li {
+            padding: 1rem 0; font-size: 1.1rem; border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            display: flex; align-items: center; gap: 1rem;
+        }
+        .checklist li::before { content: "✓"; color: var(--bronze); font-weight: 900; font-size: 1.5rem; }
+        footer { background: var(--dark); color: white; padding: 3rem 2rem; text-align: center; }
+        footer a { color: white; text-decoration: none; }
+        @media (max-width: 768px) {
+            nav { width: 90%; padding: 1rem; gap: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="logo">KARIÉRA SPORTOVCŮ</a>
+        <a href="index.html">Domů</a>
+        <a href="index.html#programy">Programy</a>
+        <a href="o-mne.html">O mně</a>
+        <a href="kontakt.html">Kontakt</a>
+    </nav>
+    <section class="hero-program">
+        <div class="badge">BRONZOVÝ PROGRAM</div>
+        <h1>Tvůj první krok</h1>
+        <div class="price-big">499 Kč</div>
+        <p>Zjisti, co všechno jsi se naučil ze sportu a jak to využít</p>
+        <a href="https://form.simpleshop.cz/WrVJ5/buy/" class="btn" target="_blank" rel="noopener noreferrer">Koupit program →</a>
+    </section>
+    <div class="content">
+        <div class="section">
+            <h2>Pro koho je to?</h2>
+            <p>Bronzový program je perfektní start pro každého sportovce – studenta, juniora nebo kohokoli, 
+kdo chce <strong>zjistit, jaké dovednosti vlastně má</strong> a jak je použít pro školu, 
+                brigádu nebo první práci.</p>
+        </div>
+        <div class="checklist">
+            <h3>Co přesně dostaneš?</h3>
+            <ul>
+                <li>Vzdělávací PDF materiály (jak rozpoznat své dovednosti)</li>
+                <li>Audio nahrávky (můžeš poslouchat kdykoliv – v autě, na tréninku...)</li>
+                <li>Diagnostický test (odhalíš své silné stránky ze sportu)</li>
+                <li>Vyhodnocení tvých dovedností s konkrétními příklady</li>
+                <li>Akční plán – co udělat jako první krok</li>
+                <li>20minutová konzultace (online nebo osobně)</li>
+            </ul>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 Kariéra sportovců | <a href="https://www.instagram.com/karierove_poradenstvi/">Instagram</a></p>
+    </footer>
+</body>
+</html>

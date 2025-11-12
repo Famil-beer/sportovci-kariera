@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kariéra sportovců - Sport tě naučil víc, než si myslíš | Kariérové poradenství</title>
+    <meta name="description" content="Kariérové poradenství pro sportovce. Využij své sportovní dovednosti pro školu, práci a život. 350+ sportovců, ARTECON partner, první konzultace zdarma.">
+    <meta name="keywords" content="kariéra sportovců, práce pro sportovce, kariérové poradenství, hokejisté, studium pro sportovce, Famil Beer">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Kariéra sportovců - Sport tě naučil víc, než si myslíš">
+    <meta property="og:description" content="Pomáháme sportovcům využít jejich dovednosti pro školu, práci a život. 350+ sportovců, ARTECON partner.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sportovci-kariera.cz">
+    <meta property="og:image" content="https://sportovci-kariera.cz/images/famil-portrait.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://sportovci-kariera.cz/">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #007BFF;
+            --primary-dark: #0056b3;
+            --secondary: #00D9FF;
+            --dark: #0A0E27;
+            --light: #F7F9FC;
+            --success: #00E676;
+        }
+        body {
+            font-family: 'Inter', -apple-system, system-ui, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: white;
+            overflow-x: hidden;
+        }
+        nav {
+            position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(20px);
+            padding: 1rem 2rem; border-radius: 50px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1); z-index: 1000;
+            display: flex; gap: 2rem; align-items: center; max-width: 90%;
+        }
+        .logo { font-weight: 900; font-size: 1.2rem; color: var(--primary); text-decoration: none; }
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
+        .nav-links a { text-decoration: none; color: var(--dark); font-weight: 600; font-size: 0.9rem; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--primary); }
+        .menu-toggle { display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--dark); }
+        
+        .hero {
+            min-height: 90vh;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.75) 0%, rgba(118, 75, 162, 0.75) 100%),
+                        url('images/famil-gym.jpg') center/cover;
+            background-attachment: fixed;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            padding: 8rem 2rem 4rem;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 150%;
+            height: 150%;
+            background: radial-gradient(circle at 30% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+            animation: float 20s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translate(-10%, -10%) rotate(0deg); }
+            50% { transform: translate(10%, 10%) rotate(180deg); }
+        }
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 900;
+            color: white;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
+        }
+        .hero h1 span { color: #FFD700; }
+        .hero p {
+            font-size: 1.4rem;
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4);
+        }
+        .hero-badges {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 2.5rem;
+        }
+        .badge {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(10px);
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            color: white;
+            font-weight: 700;
+            font-size: 0.95rem;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+        .cta-group { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; }
+        .btn {
+            padding: 1.2rem 2.5rem;
+            border-radius: 15px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        .btn-primary {
+            background: white;
+            color: var(--primary);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+        }
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.25);
+            color: white;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.4);
+        }
+        .btn-secondary:hover { background: rgba(255, 255, 255, 0.35); }
+        
+        .trust-bar { background: var(--primary); color: white; padding: 1.5rem 2rem; text-align: center; }
+        .trust-bar-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        .trust-item { display: flex; align-items: center; gap: 0.8rem; }
+        .trust-item strong { font-size: 1.8rem; font-weight: 900; }
+        
+        .problem { padding: 6rem 2rem; background: white; }
+        .problem-inner { max-width: 1200px; margin: 0 auto; }
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--dark);
+            opacity: 0.7;
+            margin-bottom: 4rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .problem-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        .problem-text h3 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+        .problem-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--dark);
+            opacity: 0.8;
+            margin-bottom: 1.5rem;
+        }
+        .problem-image {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+        .problem-image img { width: 100%; height: auto; display: block; }
+        
+        .how { padding: 6rem 2rem; background: var(--light); }
+        .how-inner { max-width: 1200px; margin: 0 auto; }
+        .how-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .step { text-align: center; }
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: 900;
+            margin: 0 auto 1rem;
+        }
+        .step h3 { font-size: 1.2rem; margin-bottom: 0.8rem; font-weight: 800; }
+        .step p { font-size: 0.95rem; opacity: 0.7; line-height: 1.6; }
+        
+        .programs { padding: 6rem 2rem; background: white; }
+        .programs-inner { max-width: 1200px; margin: 0 auto; }
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .pricing-card {
+            background: white;
+            padding: 3rem 2rem;
+            border-radius: 25px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+        .pricing-card.featured {
+            border-color: var(--primary);
+            transform: scale(1.05);
+        }
+        .pricing-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+        .pricing-badge {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 0.85rem;
+            margin-bottom: 1.5rem;
+        }
+        .pricing-badge.bronze {
+            background: linear-gradient(135deg, #CD7F32, #B8792C);
+            color: white;
+        }
+        .pricing-badge.silver {
+            background: linear-gradient(135deg, #C0C0C0, #A8A8A8);
+            color: white;
+        }
+        .pricing-badge.gold {
+            background: linear-gradient(135deg, #FFD700, #E5C100);
+            color: #000;
+        }
+        .pricing-card h3 { font-size: 1.8rem; font-weight: 800; margin-bottom: 1rem; }
+        .price {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        .price-desc {
+            color: var(--dark);
+            opacity: 0.7;
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+        .pricing-features { list-style: none; margin-bottom: 2rem; text-align: left; }
+        .pricing-features li {
+            padding: 0.8rem 0;
+            color: var(--dark);
+            font-weight: 500;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        .pricing-btn {
+            display: block;
+            width: 100%;
+            padding: 1.2rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            text-align: center;
+            border-radius: 15px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        .pricing-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 123, 255, 0.4);
+        }
+        
+        .partnership { padding: 4rem 2rem; background: var(--light); }
+        .partnership-inner { max-width: 900px; margin: 0 auto; text-align: center; }
+        .partner-badge {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: 800;
+            margin-bottom: 2rem;
+        }
+        .partnership h2 { font-size: 2.5rem; font-weight: 900; margin-bottom: 1.5rem; }
+        .partnership p {
+            font-size: 1.2rem;
+            opacity: 0.8;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+        
+        .social { padding: 6rem 2rem; background: white; }
+        .social-inner { max-width: 1200px; margin: 0 auto; }
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .social-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s;
+        }
+        .social-card:hover { transform: translateY(-5px); }
+        .social-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        .social-card-content { padding: 1.5rem; }
+        .social-platform {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+        }
+        
+        .faq { padding: 6rem 2rem; background: var(--light); }
+        .faq-inner { max-width: 900px; margin: 0 auto; }
+        .faq-list { margin-top: 3rem; }
+        .faq-item {
+            background: white;
+            margin-bottom: 1rem;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+        .faq-question {
+            width: 100%;
+            padding: 1.5rem;
+            background: none;
+            border: none;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--dark);
+        }
+        .faq-icon {
+            font-size: 1.5rem;
+            color: var(--primary);
+            font-weight: 700;
+            transition: transform 0.3s;
+        }
+        .faq-item.active .faq-icon { transform: rotate(45deg); }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        .faq-answer-inner {
+            padding: 0 1.5rem 1.5rem;
+            color: var(--dark);
+            opacity: 0.8;
+            line-height: 1.8;
+        }
+        
+        .cta-final {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            text-align: center;
+            color: white;
+        }
+        .cta-final h2 {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+        }
+        .cta-final p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+        }
+        
+        footer { background: var(--dark); color: white; padding: 3rem 2rem; text-align: center; }
+        footer a { color: white; text-decoration: none; margin: 0 1rem; }
+        footer a:hover { text-decoration: underline; }
+        
+        @media (max-width: 768px) {
+            nav { width: 90%; padding: 1rem; }
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 1rem;
+                border-radius: 20px;
+                margin-top: 1rem;
+                box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            }
+            .nav-links.active { display: flex; }
+            .menu-toggle { display: block; }
+            .problem-grid { grid-template-columns: 1fr; }
+            .how-steps { grid-template-columns: 1fr; }
+            .pricing-grid { grid-template-columns: 1fr; }
+            .pricing-card.featured { transform: scale(1); }
+            .social-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="logo">KARIÉRA SPORTOVCŮ</a>
+        <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle menu">☰</button>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#programy">Programy</a></li>
+            <li><a href="#jak-funguje">Jak to funguje</a></li>
+            <li><a href="o-mne.html">O mně</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Sport tě naučil víc,<br>než <span>si myslíš</span></h1>
+            <p>Nemusíš čekat na konec kariéry. Využij své sportovní dovednosti UŽ TEĎ – pro školu, brigádu a život.</p>
+            <div class="hero-badges">
+                <div class="badge">✓ Pro studenty SŠ</div>
+                <div class="badge">✓ Pro aktivní sportovce</div>
+                <div class="badge">✓ Pro přechod po kariéře</div>
+            </div>
+            <div class="cta-group">
+                <a href="#programy" class="btn btn-primary">Zobrazit programy</a>
+                <a href="#jak-funguje" class="btn btn-secondary">Jak to funguje</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="trust-bar">
+        <div class="trust-bar-content">
+            <div class="trust-item">
+                <span>✓</span>
+                <div><strong>350+</strong><br>sportovců na workshopech</div>
+            </div>
+            <div class="trust-item">
+                <span>✓</span>
+                <div><strong>40+</strong><br>individuálních klientů</div>
+            </div>
+            <div class="trust-item">
+                <span>✓</span>
+                <div><strong>2 roky</strong><br>zkušeností</div>
+            </div>
+        </div>
+    </div>
+
+    <section class="problem">
+        <div class="problem-inner">
+            <h2 class="section-title">Vsázení na jednu kartu</h2>
+            <p class="section-subtitle">Znáš to? Celý život jen sport. Pak přijde otázka: "Co teď?"</p>
+            <div class="problem-grid">
+                <div class="problem-text">
+                    <h3>🎯 Problém</h3>
+                    <p>Mnoho mladých sportovců dává do kariéry všechno. Škola a jiné zájmy? Až potom. Všechno podřizují jednomu snu: hrát profesionálně.</p>
+                    <p><strong>Realita?</strong> Pouze 2-3 ze 100 hokejistů si tím skutečně vydělá na živobytí.</p>
+                    <p>Co s těmi ostatními? Jaké mají možnosti, když se sen nevyplní?</p>
+                    <h3>💡 Řešení</h3>
+                    <p><strong>Sport tě naučil víc, než si myslíš:</strong></p>
+                    <p>→ Týmová spolupráce<br>
+                    → Vůdčí schopnosti<br>
+                    → Zvládání stresu<br>
+                    → Vytrvalost<br>
+                    → Strategické myšlení</p>
+                    <p><strong>Tyto dovednosti jsou zlatem ve světě práce a studia!</strong></p>
+                </div>
+                <div class="problem-image">
+                    <img src="images/famil-portrait.jpg" alt="Famil Beer - Kariérový poradce pro sportovce" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="how" id="jak-funguje">
+        <div class="how-inner">
+            <h2 class="section-title">Jak to funguje</h2>
+            <p class="section-subtitle">Jednoduchý proces, který ti změní pohled na tvé dovednosti</p>
+            <div class="how-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Diagnostika</h3>
+                    <p>Odhalíme tvé silné stránky a dovednosti ze sportu</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Strategie</h3>
+                    <p>Vytvoříme plán, jak je využít pro školu nebo práci</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Implementace</h3>
+                    <p>Dostaneš konkrétní nástroje (CV, motivační dopis, akční plány)</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Podpora</h3>
+                    <p>Individuální konzultace online nebo osobně</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="programs" id="programy">
+        <div class="programs-inner">
+            <h2 class="section-title">Vyber si svůj program</h2>
+            <p class="section-subtitle">Každý program obsahuje praktické nástroje, které můžeš použít hned</p>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-badge bronze">BRONZE</div>
+                    <h3>Bronzový program</h3>
+                    <div class="price">499 Kč</div>
+                    <p class="price-desc">První krok k novým možnostem</p>
+                    <ul class="pricing-features">
+                        <li>✓ Vzdělávací PDF materiály</li>
+                        <li>✓ Audio nahrávky (poslouchat kdykoliv)</li>
+                        <li>✓ Vyhodnocení tvých dovedností</li>
+                        <li>✓ 20minutová konzultace</li>
+                    </ul>
+                    <a href="bronzovy-program.html" class="pricing-btn">Více informací</a>
+                </div>
+                <div class="pricing-card featured">
+                    <div class="pricing-badge silver">SILVER</div>
+                    <h3>Stříbrný program</h3>
+                    <div class="price">1 490 Kč</div>
+                    <p class="price-desc">Kompletní příprava do práce</p>
+                    <ul class="pricing-features">
+                        <li>✓ Vše z bronzového programu</li>
+                        <li>✓ Upravené CV pro sportovce</li>
+                        <li>✓ Motivační dopis na míru</li>
+                        <li>✓ Jak zvládnout první 3 měsíce v práci</li>
+                        <li>✓ 2× individuální coaching (online/F2F)</li>
+                    </ul>
+                    <a href="stribrny-program.html" class="pricing-btn">Více informací</a>
+                </div>
+                <div class="pricing-card">
+                    <div class="pricing-badge gold">GOLD</div>
+                    <h3>Zlatý program</h3>
+                    <div class="price">2 999 Kč</div>
+                    <p class="price-desc">VIP mentoring s individuálním plánem</p>
+                    <ul class="pricing-features">
+                        <li>✓ Vše ze stříbrného programu</li>
+                        <li>✓ Individuální mentoring (délka na míru)</li>
+                        <li>✓ Kompletní akční plán na 3-6 měsíců</li>
+                        <li>✓ Osobní vedení projektu</li>
+                        <li>✓ Plán přechodu po kariéře</li>
+                    </ul>
+                    <a href="zlaty-program.html" class="pricing-btn">Více informací</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="partnership">
+        <div class="partnership-inner">
+            <div class="partner-badge">✓ OFICIÁLNÍ PARTNER</div>
+            <h2>Garantem programu na největší sportovní střední škole</h2>
+            <p>Od září 2025 budu garantem kariérového poradenství na <strong>ARTECON Praha</strong> – největší sportovní střední škole v ČR.</p>
+            <p>To není náhoda. Je to důkaz, že náš přístup funguje a školy mu důvěřují.</p>
+            <a href="https://artecon.cz/praha/karierovy-poradce-pro-sportovce/" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Více o partnerství</a>
+        </div>
+    </section>
+
+    <section class="social" id="socialni-site">
+        <div class="social-inner">
+            <h2 class="section-title">Sleduj nás na sociálních sítích</h2>
+            <p class="section-subtitle">Reálný obsah od sportovců pro sportovce. Žádné kecy.</p>
+            <div class="social-grid">
+                <div class="social-card">
+                    <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=600" alt="Instagram kariéra sportovců" loading="lazy">
+                    <div class="social-card-content">
+                        <span class="social-platform">INSTAGRAM</span>
+                        <h3>29k+ views na virálním reelu</h3>
+                        <a href="https://www.instagram.com/karierove_poradenstvi/" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="margin-top:1rem;font-size:0.9rem;padding:0.8rem 1.5rem;">Sledovat →</a>
+                    </div>
+                </div>
+                <div class="social-card">
+                    <img src="https://images.unsplash.com/photo-1611162616475-46b635cb6868?w=600" alt="YouTube kariéra sportovců" loading="lazy">
+                    <div class="social-card-content">
+                        <span class="social-platform">YOUTUBE</span>
+                        <h3>Videa, rozhovory, tipy</h3>
+                        <a href="https://www.youtube.com/@karierasportovcu" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="margin-top:1rem;font-size:0.9rem;padding:0.8rem 1.5rem;">Sledovat →</a>
+                    </div>
+                </div>
+                <div class="social-card">
+                    <img src="https://images.unsplash.com/photo-1611162618071-b39a2ec055fb?w=600" alt="TikTok kariéra sportovců" loading="lazy">
+                    <div class="social-card-content">
+                        <span class="social-platform">TIKTOK</span>
+                        <h3>Krátká videa, rychlé tipy</h3>
+                        <a href="https://www.tiktok.com/@karierasportovcu" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="margin-top:1rem;font-size:0.9rem;padding:0.8rem 1.5rem;">Sledovat →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq" id="faq">
+        <div class="faq-inner">
+            <h2 class="section-title">Časté otázky</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Je to jen pro konec kariéry?</span>
+                        <span class="faq-icon" aria-hidden="true">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            <strong>NE!</strong> To je největší mýtus. Program pomáhá i aktivním sportovcům – studentům SŠ, lidem co hledají brigádu, nebo komukoliv kdo chce využít sportovní zkušenosti UŽ TEĎ. Nemusíš čekat na konec kariéry.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Kolik to trvá?</span>
+                        <span class="faq-icon" aria-hidden="true">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Záleží na programu a tobě. Bronzový je jednorázový (můžeš projít za den), Stříbrný zabere cca 2-4 týdny, Zlatý je individuální mentoring (3-6 měsíců). Jdeš svým tempem.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Co přesně dostanu?</span>
+                        <span class="faq-icon" aria-hidden="true">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Konkrétní nástroje: PDF materiály, audio nahrávky, upravené CV, motivační dopis, akční plány, a individuální konzultace (online nebo osobně). Žádné prázdné teorie – jen praktické věci, které můžeš použít hned.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Funguje to i pro rodiče?</span>
+                        <span class="faq-icon" aria-hidden="true">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Ano! Mnoho rodičů kupuje program pro své děti (studenty SŠ). Pomáhá jim pochopit, jak využít sportovní zkušenosti pro výběr školy nebo první práci.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Máte nějakou garanci?</span>
+                        <span class="faq-icon" aria-hidden="true">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Ano. První konzultace je ZDARMA (20 minut). Pokud ti to nesedne, nic neplatíš. Chceme, abys byl spokojený, ne abys kupoval "zajíce v pytli".
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-final" id="kontakt">
+        <h2>Ready udělat první krok?</h2>
+        <p>První konzultace zdarma. Žádné závazky, jen upřímný rozhovor.</p>
+        <div class="cta-group">
+            <a href="mailto:k.poradenstvi7@gmail.com" class="btn btn-primary">Napsat email</a>
+            <a href="kontakt.html" class="btn btn-secondary">Kontaktní formulář</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Kariéra sportovců | <a href="https://www.instagram.com/karierove_poradenstvi/">Instagram</a> | <a href="https://www.youtube.com/@karierasportovcu">YouTube</a> | <a href="https://www.tiktok.com/@karierasportovcu">TikTok</a></p>
+        <p style="margin-top:1rem;opacity:0.7;">Made by sportovce pro sportovce</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const item = button.parentElement;
+                const answer = item.querySelector('.faq-answer');
+                const isActive = item.classList.contains('active');
+
+                document.querySelectorAll('.faq-item').forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                        otherItem.querySelector('.faq-answer').style.maxHeight = '0';
+                        otherItem.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+                    }
+                });
+
+                if (isActive) {
+                    item.classList.remove('active');
+                    answer.style.maxHeight = '0';
+                    button.setAttribute('aria-expanded', 'false');
+                } else {
+                    item.classList.add('active');
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                    button.setAttribute('aria-expanded', 'true');
+                }
+            });
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                    document.getElementById('navLinks').classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
