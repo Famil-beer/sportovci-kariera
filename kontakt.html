@@ -3,23 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>Kontakt | Kariéra sportovců - První konzultace zdarma</title>
-    <meta name="description" content="Kontaktuj nás - první konzultace zdarma. Email: k.poradenstvi7@gmail.com. Pomůžeme ti najít tvou cestu po sportu.">
+    <meta name="description" content="Kontaktuj nás - první konzultace zdarma. Email: info@sportovci-kariera.cz. Pracoval jsem s 350+ sportovci. Pomůžu ti najít tvou cestu.">
+    <meta name="keywords" content="kontakt kariérní poradenství, konzultace pro sportovce zdarma, kariérový poradce sportovci kontakt">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Kontakt | Kariéra sportovců - První konzultace zdarma">
+    <meta property="og:description" content="Rezervuj si první bezplatnou konzultaci. Bez závazků. 350+ sportovců, 95% úspěšnost.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sportovci-kariera.cz/kontakt.html">
+    
+    <!-- Canonical URL -->
     <link rel="canonical" href="https://sportovci-kariera.cz/kontakt.html">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Structured Data - ContactPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ContactPage",
+      "name": "Kontakt - Kariéra sportovců",
+      "description": "Kontaktní stránka pro kariérní poradenství sportovců. První konzultace zdarma.",
+      "url": "https://sportovci-kariera.cz/kontakt.html",
+      "mainEntity": {
+        "@type": "Organization",
+        "name": "Kariéra sportovců",
+        "email": "info@sportovci-kariera.cz",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "Customer Service",
+          "email": "info@sportovci-kariera.cz",
+          "availableLanguage": "Czech"
+        }
+      }
+    }
+    </script>
+    
+    <!-- Google Analytics - Replace G-XXXXXXXXXX with your actual ID -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
             --primary: #007BFF;
+            --primary-dark: #0056b3;
+            --secondary: #00D9FF;
             --dark: #0A0E27;
             --light: #F7F9FC;
+            --success: #00E676;
+            --warning: #FFD700;
         }
         body {
             font-family: 'Inter', -apple-system, system-ui, sans-serif;
             line-height: 1.6;
             color: var(--dark);
             background: white;
+            overflow-x: hidden;
         }
+        
+        /* ACCESSIBILITY */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--primary);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            font-weight: 700;
+            z-index: 10001;
+            border-radius: 0 0 8px 0;
+        }
+        .skip-link:focus {
+            top: 0;
+        }
+        button:focus, a:focus {
+            outline: 3px solid var(--primary);
+            outline-offset: 2px;
+        }
+        button, a {
+            -webkit-tap-highlight-color: rgba(0, 123, 255, 0.3);
+            touch-action: manipulation;
+        }
+        
+        /* NAVIGATION */
         nav {
             position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
             background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(20px);
@@ -28,120 +105,655 @@
             display: flex; gap: 2rem; align-items: center; max-width: 90%;
         }
         .logo { font-weight: 900; font-size: 1.2rem; color: var(--primary); text-decoration: none; }
-        nav a { text-decoration: none; color: var(--dark); font-weight: 600; font-size: 0.9rem; transition: color 0.3s; }
-        nav a:hover { color: var(--primary); }
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
+        .nav-links a { text-decoration: none; color: var(--dark); font-weight: 600; font-size: 0.9rem; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--primary); }
+        .menu-toggle { display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--dark); }
+        
+        /* HERO */
         .hero-small {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             padding: 10rem 2rem 4rem; text-align: center; color: white;
+            position: relative;
+            overflow: hidden;
         }
-        .hero-small h1 { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 900; margin-bottom: 1rem; }
-        .hero-small p { font-size: 1.3rem; opacity: 0.95; }
-        .content { max-width: 900px; margin: 0 auto; padding: 6rem 2rem; }
+        .hero-small::before {
+            content: '';
+            position: absolute;
+            width: 150%;
+            height: 150%;
+            background: radial-gradient(circle at 30% 50%, rgba(255, 255, 255, 0.08) 0%, transparent 50%);
+            animation: float 25s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translate(-10%, -10%) rotate(0deg); }
+            50% { transform: translate(10%, 10%) rotate(180deg); }
+        }
+        .hero-small h1 { 
+            font-size: clamp(2.5rem, 5vw, 4rem); 
+            font-weight: 900; 
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+        .hero-small p { 
+            font-size: 1.3rem; 
+            opacity: 0.95;
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* CONTENT */
+        .content { max-width: 1200px; margin: 0 auto; padding: 6rem 2rem; }
+        
+        /* TRUST BAR */
+        .trust-mini {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-bottom: 5rem;
+            padding: 2rem;
+            background: var(--light);
+            border-radius: 20px;
+        }
+        .trust-mini-item {
+            text-align: center;
+        }
+        .trust-mini-item strong {
+            display: block;
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--primary);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+        .trust-mini-item span {
+            font-size: 0.9rem;
+            color: #666;
+            font-weight: 600;
+        }
+        
+        /* CONTACT GRID */
         .contact-grid {
-            display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-bottom: 4rem;
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 2.5rem; 
+            margin-bottom: 5rem;
         }
         .contact-card {
-            background: var(--light); padding: 2.5rem; border-radius: 20px; text-align: center;
+            background: white;
+            padding: 2.5rem; 
+            border-radius: 20px; 
+            text-align: center;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border: 2px solid transparent;
+            transition: all 0.3s;
+        }
+        .contact-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
         }
         .contact-icon { font-size: 3rem; margin-bottom: 1rem; }
         .contact-card h3 { font-size: 1.5rem; font-weight: 800; margin-bottom: 1rem; color: var(--dark); }
-        .contact-card a { color: var(--primary); text-decoration: none; font-size: 1.1rem; font-weight: 600; }
-        .contact-card a:hover { text-decoration: underline; }
-        .form-section {
-            background: white; padding: 3rem; border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        .contact-card a { 
+            color: var(--primary); 
+            text-decoration: none; 
+            font-size: 1.1rem; 
+            font-weight: 600;
+            display: inline-block;
+            margin: 0.3rem 0;
         }
-        .form-section h2 { font-size: 2rem; font-weight: 900; color: var(--dark); margin-bottom: 1.5rem; text-align: center; }
+        .contact-card a:hover { text-decoration: underline; }
+        .contact-card p { margin-top: 1rem; opacity: 0.8; font-size: 0.95rem; }
+        
+        /* FORM SECTION */
+        .form-section {
+            background: var(--light);
+            padding: 4rem 3rem; 
+            border-radius: 25px;
+            margin-bottom: 5rem;
+            border: 2px solid rgba(0, 123, 255, 0.1);
+        }
+        .form-section h2 { 
+            font-size: 2.2rem; 
+            font-weight: 900; 
+            color: var(--dark); 
+            margin-bottom: 1rem; 
+            text-align: center; 
+        }
+        .form-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 3rem;
+        }
         .form-group { margin-bottom: 1.5rem; }
-        .form-group label { display: block; font-weight: 600; margin-bottom: 0.5rem; color: var(--dark); }
+        .form-group label { 
+            display: block; 
+            font-weight: 700; 
+            margin-bottom: 0.7rem; 
+            color: var(--dark);
+            font-size: 1rem;
+        }
         .form-group input,
+        .form-group select,
         .form-group textarea {
-            width: 100%; padding: 1rem; border: 2px solid #e2e8f0; border-radius: 10px;
-            font-size: 1rem; font-family: inherit; transition: border-color 0.3s;
+            width: 100%; 
+            padding: 1.2rem; 
+            border: 2px solid #e2e8f0; 
+            border-radius: 12px;
+            font-size: 1rem; 
+            font-family: inherit; 
+            transition: all 0.3s;
+            background: white;
         }
         .form-group input:focus,
-        .form-group textarea:focus { outline: none; border-color: var(--primary); }
+        .form-group select:focus,
+        .form-group textarea:focus { 
+            outline: none; 
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+        }
         .form-group textarea { resize: vertical; min-height: 150px; }
         .btn-submit {
-            width: 100%; padding: 1.2rem; background: linear-gradient(135deg, var(--primary), #0056b3);
-            color: white; border: none; border-radius: 15px; font-weight: 700; font-size: 1.1rem;
-            cursor: pointer; transition: all 0.3s; box-shadow: 0 10px 30px rgba(0, 123, 255, 0.3);
+            width: 100%; 
+            padding: 1.4rem; 
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white; 
+            border: none; 
+            border-radius: 15px; 
+            font-weight: 700; 
+            font-size: 1.2rem;
+            cursor: pointer; 
+            transition: all 0.3s; 
+            box-shadow: 0 10px 30px rgba(0, 123, 255, 0.3);
         }
-        .btn-submit:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(0, 123, 255, 0.4); }
+        .btn-submit:hover { 
+            transform: translateY(-3px); 
+            box-shadow: 0 15px 40px rgba(0, 123, 255, 0.4); 
+        }
+        
+        /* QUIZ TRIGGER */
+        .quiz-trigger-section {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 4rem 3rem;
+            border-radius: 25px;
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+        .quiz-trigger-section h2 {
+            font-size: 2.2rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+        }
+        .quiz-trigger-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+        .btn-quiz {
+            background: white;
+            color: var(--primary);
+            padding: 1.3rem 3rem;
+            border-radius: 15px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            border: none;
+        }
+        .btn-quiz:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* PHOTO GALLERY */
+        .photo-section {
+            margin: 5rem 0;
+        }
+        .photo-section h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        .photo-section .subtitle {
+            font-size: 1.1rem;
+            text-align: center;
+            color: #666;
+            margin-bottom: 3rem;
+        }
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        .photo-item {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            aspect-ratio: 4/3;
+            position: relative;
+        }
+        .photo-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+        .photo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .photo-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            color: white;
+            padding: 1rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        /* GUARANTEE */
         .guarantee-box {
-            background: var(--light); padding: 2rem; border-radius: 15px; margin-top: 3rem;
-            text-align: center; border-left: 5px solid var(--primary);
+            background: var(--light); 
+            padding: 3rem; 
+            border-radius: 20px; 
+            margin-top: 5rem;
+            text-align: center; 
+            border-left: 5px solid var(--success);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
         }
-        .guarantee-box h3 { font-size: 1.5rem; font-weight: 800; color: var(--primary); margin-bottom: 1rem; }
-        .guarantee-box p { font-size: 1.1rem; line-height: 1.8; opacity: 0.85; }
-        footer { background: var(--dark); color: white; padding: 3rem 2rem; text-align: center; margin-top: 4rem; }
-        footer a { color: white; text-decoration: none; }
+        .guarantee-box h3 { 
+            font-size: 1.8rem; 
+            font-weight: 800; 
+            color: var(--success); 
+            margin-bottom: 1rem; 
+        }
+        .guarantee-box p { 
+            font-size: 1.15rem; 
+            line-height: 1.8; 
+            opacity: 0.85;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* COOKIE CONSENT */
+        .cookie-consent {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 14, 39, 0.98);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 1.5rem 2rem;
+            z-index: 10000;
+            box-shadow: 0 -5px 30px rgba(0, 0, 0, 0.3);
+            display: none;
+            animation: slideUp 0.4s ease-out;
+        }
+        .cookie-consent.active {
+            display: block;
+        }
+        @keyframes slideUp {
+            from { transform: translateY(100%); }
+            to { transform: translateY(0); }
+        }
+        .cookie-consent-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        .cookie-consent-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        .cookie-consent-text h4 {
+            font-size: 1.1rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+        .cookie-consent-text p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+        .cookie-consent-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .cookie-btn {
+            padding: 0.8rem 1.8rem;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+        }
+        .cookie-btn-accept {
+            background: var(--success);
+            color: white;
+        }
+        .cookie-btn-accept:hover {
+            background: #00c763;
+            transform: translateY(-2px);
+        }
+        .cookie-btn-decline {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        .cookie-btn-decline:hover {
+            border-color: rgba(255, 255, 255, 0.6);
+        }
+        
+        /* FOOTER */
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+        footer a { 
+            color: var(--secondary); 
+            text-decoration: none;
+            font-weight: 600;
+        }
+        footer a:hover { text-decoration: underline; }
+        
+        /* RESPONSIVE */
         @media (max-width: 768px) {
-            nav { width: 90%; padding: 1rem; gap: 1rem; }
+            nav { padding: 1rem 1.5rem; gap: 1rem; }
+            .nav-links { 
+                display: none; 
+                flex-direction: column; 
+                position: absolute; 
+                top: 100%; 
+                left: 0; 
+                right: 0; 
+                background: white; 
+                padding: 1.5rem; 
+                border-radius: 20px; 
+                margin-top: 1rem; 
+                box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2); 
+            }
+            .nav-links.active { display: flex; }
+            .menu-toggle { display: block; }
             .contact-grid { grid-template-columns: 1fr; }
             .form-section { padding: 2rem 1.5rem; }
+            .trust-mini { gap: 2rem; }
+            .photo-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 1rem;
+            }
+            .cookie-consent-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .cookie-consent-actions {
+                width: 100%;
+                justify-content: center;
+            }
+            .cookie-btn {
+                flex: 1;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Skip to content link -->
+    <a href="#main-content" class="skip-link">Přeskočit na hlavní obsah</a>
+    
     <nav>
-        <a href="index.html" class="logo">KARIÉRA SPORTOVCŮ</a>
-        <a href="index.html">Domů</a>
-        <a href="index.html#programy">Programy</a>
-        <a href="o-mne.html">O mně</a>
+        <a href="index.html" class="logo">Kariéra sportovců</a>
+        <button class="menu-toggle" onclick="toggleMenu()" aria-label="Otevřít menu">☰</button>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html#problem">Problém</a></li>
+            <li><a href="index.html#reseni">Řešení</a></li>
+            <li><a href="index.html#cenik">Ceník</a></li>
+            <li><a href="index.html#reference">Reference</a></li>
+            <li><a href="o-mne.html">O mně</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
     </nav>
+
     <section class="hero-small">
         <h1>Pojďme to probrat</h1>
         <p>První konzultace je zdarma. Bez závazků.</p>
     </section>
-    <div class="content">
+
+    <div class="content" id="main-content">
+        <!-- Trust Mini Bar -->
+        <div class="trust-mini">
+            <div class="trust-mini-item">
+                <strong>350+</strong>
+                <span>Sportovců pomoženo</span>
+            </div>
+            <div class="trust-mini-item">
+                <strong>95%</strong>
+                <span>Úspěšnost</span>
+            </div>
+            <div class="trust-mini-item">
+                <strong>24h</strong>
+                <span>Odpověď na email</span>
+            </div>
+        </div>
+
+        <!-- Contact Cards -->
         <div class="contact-grid">
             <div class="contact-card">
                 <div class="contact-icon">📧</div>
                 <h3>Email</h3>
-                <a href="mailto:k.poradenstvi7@gmail.com">k.poradenstvi7@gmail.com</a>
-                <p style="margin-top:1rem;opacity:0.8;">Odpovídám do 24 hodin</p>
+                <a href="mailto:info@sportovci-kariera.cz">info@sportovci-kariera.cz</a>
+                <p>Odpovídám do 24 hodin</p>
             </div>
             <div class="contact-card">
                 <div class="contact-icon">📱</div>
                 <h3>Sociální sítě</h3>
-                <div style="display:flex;flex-direction:column;gap:0.5rem;margin-top:1rem;">
-                    <a href="https://www.instagram.com/karierove_poradenstvi/" target="_blank" rel="noopener noreferrer">Instagram</a>
-                    <a href="https://www.youtube.com/@karierasportovcu" target="_blank" rel="noopener noreferrer">YouTube</a>
-                    <a href="https://www.tiktok.com/@karierasportovcu" target="_blank" rel="noopener noreferrer">TikTok</a>
-                </div>
+                <a href="https://www.instagram.com/karierove_poradenstvi/" target="_blank" rel="noopener noreferrer">Instagram</a>
+                <a href="https://www.youtube.com/@karierasportovcu" target="_blank" rel="noopener noreferrer">YouTube</a>
+                <a href="https://www.tiktok.com/@karierasportovcu" target="_blank" rel="noopener noreferrer">TikTok</a>
+                <p>Sleduj denní tipy a motivaci</p>
+            </div>
+            <div class="contact-card">
+                <div class="contact-icon">🏫</div>
+                <h3>ARTECON Praha</h3>
+                <p style="margin-top:0;">Garant kariérového programu na největší sportovní střední škole v ČR</p>
+                <a href="https://artecon.cz/praha/karierovy-poradce-pro-sportovce/" target="_blank" rel="noopener noreferrer">Více info →</a>
             </div>
         </div>
+
+        <!-- Contact Form -->
         <div class="form-section">
-            <h2>Nebo mi napiš přímo tady</h2>
-            <form action="mailto:k.poradenstvi7@gmail.com" method="get" enctype="text/plain">
+            <h2>Napiš mi přímo tady</h2>
+            <p class="form-subtitle">Vyplň formulář a ozvů se mi do 24 hodin</p>
+            <form action="https://formspree.io/f/movyvdlr" method="POST">
                 <div class="form-group">
                     <label for="name">Tvoje jméno *</label>
-                    <input type="text" id="name" name="subject" required placeholder="Např. Jan Novák">
+                    <input type="text" id="name" name="name" required placeholder="Např. Jan Novák">
                 </div>
                 <div class="form-group">
                     <label for="email">Email *</label>
-                    <input type="email" id="email" name="from" required placeholder="tvuj@email.cz">
+                    <input type="email" id="email" name="email" required placeholder="tvuj@email.cz">
                 </div>
                 <div class="form-group">
-                    <label for="message">Zpráva *</label>
-                    <textarea id="message" name="body" required placeholder="Napiš mi, s čím potřebuješ pomoct..."></textarea>
+                    <label for="sport">Jaký sport děláš/dělal? *</label>
+                    <input type="text" id="sport" name="sport" required placeholder="Např. Hokej, Fotbal, Atletika...">
+                </div>
+                <div class="form-group">
+                    <label for="program">Který program tě zajímá?</label>
+                    <select id="program" name="program">
+                        <option value="">Nevím zatím / Chci poradit</option>
+                        <option value="bronzovy">🥉 Bronzový (499 Kč)</option>
+                        <option value="stribrny">🥈 Stříbrný (1999 Kč)</option>
+                        <option value="zlaty">🥇 Zlatý (4999 Kč)</option>
+                        <option value="workshop">Workshop pro školu/klub</option>
+                        <option value="jine">Něco jiného</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">S čím potřebuješ pomoct? *</label>
+                    <textarea id="message" name="message" required placeholder="Napiš mi svůj příběh... Konec kariéry? Studium? První práce? Cokoliv."></textarea>
                 </div>
                 <button type="submit" class="btn-submit">Odeslat zprávu →</button>
+                <p style="text-align:center; margin-top:1rem; font-size:0.9rem; opacity:0.7;">
+                    * Odesláním souhlasíš se zpracováním osobních údajů
+                </p>
             </form>
         </div>
+
+        <!-- Quiz Trigger -->
+        <div class="quiz-trigger-section">
+            <h2>🎯 Nejsi si jistý, co potřebuješ?</h2>
+            <p>Udělej náš 2minutový test a zjisti, co tě sport naučil a jak to využít</p>
+            <button onclick="openQuiz()" class="btn-quiz">Začít test zdarma →</button>
+        </div>
+
+        <!-- Photo Gallery -->
+        <div class="photo-section">
+            <h2>📸 Jak vypadá konzultace</h2>
+            <p class="subtitle">Osobně nebo online. Vždy upřímně a na rovinu.</p>
+            <div class="photo-grid">
+                <div class="photo-item">
+                    <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=600" alt="Individuální konzultace online" loading="lazy">
+                    <div class="photo-caption">Online konzultace</div>
+                </div>
+                <div class="photo-item">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600" alt="Osobní setkání s klientem" loading="lazy">
+                    <div class="photo-caption">Osobní setkání</div>
+                </div>
+                <div class="photo-item">
+                    <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=600" alt="Práce na akčním plánu" loading="lazy">
+                    <div class="photo-caption">Práce na akčním plánu</div>
+                </div>
+                <div class="photo-item">
+                    <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=600" alt="Skupinový workshop" loading="lazy">
+                    <div class="photo-caption">Skupinový workshop</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Guarantee Box -->
         <div class="guarantee-box">
-            <h3>✓ První konzultace ZDARMA</h3>
+            <h3>✓ První konzultace ZDARMA (20 minut)</h3>
             <p>
                 Chci, abys viděl, jak to funguje. Proto je první 20minutová konzultace zdarma. 
-                Žádné závazky, žádné povinnosti. Jen upřímný rozhovor.
+                Žádné závazky, žádné povinnosti. Jen upřímný rozhovor o tvé budoucnosti.
             </p>
         </div>
     </div>
+
+    <!-- COOKIE CONSENT BANNER -->
+    <div id="cookieConsent" class="cookie-consent">
+        <div class="cookie-consent-content">
+            <div class="cookie-consent-text">
+                <h4>🍪 Používáme cookies</h4>
+                <p>Tento web používá soubory cookies pro zlepšení uživatelského zážitku a analýzu návštěvnosti.</p>
+            </div>
+            <div class="cookie-consent-actions">
+                <button onclick="acceptCookies()" class="cookie-btn cookie-btn-accept">Přijmout vše</button>
+                <button onclick="declineCookies()" class="cookie-btn cookie-btn-decline">Pouze nezbytné</button>
+            </div>
+        </div>
+    </div>
+
     <footer>
-        <p>&copy; 2024 Kariéra sportovců | <a href="https://www.instagram.com/karierove_poradenstvi/">Instagram</a> | <a href="https://www.youtube.com/@karierasportovcu">YouTube</a> | <a href="https://www.tiktok.com/@karierasportovcu">TikTok</a></p>
-        <p style="margin-top:1rem;opacity:0.7;">Made by sportovce pro sportovce</p>
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <p>&copy; 2025 Kariéra sportovců</p>
+            <p style="margin-top:0.5rem;">
+                <a href="https://www.instagram.com/karierove_poradenstvi/">Instagram</a> • 
+                <a href="https://www.youtube.com/@karierasportovcu">YouTube</a> • 
+                <a href="https://www.tiktok.com/@karierasportovcu">TikTok</a>
+            </p>
+            <p style="margin-top:1.5rem;font-size:0.9rem;">
+                <a href="mailto:info@sportovci-kariera.cz">info@sportovci-kariera.cz</a>
+            </p>
+        </div>
     </footer>
+
+    <script>
+        // MENU TOGGLE
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+
+        // SMOOTH SCROLL
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                    document.getElementById('navLinks').classList.remove('active');
+                }
+            });
+        });
+        
+        // QUIZ (Link to homepage quiz)
+        function openQuiz() {
+            window.location.href = 'index.html#quiz';
+        }
+        
+        // COOKIE CONSENT
+        function checkCookieConsent() {
+            const consent = localStorage.getItem('cookieConsent');
+            if (!consent) {
+                setTimeout(() => {
+                    document.getElementById('cookieConsent').classList.add('active');
+                }, 1000);
+            } else if (consent === 'accepted') {
+                initAnalytics();
+            }
+        }
+        
+        function acceptCookies() {
+            localStorage.setItem('cookieConsent', 'accepted');
+            document.getElementById('cookieConsent').classList.remove('active');
+            initAnalytics();
+        }
+        
+        function declineCookies() {
+            localStorage.setItem('cookieConsent', 'declined');
+            document.getElementById('cookieConsent').classList.remove('active');
+        }
+        
+        function initAnalytics() {
+            if (typeof gtag !== 'undefined') {
+                gtag('consent', 'update', {
+                    'analytics_storage': 'granted'
+                });
+            }
+        }
+        
+        checkCookieConsent();
+        
+        // TRACK FORM SUBMISSION
+        document.querySelector('form').addEventListener('submit', function() {
+            if (typeof gtag !== 'undefined' && localStorage.getItem('cookieConsent') === 'accepted') {
+                gtag('event', 'form_submission', {
+                    'event_category': 'contact',
+                    'event_label': 'contact_form',
+                    'value': 1
+                });
+            }
+        });
+    </script>
 </body>
 </html>

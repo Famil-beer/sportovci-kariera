@@ -3,23 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>O mně - Famil Beer | Kariérový poradce pro sportovce</title>
     <meta name="description" content="Bývalý hokejista s 20+ lety zkušeností. Studia psychologie a ekonomie. Pomáhám sportovcům využít jejich dovednosti pro kariéru a život.">
+    <meta name="keywords" content="Famil Beer, kariérový poradce, hokejista, sportovní psychologie, ARTECON Praha">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="O mně - Famil Beer | Kariérový poradce pro sportovce">
+    <meta property="og:description" content="Bývalý hokejista s 20+ lety zkušeností. Pomáhám sportovcům využít jejich dovednosti pro kariéru a život.">
+    <meta property="og:type" content="profile">
+    <meta property="og:url" content="https://sportovci-kariera.cz/o-mne.html">
+    
+    <!-- Canonical URL -->
     <link rel="canonical" href="https://sportovci-kariera.cz/o-mne.html">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Structured Data - Person Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Famil Beer",
+      "jobTitle": "Kariérový poradce pro sportovce",
+      "description": "Bývalý profesionální hokejista s 20+ lety zkušeností. Garant kariérového programu na ARTECON Praha.",
+      "alumniOf": {
+        "@type": "EducationalOrganization",
+        "name": "Psychologie a ekonomie"
+      },
+      "memberOf": {
+        "@type": "Organization",
+        "name": "Kariéra sportovců, z.s."
+      },
+      "worksFor": {
+        "@type": "Organization",
+        "name": "ARTECON Praha"
+      },
+      "knowsAbout": ["Kariérní poradenství", "Sportovní psychologie", "Hokej", "Mentoring sportovců"],
+      "url": "https://sportovci-kariera.cz/o-mne.html",
+      "email": "info@sportovci-kariera.cz",
+      "sameAs": [
+        "https://www.instagram.com/karierove_poradenstvi/",
+        "https://www.youtube.com/@karierasportovcu",
+        "https://www.tiktok.com/@karierasportovcu"
+      ]
+    }
+    </script>
+    
+    <!-- Google Analytics - Replace G-XXXXXXXXXX with your actual ID -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
             --primary: #007BFF;
+            --primary-dark: #0056b3;
+            --secondary: #00D9FF;
             --dark: #0A0E27;
             --light: #F7F9FC;
+            --success: #00E676;
+            --warning: #FFD700;
         }
         body {
             font-family: 'Inter', -apple-system, system-ui, sans-serif;
             line-height: 1.6;
             color: var(--dark);
             background: white;
+            overflow-x: hidden;
         }
+        
+        /* ACCESSIBILITY - Skip to content */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--primary);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            font-weight: 700;
+            z-index: 10001;
+            border-radius: 0 0 8px 0;
+        }
+        .skip-link:focus {
+            top: 0;
+        }
+        
+        /* ACCESSIBILITY - Better focus states */
+        button:focus, a:focus {
+            outline: 3px solid var(--primary);
+            outline-offset: 2px;
+        }
+        
+        /* Touch optimization */
+        button, a {
+            -webkit-tap-highlight-color: rgba(0, 123, 255, 0.3);
+            touch-action: manipulation;
+        }
+        
+        /* NAVIGATION */
         nav {
             position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
             background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(20px);
@@ -28,24 +118,58 @@
             display: flex; gap: 2rem; align-items: center; max-width: 90%;
         }
         .logo { font-weight: 900; font-size: 1.2rem; color: var(--primary); text-decoration: none; }
-        nav a { text-decoration: none; color: var(--dark); font-weight: 600; font-size: 0.9rem; transition: color 0.3s; }
-        nav a:hover { color: var(--primary); }
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
+        .nav-links a { text-decoration: none; color: var(--dark); font-weight: 600; font-size: 0.9rem; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--primary); }
+        .menu-toggle { display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--dark); }
+        
+        /* HERO SECTION */
         .hero-small {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             padding: 10rem 2rem 4rem; text-align: center; color: white;
+            position: relative;
+            overflow: hidden;
         }
-        .hero-small h1 { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 900; margin-bottom: 1rem; }
-        .hero-small p { font-size: 1.3rem; opacity: 0.95; }
+        .hero-small::before {
+            content: '';
+            position: absolute;
+            width: 150%;
+            height: 150%;
+            background: radial-gradient(circle at 30% 50%, rgba(255, 255, 255, 0.08) 0%, transparent 50%);
+            animation: float 25s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translate(-10%, -10%) rotate(0deg); }
+            50% { transform: translate(10%, 10%) rotate(180deg); }
+        }
+        .hero-small h1 { 
+            font-size: clamp(2.5rem, 5vw, 4rem); 
+            font-weight: 900; 
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+        .hero-small p { 
+            font-size: 1.3rem; 
+            opacity: 0.95;
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* CONTENT */
         .content { max-width: 900px; margin: 0 auto; padding: 6rem 2rem; }
         .story-section { margin-bottom: 5rem; }
         .story-section h2 { font-size: 2rem; font-weight: 800; color: var(--primary); margin-bottom: 1.5rem; }
         .story-section p { font-size: 1.15rem; line-height: 1.9; color: var(--dark); opacity: 0.85; margin-bottom: 1.5rem; }
+        
         .highlight-box {
             background: var(--light); padding: 2.5rem; border-radius: 20px;
             border-left: 5px solid var(--primary); margin: 3rem 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
         }
         .highlight-box h3 { font-size: 1.5rem; font-weight: 800; color: var(--dark); margin-bottom: 1rem; }
         .highlight-box p { font-size: 1.1rem; line-height: 1.8; }
+        
         .values {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -55,10 +179,203 @@
         .value-card {
             background: white; padding: 2rem; border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); text-align: center;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+        .value-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
         }
         .value-icon { font-size: 3rem; margin-bottom: 1rem; }
         .value-card h4 { font-size: 1.2rem; font-weight: 800; color: var(--dark); margin-bottom: 0.8rem; }
         .value-card p { font-size: 0.95rem; opacity: 0.8; }
+        
+        /* PHOTO GALLERY */
+        .photo-section {
+            margin: 5rem 0;
+        }
+        .photo-section h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        .photo-section .subtitle {
+            font-size: 1.1rem;
+            text-align: center;
+            color: #666;
+            margin-bottom: 3rem;
+        }
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .photo-item {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            aspect-ratio: 4/3;
+            position: relative;
+        }
+        .photo-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+        .photo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .photo-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            color: white;
+            padding: 1rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        /* WORK EXAMPLES */
+        .work-section {
+            margin: 5rem 0;
+        }
+        .work-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .work-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border: 2px solid transparent;
+            transition: all 0.3s;
+        }
+        .work-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+        }
+        .work-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .work-card h3 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+        .work-card p {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #555;
+            margin-bottom: 1rem;
+        }
+        .work-stats {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid var(--light);
+        }
+        .work-stat {
+            text-align: center;
+        }
+        .work-stat strong {
+            display: block;
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--primary);
+            line-height: 1;
+        }
+        .work-stat span {
+            font-size: 0.85rem;
+            color: #666;
+        }
+        
+        /* SOCIAL SECTION */
+        .social { 
+            padding: 5rem 0; 
+            background: white; 
+        }
+        .social-inner { 
+            max-width: 1200px; 
+            margin: 0 auto; 
+        }
+        .social h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        .social .subtitle {
+            font-size: 1.1rem;
+            text-align: center;
+            color: #666;
+            margin-bottom: 3rem;
+        }
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+        .social-card {
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+        .social-card:hover { 
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+        .social-card img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+        }
+        .social-card-content { 
+            padding: 2.5rem; 
+            background: white; 
+        }
+        .social-platform {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 0.4rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.5px;
+        }
+        .social-card h3 { 
+            font-size: 1.4rem; 
+            font-weight: 800; 
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        .social-card .btn {
+            font-size: 1rem;
+            padding: 1rem 2rem;
+            display: inline-block;
+        }
+        
         .cta-section {
             background: var(--primary); color: white; padding: 4rem 2rem;
             text-align: center; border-radius: 20px; margin-top: 5rem;
@@ -70,26 +387,166 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
         .btn:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3); }
-        footer { background: var(--dark); color: white; padding: 3rem 2rem; text-align: center; }
-        footer a { color: white; text-decoration: none; }
+        
+        /* COOKIE CONSENT BANNER */
+        .cookie-consent {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 14, 39, 0.98);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 1.5rem 2rem;
+            z-index: 10000;
+            box-shadow: 0 -5px 30px rgba(0, 0, 0, 0.3);
+            display: none;
+            animation: slideUp 0.4s ease-out;
+        }
+        .cookie-consent.active {
+            display: block;
+        }
+        @keyframes slideUp {
+            from { transform: translateY(100%); }
+            to { transform: translateY(0); }
+        }
+        .cookie-consent-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        .cookie-consent-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        .cookie-consent-text h4 {
+            font-size: 1.1rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+        .cookie-consent-text p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+        .cookie-consent-text a {
+            color: var(--secondary);
+            text-decoration: underline;
+        }
+        .cookie-consent-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .cookie-btn {
+            padding: 0.8rem 1.8rem;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+        }
+        .cookie-btn-accept {
+            background: var(--success);
+            color: white;
+        }
+        .cookie-btn-accept:hover {
+            background: #00c763;
+            transform: translateY(-2px);
+        }
+        .cookie-btn-decline {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        .cookie-btn-decline:hover {
+            border-color: rgba(255, 255, 255, 0.6);
+        }
+        
+        /* FOOTER */
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+        footer a { 
+            color: var(--secondary); 
+            text-decoration: none;
+            font-weight: 600;
+        }
+        footer a:hover { text-decoration: underline; }
+        
+        /* RESPONSIVE */
         @media (max-width: 768px) {
-            nav { width: 90%; padding: 1rem; gap: 1rem; }
-            nav a { font-size: 0.8rem; }
+            nav { padding: 1rem 1.5rem; gap: 1rem; }
+            .nav-links { 
+                display: none; 
+                flex-direction: column; 
+                position: absolute; 
+                top: 100%; 
+                left: 0; 
+                right: 0; 
+                background: white; 
+                padding: 1.5rem; 
+                border-radius: 20px; 
+                margin-top: 1rem; 
+                box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2); 
+            }
+            .nav-links.active { display: flex; }
+            .menu-toggle { display: block; }
+            .cookie-consent-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .cookie-consent-actions {
+                width: 100%;
+                justify-content: center;
+            }
+            .cookie-btn {
+                flex: 1;
+            }
+            .photo-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 1rem;
+            }
+            .work-cards {
+                grid-template-columns: 1fr;
+            }
+            .social-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Skip to content link for accessibility -->
+    <a href="#main-content" class="skip-link">Přeskočit na hlavní obsah</a>
+    
     <nav>
-        <a href="index.html" class="logo">KARIÉRA SPORTOVCŮ</a>
-        <a href="index.html">Domů</a>
-        <a href="index.html#programy">Programy</a>
-        <a href="kontakt.html">Kontakt</a>
+        <a href="index.html" class="logo">Kariéra sportovců</a>
+        <button class="menu-toggle" onclick="toggleMenu()" aria-label="Otevřít menu">☰</button>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html#problem">Problém</a></li>
+            <li><a href="index.html#reseni">Řešení</a></li>
+            <li><a href="index.html#cenik">Ceník</a></li>
+            <li><a href="index.html#reference">Reference</a></li>
+            <li><a href="o-mne.html">O mně</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
     </nav>
+
     <section class="hero-small">
         <h1>Kdo jsem a proč tohle dělám</h1>
         <p>Od hokejového útočníka k mentorovi sportovců</p>
     </section>
-    <div class="content">
+
+    <div class="content" id="main-content">
         <div class="story-section">
             <h2>🏒 Můj příběh začíná na ledě</h2>
             <p>
@@ -107,6 +564,7 @@
                 Myslí si, že když sport skončí, začínají od nuly.
             </p>
         </div>
+
         <div class="highlight-box">
             <h3>💡 Zlomový moment</h3>
             <p>
@@ -118,6 +576,7 @@
                 <strong>To je přesně to, co firmy a školy hledají.</strong> Ale my to často neumíme prodat.
             </p>
         </div>
+
         <div class="story-section">
             <h2>🎯 Proč jsem založil Kariéru sportovců</h2>
             <p>
@@ -132,6 +591,7 @@
                 a zápasech nejsou jen pro sport</strong>. Dají se perfektně uplatnit i ve studiu, byznysu nebo další kariéře.
             </p>
         </div>
+
         <div class="story-section">
             <h2>🏫 ARTECON – důkaz, že to funguje</h2>
             <p>
@@ -147,6 +607,7 @@
                 najít jejich cestu.
             </p>
         </div>
+
         <div class="highlight-box">
             <h3>🚀 Moje vize</h3>
             <p>
@@ -162,6 +623,91 @@
                 <strong>A chci, aby to věděli i jejich rodiče, trenéři a školy.</strong>
             </p>
         </div>
+
+        <div class="work-section">
+            <h2 style="font-size: 2rem; font-weight: 800; color: var(--primary); margin-bottom: 1.5rem; text-align: center;">Co konkrétně dělám</h2>
+            <p style="font-size: 1.1rem; text-align: center; color: #666; margin-bottom: 3rem; max-width: 700px; margin-left: auto; margin-right: auto;">
+                Nejsem jen teoretik. Pracuji přímo se sportovci – od individuálních konzultací po velké workshopy pro desítky lidí najednou.
+            </p>
+            
+            <div class="work-cards">
+                <div class="work-card">
+                    <div class="work-icon">🎓</div>
+                    <h3>Workshopy na školách a kempech</h3>
+                    <p>Jezdím po celé ČR – parkourové kempy, fotbalové akademie, hokejové kempy, florbalové tábory. Pracuji s dětmi a mladými sportovci na tom, jak využít sport pro budoucnost.</p>
+                    <div class="work-stats">
+                        <div class="work-stat">
+                            <strong>350+</strong>
+                            <span>sportovců</span>
+                        </div>
+                        <div class="work-stat">
+                            <strong>15+</strong>
+                            <span>workshopů</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="work-card">
+                    <div class="work-icon">💼</div>
+                    <h3>Individuální konzultace</h3>
+                    <p>Jeden na jednoho. Pracuji se sportovci na jejich konkrétní situaci – hledání práce, výběr školy, příprava na konec kariéry, přechod do byznysu.</p>
+                    <div class="work-stats">
+                        <div class="work-stat">
+                            <strong>40+</strong>
+                            <span>konzultací</span>
+                        </div>
+                        <div class="work-stat">
+                            <strong>95%</strong>
+                            <span>úspěšnost</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="work-card">
+                    <div class="work-icon">🏫</div>
+                    <h3>ARTECON Praha – garant programu</h3>
+                    <p>Od září 2025 vedu kariérový program na největší sportovní střední škole v ČR. Pomáhám studentům-sportovcům najít směr už během studia.</p>
+                    <div class="work-stats">
+                        <div class="work-stat">
+                            <strong>100+</strong>
+                            <span>studentů ročně</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="photo-section">
+            <h2>📸 Z workshopů a přednášek</h2>
+            <p class="subtitle">Tady nejsou žádné pózy. Jen reálná práce se sportovci.</p>
+            <div class="photo-grid">
+                <div class="photo-item">
+                    <img src="https://images.unsplash.com/photo-1552196527-e898d6abd5e1?w=600" alt="Workshop s mladými sportovci" loading="lazy">
+                    <div class="photo-caption">Workshop s mladými hokejisty</div>
+                </div>
+                <div class="photo-item">
+                    <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600" alt="Individuální konzultace" loading="lazy">
+                    <div class="photo-caption">Individuální konzultace</div>
+                </div>
+                <div class="photo-item">
+                    <img src="https://images.unsplash.com/photo-1517164850305-99a3e65bb47e?w=600" alt="Přednáška na sportovní škole" loading="lazy">
+                    <div class="photo-caption">Přednáška na ARTECON Praha</div>
+                </div>
+                <div class="photo-item">
+                    <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=600" alt="Skupinová práce" loading="lazy">
+                    <div class="photo-caption">Skupinová práce na kempu</div>
+                </div>
+                <div class="photo-item">
+                    <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=600" alt="Diskuze se sportovci" loading="lazy">
+                    <div class="photo-caption">Diskuze o kariéře po sportu</div>
+                </div>
+                <div class="photo-item">
+                    <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=600" alt="Workshop na fotbalovém kempu" loading="lazy">
+                    <div class="photo-caption">Fotbalový kemp s Luďkem Zelenkou</div>
+                </div>
+            </div>
+        </div>
+
         <div class="story-section">
             <h2>💪 Moje hodnoty</h2>
             <div class="values">
@@ -187,17 +733,128 @@
                 </div>
             </div>
         </div>
+
+        <section class="social">
+            <div class="social-inner">
+                <h2>Sleduj nás na sociálních sítích</h2>
+                <p class="subtitle">Reálný obsah od sportovců pro sportovce. Tipy, motivace, příběhy úspěchu.</p>
+                <div class="social-grid">
+                    <div class="social-card">
+                        <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=700" alt="Instagram - kariérové poradenství pro sportovce" loading="lazy">
+                        <div class="social-card-content">
+                            <span class="social-platform">INSTAGRAM</span>
+                            <h3>Tipy, motivace, reálné příběhy</h3>
+                            <a href="https://www.instagram.com/karierove_poradenstvi/" target="_blank" rel="noopener noreferrer" class="btn">Sledovat Instagram →</a>
+                        </div>
+                    </div>
+                    <div class="social-card">
+                        <img src="https://images.unsplash.com/photo-1611162616475-46b635cb6868?w=700" alt="YouTube - kariérové poradenství pro sportovce" loading="lazy">
+                        <div class="social-card-content">
+                            <span class="social-platform">YOUTUBE</span>
+                            <h3>Videa, rozhovory, detailní návody</h3>
+                            <a href="https://www.youtube.com/@karierasportovcu" target="_blank" rel="noopener noreferrer" class="btn">Sledovat YouTube →</a>
+                        </div>
+                    </div>
+                    <div class="social-card">
+                        <img src="https://images.unsplash.com/photo-1611162618071-b39a2ec055fb?w=700" alt="TikTok - kariérové poradenství pro sportovce" loading="lazy">
+                        <div class="social-card-content">
+                            <span class="social-platform">TIKTOK</span>
+                            <h3>Krátká videa, rychlé praktické tipy</h3>
+                            <a href="https://www.tiktok.com/@karierasportovcu" target="_blank" rel="noopener noreferrer" class="btn">Sledovat TikTok →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <div class="cta-section">
             <h2>Pojďme to udělat společně</h2>
             <p style="font-size:1.2rem;margin-bottom:2rem;opacity:0.95;">
                 Ať už jsi student, aktivní sportovec nebo na přechodu po kariéře – 
                 můžu ti pomoct najít tvou cestu.
             </p>
-            <a href="kontakt.html" class="btn">Napsat mi →</a>
+            <a href="mailto:info@sportovci-kariera.cz?subject=Rezervace konzultace" class="btn">Napsat mi →</a>
         </div>
     </div>
+
+    <!-- COOKIE CONSENT BANNER -->
+    <div id="cookieConsent" class="cookie-consent">
+        <div class="cookie-consent-content">
+            <div class="cookie-consent-text">
+                <h4>🍪 Používáme cookies</h4>
+                <p>Tento web používá soubory cookies pro zlepšení uživatelského zážitku a analýzu návštěvnosti. Více informací najdete v našich <a href="ochrana-osobnich-udaju.html">Zásadách ochrany osobních údajů</a>.</p>
+            </div>
+            <div class="cookie-consent-actions">
+                <button onclick="acceptCookies()" class="cookie-btn cookie-btn-accept">Přijmout vše</button>
+                <button onclick="declineCookies()" class="cookie-btn cookie-btn-decline">Pouze nezbytné</button>
+            </div>
+        </div>
+    </div>
+
     <footer>
-        <p>&copy; 2024 Kariéra sportovců | <a href="https://www.instagram.com/karierove_poradenstvi/">Instagram</a> | <a href="https://www.youtube.com/@karierasportovcu">YouTube</a> | <a href="https://www.tiktok.com/@karierasportovcu">TikTok</a></p>
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <p>&copy; 2025 Kariéra sportovců</p>
+            <p style="margin-top:0.5rem;">
+                <a href="https://www.instagram.com/karierove_poradenstvi/">Instagram</a> • 
+                <a href="https://www.youtube.com/@karierasportovcu">YouTube</a> • 
+                <a href="https://www.tiktok.com/@karierasportovcu">TikTok</a>
+            </p>
+            <p style="margin-top:1.5rem;font-size:0.9rem;">
+                <a href="mailto:info@sportovci-kariera.cz">info@sportovci-kariera.cz</a>
+            </p>
+        </div>
     </footer>
+
+    <script>
+        // MENU TOGGLE
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+
+        // SMOOTH SCROLL
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                    document.getElementById('navLinks').classList.remove('active');
+                }
+            });
+        });
+        
+        // COOKIE CONSENT MANAGEMENT
+        function checkCookieConsent() {
+            const consent = localStorage.getItem('cookieConsent');
+            if (!consent) {
+                setTimeout(() => {
+                    document.getElementById('cookieConsent').classList.add('active');
+                }, 1000);
+            } else if (consent === 'accepted') {
+                initAnalytics();
+            }
+        }
+        
+        function acceptCookies() {
+            localStorage.setItem('cookieConsent', 'accepted');
+            document.getElementById('cookieConsent').classList.remove('active');
+            initAnalytics();
+        }
+        
+        function declineCookies() {
+            localStorage.setItem('cookieConsent', 'declined');
+            document.getElementById('cookieConsent').classList.remove('active');
+        }
+        
+        function initAnalytics() {
+            if (typeof gtag !== 'undefined') {
+                gtag('consent', 'update', {
+                    'analytics_storage': 'granted'
+                });
+            }
+        }
+        
+        checkCookieConsent();
+    </script>
 </body>
 </html>
