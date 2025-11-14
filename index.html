@@ -1699,7 +1699,7 @@
     <section class="about" id="o-mne">
         <div class="about-inner">
             <div class="about-image">
-                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=700" alt="Famil Beer - kariérový poradce pro sportovce, 15 let profesionálního sportu" loading="lazy">
+                <img src="images/famil-hero.jpg" alt="Famil Beer - kariérový poradce pro sportovce, konzultace" loading="lazy">
                 <div class="about-badge">✓ 350+ sportovců</div>
             </div>
             <div class="about-content">
@@ -1736,7 +1736,7 @@
             <p>Od září 2025 vyučuji na <strong>ARTECON Praha</strong> – soukromé střední škole, která patří mezi největší sportovní školy v ČR a specializuje se výhradně na vrcholové sportovce.</p>
             <p>Co je na tom čarovné? Škola poskytuje <strong>individuální přístup každému studentovi-sportovci</strong>. A já jako garant jejich kariérového programu pomáhám mladým sportovcům přemýšlet o budoucnosti od samého začátku – učím je, jak využít sport pro život.</p>
             <div class="partnership-image">
-                <img src="https://images.unsplash.com/photo-1562774053-701939374585?w=1200" alt="ARTECON Praha - soukromá škola pro vrcholové sportovce" loading="lazy">
+                <img src="images/artecon-budova.jpg" alt="ARTECON Praha - soukromá škola pro vrcholové sportovce" loading="lazy">
             </div>
             <a href="https://artecon.cz/praha/karierovy-poradce-pro-sportovce/" class="btn" target="_blank" rel="noopener noreferrer">Více o mé práci na ARTECON →</a>
         </div>
@@ -1750,7 +1750,7 @@
             <div class="highlight-events">
                 <div class="event-card event-large">
                     <div class="event-image">
-                        <img src="https://images.unsplash.com/photo-1552196527-e898d6abd5e1?w=800" alt="Workshop pro mladé sportovce" loading="lazy">
+                        <img src="images/workshop-parkour-kemp.jpg" alt="Parkourový kemp - skupinová fotka účastníků" loading="lazy">
                         <div class="event-badge highlight">✓ HIGHLIGHT</div>
                     </div>
                     <div class="event-content">
@@ -1765,7 +1765,7 @@
 
                 <div class="event-card event-large">
                     <div class="event-image">
-                        <img src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=800" alt="Fotbalový kemp Luděk Zelenka" loading="lazy">
+                        <img src="images/ludek-zelenky.jpg" alt="Fotbalový kemp s Luďkem Zelenkou" loading="lazy">
                         <div class="event-badge star">⭐ HVĚZDA</div>
                     </div>
                     <div class="event-content">
@@ -1806,16 +1806,16 @@
                 <h3>Z přednášek a workshopů</h3>
                 <div class="gallery-grid">
                     <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=600" alt="Přednáška pro sportovce" loading="lazy">
+                        <img src="images/workshops/workshop-1.jpg" alt="Přednáška pro sportovce" loading="lazy">
                     </div>
                     <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600" alt="Workshop s mladými sportovci" loading="lazy">
+                        <img src="images/workshops/workshop-2.jpg" alt="Workshop s mladými sportovci" loading="lazy">
                     </div>
                     <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1517164850305-99a3e65bb47e?w=600" alt="Kemp pro sportovce" loading="lazy">
+                        <img src="images/workshops/workshop-3.jpg" alt="Workshop na sportovní škole" loading="lazy">
                     </div>
                     <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=600" alt="Skupinový workshop" loading="lazy">
+                        <img src="images/workshops/workshop-4.jpg" alt="Skupinový workshop" loading="lazy">
                     </div>
                 </div>
             </div>
@@ -1831,30 +1831,163 @@
     <section class="social" id="socialni-site">
         <div class="social-inner">
             <h2 class="section-title">Sleduj nás na sociálních sítích</h2>
-            <p class="section-subtitle">Reálný obsah od sportovců pro sportovce. Tipy, motivace, příběhy úspěchu.</p>
-            <div class="social-grid">
-                <div class="social-card">
-                    <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=700" alt="Instagram - kariérové poradenství pro sportovce" loading="lazy">
-                    <div class="social-card-content">
-                        <span class="social-platform">INSTAGRAM</span>
-                        <h3>Tipy, motivace, reálné příběhy</h3>
-                        <a href="https://www.instagram.com/karierove_poradenstvi/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Sledovat Instagram →</a>
+            <p class="section-subtitle">Reálný obsah od sportovců pro sportovce. Videa, tipy, motivace každý den.</p>
+            
+            <style>
+                .social-embed-grid {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+                    gap: 2rem;
+                    max-width: 1400px;
+                    margin: 3rem auto;
+                }
+                
+                .social-embed-card {
+                    background: white;
+                    border-radius: 20px;
+                    overflow: hidden;
+                    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+                    transition: transform 0.3s ease, box-shadow 0.3s ease;
+                }
+                
+                .social-embed-card:hover {
+                    transform: translateY(-5px);
+                    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+                }
+                
+                .social-embed-header {
+                    padding: 1.5rem;
+                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                    color: white;
+                    text-align: center;
+                }
+                
+                .social-embed-header.instagram {
+                    background: linear-gradient(135deg, #833AB4 0%, #FD1D1D 50%, #FCB045 100%);
+                }
+                
+                .social-embed-header.youtube {
+                    background: linear-gradient(135deg, #FF0000 0%, #CC0000 100%);
+                }
+                
+                .social-embed-header.tiktok {
+                    background: linear-gradient(135deg, #000000 0%, #EE1D52 100%);
+                }
+                
+                .social-platform-badge {
+                    font-size: 0.9rem;
+                    font-weight: 800;
+                    letter-spacing: 1px;
+                    text-transform: uppercase;
+                }
+                
+                .social-embed-content {
+                    position: relative;
+                    background: #f8f9fa;
+                    min-height: 400px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+                
+                .social-embed-content iframe,
+                .social-embed-content blockquote {
+                    width: 100% !important;
+                    max-width: 100% !important;
+                    margin: 0 !important;
+                }
+                
+                .social-embed-footer {
+                    padding: 1.5rem;
+                    text-align: center;
+                    background: white;
+                }
+                
+                .social-embed-footer h3 {
+                    margin: 0 0 1rem 0;
+                    font-size: 1.1rem;
+                    color: #0A0E27;
+                }
+                
+                .social-embed-footer .btn {
+                    width: 100%;
+                    max-width: 250px;
+                }
+                
+                @media (max-width: 768px) {
+                    .social-embed-grid {
+                        grid-template-columns: 1fr;
+                        gap: 2rem;
+                    }
+                    
+                    .social-embed-content {
+                        min-height: 350px;
+                    }
+                }
+            </style>
+            
+            <div class="social-embed-grid">
+                <!-- Instagram Card -->
+                <div class="social-embed-card">
+                    <div class="social-embed-header instagram">
+                        <div class="social-platform-badge">📱 INSTAGRAM</div>
+                    </div>
+                    <div class="social-embed-content">
+                        <blockquote class="instagram-media" 
+                            data-instgrm-permalink="https://www.instagram.com/reel/DQrqYccDYF6/" 
+                            data-instgrm-version="14"
+                            style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);">
+                        </blockquote>
+                        <script async src="//www.instagram.com/embed.js"></script>
+                    </div>
+                    <div class="social-embed-footer">
+                        <h3>Denní tipy & motivace</h3>
+                        <a href="https://www.instagram.com/karierove_poradenstvi/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Sledovat →</a>
                     </div>
                 </div>
-                <div class="social-card">
-                    <img src="https://images.unsplash.com/photo-1611162616475-46b635cb6868?w=700" alt="YouTube - kariérové poradenství pro sportovce" loading="lazy">
-                    <div class="social-card-content">
-                        <span class="social-platform">YOUTUBE</span>
-                        <h3>Videa, rozhovory, detailní návody</h3>
-                        <a href="https://www.youtube.com/@karierasportovcu" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Sledovat YouTube →</a>
+                
+                <!-- YouTube Card -->
+                <div class="social-embed-card">
+                    <div class="social-embed-header youtube">
+                        <div class="social-platform-badge">🎥 YOUTUBE</div>
+                    </div>
+                    <div class="social-embed-content">
+                        <iframe 
+                            width="100%" 
+                            height="315" 
+                            src="https://www.youtube.com/embed/8pT_1L1Xoic" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen
+                            style="border-radius: 0;">
+                        </iframe>
+                    </div>
+                    <div class="social-embed-footer">
+                        <h3>Rozhovory & detailní návody</h3>
+                        <a href="https://www.youtube.com/@karierasportovcu" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Sledovat →</a>
                     </div>
                 </div>
-                <div class="social-card">
-                    <img src="https://images.unsplash.com/photo-1611162618071-b39a2ec055fb?w=700" alt="TikTok - kariérové poradenství pro sportovce" loading="lazy">
-                    <div class="social-card-content">
-                        <span class="social-platform">TIKTOK</span>
-                        <h3>Krátká videa, rychlé praktické tipy</h3>
-                        <a href="https://www.tiktok.com/@karierasportovcu" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Sledovat TikTok →</a>
+                
+                <!-- TikTok Card -->
+                <div class="social-embed-card">
+                    <div class="social-embed-header tiktok">
+                        <div class="social-platform-badge">🎵 TIKTOK</div>
+                    </div>
+                    <div class="social-embed-content">
+                        <blockquote class="tiktok-embed" 
+                            cite="https://www.tiktok.com/@karierasportovcu" 
+                            data-unique-id="karierasportovcu" 
+                            data-embed-type="creator"
+                            style="max-width: 780px; min-width: 288px;">
+                            <section>
+                                <a target="_blank" href="https://www.tiktok.com/@karierasportovcu">@karierasportovcu</a>
+                            </section>
+                        </blockquote>
+                        <script async src="https://www.tiktok.com/embed.js"></script>
+                    </div>
+                    <div class="social-embed-footer">
+                        <h3>Rychlé praktické tipy</h3>
+                        <a href="https://www.tiktok.com/@karierasportovcu" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Sledovat →</a>
                     </div>
                 </div>
             </div>
