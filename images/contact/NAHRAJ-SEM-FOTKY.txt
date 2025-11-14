@@ -1,0 +1,17 @@
+📸 FOTKY KONZULTACÍ
+===================
+
+Nahraj sem 4 fotky konzultací:
+
+✅ konzultace-online.jpg - Foto online konzultace (Teams/Zoom/Meet)
+✅ konzultace-osobni.jpg - Foto osobního setkání
+✅ akcni-plan.jpg - Foto práce na počítači/dokumentech
+✅ workshop-skupinovy.jpg - Foto skupinového workshopu
+
+Doporučení:
+- Rozměr: 800x600px
+- Formát: JPG
+- Zkomprimuj na TinyPNG.com
+- Reálné fotky z konzultací!
+
+Použití: Stránka "Kontakt" - sekce "Jak vypadá konzultace"

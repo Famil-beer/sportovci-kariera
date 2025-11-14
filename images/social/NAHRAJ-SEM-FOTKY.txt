@@ -1,0 +1,16 @@
+📸 FOTKY SOCIÁLNÍCH SÍTÍ
+========================
+
+Nahraj sem 3 fotky pro social karty:
+
+✅ instagram.jpg - Screenshot nebo foto z Instagram profilu
+✅ youtube.jpg - Screenshot nebo foto z YouTube kanálu  
+✅ tiktok.jpg - Screenshot nebo foto z TikTok profilu
+
+Doporučení:
+- Rozměr: 700x500px
+- Formát: JPG
+- Můžeš použít screenshot z telefonu
+- Nebo vlastní branded fotku s logem sítě
+
+Použití: Stránka "O mně" - sekce "Sleduj nás na sociálních sítích"

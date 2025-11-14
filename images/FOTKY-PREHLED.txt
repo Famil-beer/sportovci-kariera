@@ -1,0 +1,128 @@
+📸 FOTKY PRO WEB - PŘEHLED
+===========================
+
+✅ HOTOVO - Tyto fotky jsou už na webu:
+----------------------------------------
+
+1. famil-hero.jpg (296 KB)
+   → Použití: O mně sekce - hlavní foto Famila
+   → Popis: Konzultace u stolu s laptopem
+
+2. artecon-budova.jpg (244 KB)
+   → Použití: Partnership sekce
+   → Popis: Moderní budova ARTECON Praha
+
+3. workshop-parkour-kemp.jpg (92 KB)
+   → Použití: "Kde působím" - Parkourový kemp
+   → Popis: Skupinová fotka dětí na kempu
+
+4. ludek-zelenky.jpg (52 KB)
+   → Použití: "Kde působím" - Fotbalový kemp
+   → Popis: Fotka z kempu s Luďkem Zelenkou
+   ⚠️  POZNÁMKA: Nevím jestli je to správná fotka!
+      (IMG_3827.HEIC se nenahrál, použil jsem náhradní)
+
+5. workshops/workshop-1.jpg (228 KB)
+   → Použití: Galerie workshopů
+   → Popis: Přednáška ve třídě
+
+6. workshops/workshop-2.jpg (41 KB)
+   → Použití: Galerie workshopů
+   → Popis: Screenshot z webu
+
+7. workshops/workshop-3.jpg (74 KB)
+   → Použití: Galerie workshopů
+   → Popis: Screenshot školy
+
+8. workshops/workshop-4.jpg (41 KB)
+   → Použití: Galerie workshopů
+   → Popis: Screenshot kempu
+
+9. workshops/workshop-5.jpg (178 KB)
+   → Použití: EXTRA (zatím nepoužito)
+   → Popis: Další workshop fotka
+
+CELKOVÁ VELIKOST: ~1.3 MB (zkomprimováno z 18+ MB!)
+
+
+⚠️  CHYBÍ - Tyto fotky nejsou na webu:
+---------------------------------------
+
+❌ IMG_3827.HEIC
+   → Tento soubor se NENAHRÁL správně
+   → Použil jsem náhradní fotku (ludek-zelenky.jpg)
+   → Pokud máš správnou fotku, nahraj ji ručně!
+
+❌ Social media fotky (Instagram, YouTube, TikTok)
+   → Zatím jsou placeholder fotky z Unsplash
+   → Můžeš je nahradit později:
+      - images/social/instagram.jpg
+      - images/social/youtube.jpg
+      - images/social/tiktok.jpg
+
+
+📋 CO UDĚLAT TEĎ:
+-----------------
+
+1. ✅ Nahraj CELOU složku přes FileZilla
+   → Struktura:
+      public_html/
+      ├── index.html (NOVÝ - s tvými fotkami!)
+      └── images/
+          ├── famil-hero.jpg
+          ├── artecon-budova.jpg
+          ├── workshop-parkour-kemp.jpg
+          ├── ludek-zelenky.jpg
+          └── workshops/
+              ├── workshop-1.jpg
+              ├── workshop-2.jpg
+              ├── workshop-3.jpg
+              └── workshop-4.jpg
+
+2. ⚠️  ZKONTROLUJ ludek-zelenky.jpg
+   → Otevři web a podívej se na fotku
+   → Pokud to NENÍ správná fotka:
+      - Najdi správnou fotku s Luďkem
+      - Přejmenuj ji na: ludek-zelenky.jpg
+      - Nahraj do images/ složky (přepiš starou)
+
+3. 💡 VOLITELNĚ - Social media fotky
+   → Pokud chceš změnit Instagram/YouTube/TikTok fotky:
+      - Vytvoř screenshoty nebo branded fotky
+      - Ulož jako: instagram.jpg, youtube.jpg, tiktok.jpg
+      - Nahraj do images/social/ složky
+      - Udělám ti pak nový HTML s těmito fotkami
+
+
+📊 STATISTIKY:
+--------------
+
+Původní velikost fotek: ~18 MB
+Zkomprimovaná velikost: ~1.3 MB
+Úspora: ~93% 🎉
+
+Počet změněných fotek: 8
+Počet nových fotek: 9 (včetně extra)
+
+
+✅ CO FUNGUJE:
+--------------
+
+- Hlavní foto Famila ✅
+- ARTECON budova ✅
+- Parkourový kemp (skupinová) ✅
+- Luďka Zelenky (možná špatná fotka!) ⚠️
+- 4 fotky z workshopů ✅
+
+
+🚀 READY TO UPLOAD!
+-------------------
+
+Web je připravený! Stačí nahrát přes FileZilla.
+
+Pokud máš problémy nebo chceš změnit nějakou fotku,
+napiš mi: info@sportovci-kariera.cz
+
+
+Datum: 14. 11. 2025
+Verze: 1.0 (s tvými fotkami!)
