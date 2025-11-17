@@ -2,20 +2,22 @@
 <html lang="cs">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     
     <!-- 
     ========================================
-    OPTIMALIZACE PROVEDENY (13.11.2025):
+    OPTIMALIZACE PROVEDENY (14.11.2025):
     ========================================
     ✅ Structured Data (Schema.org) - LocalBusiness + FAQPage
-    ✅ Google Analytics placeholder (replace G-XXXXXXXXXX)
+    ✅ Google Analytics (GA4) - G-NCXD6F7TWE ACTIVE
     ✅ Lazy loading na všech obrázcích
     ✅ Skip-to-content link pro accessibility
     ✅ Lepší focus states
     ✅ ESC key zavírá modal
     ✅ Event tracking pro kvíz a CTA
     ✅ Touch optimization
+    ✅ Mobile optimization (všechny sekce)
+    ✅ Word-break protection
     
     TODO - DALŠÍ OPTIMALIZACE:
     ⚠️ Nahradit Unsplash obrázky vlastními (WebP format)
@@ -23,7 +25,8 @@
     ⚠️ Externalizovat JS do script.js
     ⚠️ Minifikovat soubory
     ⚠️ Přidat sitemap.xml a robots.txt
-    ⚠️ Nahradit G-XXXXXXXXXX skutečným GA ID
+    ⚠️ Google Search Console setup
+    ⚠️ Cookie banner + GDPR
     ========================================
     -->
     
@@ -117,17 +120,24 @@
     }
     </script>
     
-    <!-- Google Analytics - Replace G-XXXXXXXXXX with your actual ID -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NCXD6F7TWE"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-XXXXXXXXXX');
+      gtag('config', 'G-NCXD6F7TWE');
     </script>
     
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        /* CRITICAL: Prevent horizontal scroll globally */
+        html {
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        
         :root {
             --primary: #007BFF;
             --primary-dark: #0056b3;
@@ -137,12 +147,35 @@
             --success: #00E676;
             --warning: #FFD700;
         }
+        
         body {
             font-family: 'Inter', -apple-system, system-ui, sans-serif;
             line-height: 1.6;
             color: var(--dark);
             background: white;
             overflow-x: hidden;
+            width: 100%;
+            max-width: 100vw;
+            position: relative;
+        }
+        
+        /* WORD-BREAK PROTECTION - Prevent long text overflow */
+        p, h1, h2, h3, h4, h5, h6, span, div {
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+        
+        a {
+            word-break: break-word; /* Break long URLs if needed */
+        }
+        
+        /* ACCESSIBILITY - Reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
         }
         
         /* ACCESSIBILITY - Skip to content */
@@ -274,9 +307,29 @@
         }
         .logo { font-weight: 900; font-size: 1.2rem; color: var(--primary); text-decoration: none; }
         .nav-links { display: flex; gap: 2rem; list-style: none; }
-        .nav-links a { text-decoration: none; color: var(--dark); font-weight: 600; font-size: 0.9rem; transition: color 0.3s; }
+        .nav-links a { text-decoration: none; color: var(--dark); font-weight: 600; font-size: 1rem; transition: color 0.3s; }
         .nav-links a:hover { color: var(--primary); }
-        .menu-toggle { display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--dark); }
+        .menu-toggle { 
+            display: none; 
+            background: none; 
+            border: none; 
+            font-size: 1.5rem; 
+            cursor: pointer; 
+            color: var(--dark);
+            min-width: 44px;
+            min-height: 44px;
+            padding: 0.5rem;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            transition: background 0.2s;
+        }
+        .menu-toggle:hover {
+            background: rgba(0, 123, 255, 0.1);
+        }
+        .menu-toggle:active {
+            background: rgba(0, 123, 255, 0.2);
+        }
         
         /* HERO SECTION - SIMPLIFIED */
         .hero {
@@ -289,14 +342,18 @@
             display: flex;
             align-items: center;
             padding: 8rem 2rem 4rem;
+            width: 100%;
+            max-width: 100vw;
         }
         .hero::before {
             content: '';
             position: absolute;
-            width: 150%;
-            height: 150%;
+            width: 100%; /* FIX: Changed from 150% to prevent horizontal scroll */
+            height: 100%; /* FIX: Changed from 150% */
             background: radial-gradient(circle at 30% 50%, rgba(255, 255, 255, 0.08) 0%, transparent 50%);
             animation: float 25s ease-in-out infinite;
+            left: 0;
+            top: 0;
         }
         @keyframes float {
             0%, 100% { transform: translate(-10%, -10%) rotate(0deg); }
@@ -398,7 +455,7 @@
             line-height: 1;
         }
         .trust-item span {
-            font-size: 0.95rem;
+            font-size: 1rem;
             color: #666;
             font-weight: 600;
         }
@@ -667,7 +724,7 @@
         }
         
         /* ABOUT SECTION */
-        .about { padding: 7rem 2rem; background: white; }
+        .about { padding: 7rem 2rem; background: white; overflow-x: hidden; }
         .about-inner {
             max-width: 1200px;
             margin: 0 auto;
@@ -683,6 +740,11 @@
             width: 100%;
             border-radius: 25px;
             box-shadow: 0 25px 70px rgba(0, 0, 0, 0.2);
+        }
+        .about-content {
+            text-align: left;
+            width: 100%;
+            max-width: 100%;
         }
         .about-badge {
             position: absolute;
@@ -1164,6 +1226,49 @@
             }
         }
         
+        /* MOBILE FIX: About section proper padding */
+        @media (max-width: 768px) {
+            .about {
+                padding: 4rem 1rem !important; /* Reduce padding on mobile */
+            }
+            .about-content {
+                padding: 0 0.5rem; /* Extra padding for content */
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .about {
+                padding: 3rem 1rem !important;
+            }
+            .about-content {
+                padding: 0; /* Reset on very small screens */
+            }
+            .about-content h2 {
+                font-size: clamp(1.8rem, 6vw, 2.2rem);
+                margin-bottom: 1rem;
+            }
+            .about-content p {
+                font-size: 1rem;
+                line-height: 1.7;
+            }
+            .about-stats {
+                grid-template-columns: 1fr; /* Stack stats on very small screens */
+                gap: 1rem;
+            }
+            .about-stat {
+                padding: 1.5rem 1rem;
+            }
+            .about-stat strong {
+                font-size: 2rem;
+            }
+            .about-badge {
+                top: -10px;
+                right: -10px;
+                padding: 0.8rem 1.2rem;
+                font-size: 0.85rem;
+            }
+        }
+        
         @media (max-width: 768px) {
             nav { padding: 1rem 1.5rem; gap: 1rem; }
             .nav-links { 
@@ -1205,6 +1310,12 @@
             .gallery-grid {
                 grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
                 gap: 1rem;
+            }
+            
+            /* GLOBAL SECTION PADDING FIX - Fixes all sections on mobile */
+            section {
+                padding-left: 1rem !important;
+                padding-right: 1rem !important;
             }
         }
         
@@ -1483,6 +1594,316 @@
                 width: 100%;
             }
         }
+        
+        /* ========================================
+           COMPREHENSIVE RESPONSIVE FIXES
+           Added to prevent horizontal scroll and improve mobile UX
+        ======================================== */
+        
+        /* Ensure all images are responsive */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Ensure all sections don't overflow */
+        section {
+            max-width: 100vw;
+            overflow-x: hidden;
+        }
+        
+        /* Container safety */
+        .hero-content,
+        .trust-bar-content,
+        .problem-inner,
+        .solution-inner,
+        .testimonials-inner,
+        .pricing-inner,
+        .about-inner,
+        .partnership-inner,
+        .where-i-work-inner,
+        .social-inner,
+        .faq-inner,
+        footer > div {
+            width: 100%;
+            max-width: 1200px;
+            padding-left: min(2rem, 5vw);
+            padding-right: min(2rem, 5vw);
+        }
+        
+        /* Mobile First - Small devices (phones, 320px - 480px) */
+        @media (max-width: 480px) {
+            .hero {
+                min-height: 85vh;
+                padding: 6rem 1rem 3rem;
+                background-attachment: scroll; /* Better performance on mobile */
+                /* Use smaller background image for mobile */
+                background: linear-gradient(135deg, rgba(0, 123, 255, 0.9) 0%, rgba(0, 86, 179, 0.95) 100%),
+                            url('https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=800&q=80') center/cover;
+            }
+            
+            .hero h1 {
+                font-size: clamp(2rem, 8vw, 2.5rem);
+                margin-bottom: 1rem;
+            }
+            
+            .hero .subtitle {
+                font-size: clamp(1rem, 4vw, 1.2rem);
+                margin-bottom: 2rem;
+            }
+            
+            .btn-hero {
+                font-size: 1.1rem;
+                padding: 1.2rem 2.5rem;
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+            }
+            
+            .trust-bar {
+                padding: 2rem 1rem;
+            }
+            
+            .trust-item strong {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: clamp(1.8rem, 7vw, 2.2rem);
+                margin-bottom: 1rem;
+            }
+            
+            .section-subtitle {
+                font-size: 1.1rem;
+                margin-bottom: 3rem;
+            }
+            
+            .problems-grid,
+            .testimonials-grid,
+            .pricing-grid,
+            .organizations-grid,
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            nav {
+                padding: 0.8rem 1rem;
+                max-width: 95%;
+                gap: 1rem;
+            }
+            
+            .logo {
+                font-size: 1rem;
+            }
+            
+            /* GLOBAL SECTION PADDING FIX - Extra tight on small screens */
+            section {
+                padding-left: 1rem !important;
+                padding-right: 1rem !important;
+            }
+        }
+        
+        /* Tablets (481px - 768px) */
+        @media (min-width: 481px) and (max-width: 768px) {
+            .hero {
+                min-height: 90vh;
+                padding: 7rem 1.5rem 3rem;
+                background-attachment: scroll;
+                /* Use medium background image for tablets */
+                background: linear-gradient(135deg, rgba(0, 123, 255, 0.9) 0%, rgba(0, 86, 179, 0.95) 100%),
+                            url('https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=1200&q=85') center/cover;
+            }
+            
+            .problems-grid,
+            .testimonials-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
+            
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+                margin: 0 auto;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .organizations-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        /* Desktop - Larger tablets and small laptops (769px - 1024px) */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .hero {
+                min-height: 92vh;
+            }
+            
+            .problems-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .testimonials-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .pricing-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1.5rem;
+            }
+            
+            .organizations-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        /* Large screens optimization (1025px+) */
+        @media (min-width: 1025px) {
+            .hero {
+                min-height: 95vh;
+            }
+            
+            .problems-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .testimonials-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        /* Fix for very wide screens (prevent too wide layouts) */
+        @media (min-width: 1600px) {
+            .hero-content,
+            .problem-inner,
+            .solution-inner,
+            .testimonials-inner,
+            .pricing-inner,
+            .about-inner,
+            .where-i-work-inner,
+            .social-inner,
+            .faq-inner {
+                max-width: 1400px;
+            }
+        }
+        
+        /* Landscape mobile fix */
+        @media (max-height: 600px) and (orientation: landscape) {
+            .hero {
+                min-height: 100vh;
+                padding: 5rem 2rem 2rem;
+            }
+            
+            .hero h1 {
+                font-size: clamp(2rem, 5vw, 3rem);
+            }
+            
+            .hero .subtitle {
+                font-size: clamp(1rem, 2.5vw, 1.3rem);
+                margin-bottom: 1.5rem;
+            }
+        }
+        
+        /* Performance optimization for animations */
+        @media (prefers-reduced-motion: no-preference) {
+            .btn,
+            .problem-card,
+            .testimonial-card,
+            .pricing-card,
+            nav,
+            .quiz-option {
+                will-change: transform;
+            }
+        }
+        
+        /* ========================================
+           LOADING & ERROR STATES
+           Added for better mobile UX feedback
+        ======================================== */
+        
+        /* Skeleton loader for images */
+        img[loading="lazy"] {
+            background: linear-gradient(
+                90deg,
+                #f0f0f0 25%,
+                #e0e0e0 50%,
+                #f0f0f0 75%
+            );
+            background-size: 200% 100%;
+            animation: loading 1.5s ease-in-out infinite;
+        }
+        
+        @keyframes loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+        
+        /* Loading spinner */
+        .loading-spinner {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(0, 123, 255, 0.1);
+            border-top-color: var(--primary);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Error state */
+        .error-message {
+            background: #ffebee;
+            color: #c62828;
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid #c62828;
+            margin: 1rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .error-message::before {
+            content: "⚠️";
+            font-size: 1.2rem;
+        }
+        
+        /* Success state */
+        .success-message {
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid #2e7d32;
+            margin: 1rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .success-message::before {
+            content: "✓";
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        
+        /* Image error fallback */
+        img[alt]:after {
+            content: "📷 " attr(alt);
+            display: block;
+            padding: 2rem;
+            text-align: center;
+            color: #999;
+            background: #f5f5f5;
+            border: 2px dashed #ddd;
+            border-radius: 8px;
+        }
     </style>
 </head>
 <body>
@@ -1651,7 +2072,7 @@
                         <li>Včetně poštovného</li>
                         <li>20min konzultace na vyhodnocení</li>
                     </ul>
-                    <a href="mailto:info@sportovci-kariera.cz?subject=Zájem o BRONZOVÝ program (499 Kč)" class="btn btn-pricing">Chci BRONZOVÝ →</a>
+                    <a href="bronzovy-program.html" class="btn btn-pricing">Chci BRONZOVÝ →</a>
                 </div>
 
                 <div class="pricing-card featured">
@@ -1660,14 +2081,13 @@
                     <div class="pricing-price">1 999 <span>Kč</span></div>
                     <div class="pricing-desc">Individuální konzultace + akční plán</div>
                     <ul class="pricing-features">
-                        <li>Všechny materiály z Bronzového</li>
                         <li>60min individuální konzultace</li>
                         <li>Akční plán v tištěné podobě</li>
                         <li>Analýza silných stránek ze sportu</li>
                         <li>Stanovení směru (práce/škola/obor)</li>
                         <li>Email podpora 30 dní</li>
                     </ul>
-                    <a href="mailto:info@sportovci-kariera.cz?subject=Zájem o STŘÍBRNÝ program (1999 Kč)" class="btn btn-pricing">Chci STŘÍBRNÝ →</a>
+                    <a href="stribrny-program.html" class="btn btn-pricing">Chci STŘÍBRNÝ →</a>
                 </div>
 
                 <div class="pricing-card">
@@ -1676,7 +2096,6 @@
                     <div class="pricing-price">4 999 <span>Kč</span></div>
                     <div class="pricing-desc">Kompletní mentoring až do cíle</div>
                     <ul class="pricing-features">
-                        <li>Všechno z Bronzového + Stříbrného</li>
                         <li>3 individuální konzultace (300 minut)</li>
                         <li>Strategie hledání práce</li>
                         <li>Rozvoj osobního brandu</li>
@@ -1684,7 +2103,7 @@
                         <li>Akční plán na první 3 měsíce</li>
                         <li>Prioritní podpora (WhatsApp/Telegram)</li>
                     </ul>
-                    <a href="mailto:info@sportovci-kariera.cz?subject=Zájem o ZLATÝ program (4999 Kč)" class="btn btn-pricing">Chci ZLATÝ →</a>
+                    <a href="zlaty-program.html" class="btn btn-pricing">Chci ZLATÝ →</a>
                 </div>
             </div>
             <div style="text-align:center; margin-top:4rem; padding:2rem; background:white; border-radius:20px;">
@@ -1823,7 +2242,7 @@
             <div class="org-cta">
                 <h3>Chcete workshop nebo přednášku pro vaši organizaci?</h3>
                 <p>Přednáším na sportovních školách, kempech, akademiích a klubech. Témata: kariéra po sportu, využití sportovních dovedností, příprava na budoucnost.</p>
-                <a href="mailto:info@sportovci-kariera.cz?subject=Zájem o přednášku/workshop" class="btn btn-primary">Domluvit spolupráci →</a>
+                <a href="/cdn-cgi/l/email-protection#5f363139301f2c2f302d2b30293c3672343e2d363a2d3e713c25602c2a3d353a3c2b62059cfe353a327f307f2f9ac63a3b319cfe9afe342a7028302d342c37302f" class="btn btn-primary">Domluvit spolupráci →</a>
             </div>
         </div>
     </section>
@@ -2176,7 +2595,7 @@
         <h2>Ready udělat první krok?</h2>
         <p>Rezervuj si první konzultaci zdarma. Žádné závazky, jen upřímný rozhovor o tvé budoucnosti.</p>
         <div style="display:flex; gap:1.5rem; justify-content:center; flex-wrap:wrap; margin-top:2rem;">
-            <a href="mailto:info@sportovci-kariera.cz?subject=Rezervace konzultace zdarma" class="btn">Napsat email →</a>
+            <a href="/cdn-cgi/l/email-protection#137a7d757c5360637c61677c65707a3e7872617a7661723d70692c606671797670672e41766976616572707633787c7d69667f6772707633697772617e72" class="btn">Napsat email →</a>
         </div>
     </section>
 
@@ -2203,7 +2622,7 @@
                 <a href="https://www.tiktok.com/@karierasportovcu">TikTok</a>
             </p>
             <p style="margin-top:1.5rem;font-size:0.9rem;">
-                <a href="mailto:info@sportovci-kariera.cz">info@sportovci-kariera.cz</a>
+                <a href="/cdn-cgi/l/email-protection#4e272028210e3d3e213c3a21382d2763252f3c272b3c2f602d34"><span class="__cf_email__" data-cfemail="4a23242c250a393a25383e253c292367212b38232f382b642930">[email&#160;protected]</span></a>
             </p>
         </div>
     </footer>
@@ -2250,7 +2669,7 @@
         </div>
     </div>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // QUIZ DATA
         const quizQuestions = [
             {
@@ -2485,8 +2904,27 @@
 
         // EXISTING SCRIPTS
         function toggleMenu() {
-            document.getElementById('navLinks').classList.toggle('active');
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
         }
+        
+        // Auto-close menu when clicking on any nav link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navLinks').classList.remove('active');
+            });
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            const nav = document.querySelector('nav');
+            const navLinks = document.getElementById('navLinks');
+            const menuToggle = document.querySelector('.menu-toggle');
+            
+            if (!nav.contains(e.target) && navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+            }
+        });
 
         document.querySelectorAll('.faq-question').forEach(button => {
             button.addEventListener('click', () => {
@@ -2562,25 +3000,4 @@
             if (typeof gtag !== 'undefined') {
                 gtag('consent', 'update', {
                     'analytics_storage': 'granted'
-                });
-            }
-        }
-        
-        // Check cookie consent on page load
-        checkCookieConsent();
-        
-        // Track CTA clicks
-        document.querySelectorAll('.btn-primary, .btn-secondary').forEach(button => {
-            button.addEventListener('click', function() {
-                if (typeof gtag !== 'undefined' && localStorage.getItem('cookieConsent') === 'accepted') {
-                    gtag('event', 'cta_click', {
-                        'event_category': 'conversion',
-                        'event_label': this.textContent.trim(),
-                        'value': 1
-                    });
-                }
-            });
-        });
-    </script>
-</body>
-</html>
+              

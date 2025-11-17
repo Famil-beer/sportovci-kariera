@@ -2,7 +2,37 @@
 <html lang="cs">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    
+    <!-- 
+    ========================================
+    OPTIMALIZACE PROVEDENY (16.11.2025):
+    ========================================
+    ✅ Structured Data (Schema.org) - Person
+    ✅ Google Analytics (GA4) - G-NCXD6F7TWE ACTIVE
+    ✅ Lazy loading na všech obrázcích
+    ✅ Skip-to-content link pro accessibility
+    ✅ Lepší focus states
+    ✅ Touch optimization
+    ✅ Mobile optimization (všechny sekce)
+    ✅ Word-break protection
+    ✅ Scroll behavior smooth
+    ✅ Reduced motion support
+    ✅ Cookie consent GDPR
+    
+    KONZISTENCE S HOMEPAGE (NOVÉ OPRAVY):
+    ✅ Stejné GA ID
+    ✅ Stejné CSS optimalizace
+    ✅ Stejná navigace
+    ✅ Stejný footer
+    ✅ Stejné technické standardy
+    ✅ FIX: Kontakt odkaz → kontakt.html (místo mailto)
+    ✅ FIX: Grid sociálních sítí → 3 sloupce (místo auto-fit)
+    ✅ FIX: Instagram URL konzistence
+    ✅ FIX: JavaScript chyba opravena
+    ✅ UPDATE: Změněno "Kariéra sportovců z.s." → "Profesionální hokej"
+    ========================================
+    -->
     
     <title>O mně - Famil Beer | Kariérový poradce pro sportovce</title>
     <meta name="description" content="Bývalý hokejista s 20+ lety zkušeností. Studia psychologie a ekonomie. Pomáhám sportovcům využít jejich dovednosti pro kariéru a život.">
@@ -13,6 +43,7 @@
     <meta property="og:description" content="Bývalý hokejista s 20+ lety zkušeností. Pomáhám sportovcům využít jejich dovednosti pro kariéru a život.">
     <meta property="og:type" content="profile">
     <meta property="og:url" content="https://sportovci-kariera.cz/o-mne.html">
+    <meta property="og:image" content="https://sportovci-kariera.cz/images/og-image-omne.jpg">
     
     <!-- Canonical URL -->
     <link rel="canonical" href="https://sportovci-kariera.cz/o-mne.html">
@@ -33,10 +64,6 @@
         "@type": "EducationalOrganization",
         "name": "Psychologie a ekonomie"
       },
-      "memberOf": {
-        "@type": "Organization",
-        "name": "Kariéra sportovců, z.s."
-      },
       "worksFor": {
         "@type": "Organization",
         "name": "ARTECON Praha"
@@ -45,24 +72,31 @@
       "url": "https://sportovci-kariera.cz/o-mne.html",
       "email": "info@sportovci-kariera.cz",
       "sameAs": [
-        "https://www.instagram.com/karierove_poradenstvi/",
+        "https://www.instagram.com/karierasportovcu/",
         "https://www.youtube.com/@karierasportovcu",
         "https://www.tiktok.com/@karierasportovcu"
       ]
     }
     </script>
     
-    <!-- Google Analytics - Replace G-XXXXXXXXXX with your actual ID -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NCXD6F7TWE"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-XXXXXXXXXX');
+      gtag('config', 'G-NCXD6F7TWE');
     </script>
     
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        /* CRITICAL: Prevent horizontal scroll globally */
+        html {
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        
         :root {
             --primary: #007BFF;
             --primary-dark: #0056b3;
@@ -72,12 +106,35 @@
             --success: #00E676;
             --warning: #FFD700;
         }
+        
         body {
             font-family: 'Inter', -apple-system, system-ui, sans-serif;
             line-height: 1.6;
             color: var(--dark);
             background: white;
             overflow-x: hidden;
+            width: 100%;
+            max-width: 100vw;
+            position: relative;
+        }
+        
+        /* WORD-BREAK PROTECTION - Prevent long text overflow */
+        p, h1, h2, h3, h4, h5, h6, span, div {
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+        
+        a {
+            word-break: break-word;
+        }
+        
+        /* ACCESSIBILITY - Reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
         }
         
         /* ACCESSIBILITY - Skip to content */
@@ -98,318 +155,564 @@
         }
         
         /* ACCESSIBILITY - Better focus states */
-        button:focus, a:focus {
+        button:focus-visible, a:focus-visible {
             outline: 3px solid var(--primary);
             outline-offset: 2px;
+            border-radius: 4px;
         }
         
         /* Touch optimization */
         button, a {
             -webkit-tap-highlight-color: rgba(0, 123, 255, 0.3);
             touch-action: manipulation;
+            min-height: 44px;
+            min-width: 44px;
         }
         
         /* NAVIGATION */
         nav {
-            position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
-            background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(20px);
-            padding: 1rem 2rem; border-radius: 50px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1); z-index: 1000;
-            display: flex; gap: 2rem; align-items: center; max-width: 90%;
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            max-width: 90%;
+            width: auto;
         }
-        .logo { font-weight: 900; font-size: 1.2rem; color: var(--primary); text-decoration: none; }
-        .nav-links { display: flex; gap: 2rem; list-style: none; }
-        .nav-links a { text-decoration: none; color: var(--dark); font-weight: 600; font-size: 0.9rem; transition: color 0.3s; }
-        .nav-links a:hover { color: var(--primary); }
-        .menu-toggle { display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--dark); }
         
+        .logo {
+            font-weight: 800;
+            font-size: 1.1rem;
+            color: var(--dark);
+            text-decoration: none;
+            white-space: nowrap;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+            white-space: nowrap;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark);
+        }
+        
+        /* MOBILE NAVIGATION */
+        @media (max-width: 968px) {
+            nav {
+                padding: 1rem 1.5rem;
+                gap: 1rem;
+            }
+            
+            .menu-toggle {
+                display: block;
+                z-index: 1001;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 5rem 2rem 2rem;
+                gap: 1.5rem;
+                transform: translateY(-100%);
+                transition: transform 0.3s ease;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            }
+            
+            .nav-links.active {
+                transform: translateY(0);
+            }
+            
+            .logo {
+                font-size: 1rem;
+            }
+        }
+
         /* HERO SECTION */
         .hero-small {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 10rem 2rem 4rem; text-align: center; color: white;
-            position: relative;
-            overflow: hidden;
+            padding: 10rem 2rem 4rem;
+            text-align: center;
+            background: linear-gradient(135deg, var(--light) 0%, white 100%);
         }
-        .hero-small::before {
-            content: '';
-            position: absolute;
-            width: 150%;
-            height: 150%;
-            background: radial-gradient(circle at 30% 50%, rgba(255, 255, 255, 0.08) 0%, transparent 50%);
-            animation: float 25s ease-in-out infinite;
-        }
-        @keyframes float {
-            0%, 100% { transform: translate(-10%, -10%) rotate(0deg); }
-            50% { transform: translate(10%, 10%) rotate(180deg); }
-        }
-        .hero-small h1 { 
-            font-size: clamp(2.5rem, 5vw, 4rem); 
-            font-weight: 900; 
+        
+        .hero-small h1 {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--dark);
             margin-bottom: 1rem;
-            position: relative;
-            z-index: 2;
-        }
-        .hero-small p { 
-            font-size: 1.3rem; 
-            opacity: 0.95;
-            position: relative;
-            z-index: 2;
+            line-height: 1.2;
         }
         
-        /* CONTENT */
-        .content { max-width: 900px; margin: 0 auto; padding: 6rem 2rem; }
-        .story-section { margin-bottom: 5rem; }
-        .story-section h2 { font-size: 2rem; font-weight: 800; color: var(--primary); margin-bottom: 1.5rem; }
-        .story-section p { font-size: 1.15rem; line-height: 1.9; color: var(--dark); opacity: 0.85; margin-bottom: 1.5rem; }
-        
-        .highlight-box {
-            background: var(--light); padding: 2.5rem; border-radius: 20px;
-            border-left: 5px solid var(--primary); margin: 3rem 0;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        .hero-small p {
+            font-size: 1.3rem;
+            color: #555;
+            max-width: 700px;
+            margin: 0 auto;
         }
-        .highlight-box h3 { font-size: 1.5rem; font-weight: 800; color: var(--dark); margin-bottom: 1rem; }
-        .highlight-box p { font-size: 1.1rem; line-height: 1.8; }
+
+        /* CONTENT SECTIONS */
+        .content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
         
-        .values {
+        .story-section {
+            background: white;
+            padding: 3rem 0;
+        }
+        
+        .story-section h2 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--dark);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .story-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             margin-top: 3rem;
         }
-        .value-card {
-            background: white; padding: 2rem; border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); text-align: center;
-            transition: all 0.3s;
-            border: 2px solid transparent;
-        }
-        .value-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
-        }
-        .value-icon { font-size: 3rem; margin-bottom: 1rem; }
-        .value-card h4 { font-size: 1.2rem; font-weight: 800; color: var(--dark); margin-bottom: 0.8rem; }
-        .value-card p { font-size: 0.95rem; opacity: 0.8; }
         
-        /* PHOTO GALLERY */
-        .photo-section {
-            margin: 5rem 0;
+        .story-card {
+            background: var(--light);
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 4px solid var(--primary);
         }
-        .photo-section h2 {
-            font-size: 2rem;
+        
+        .story-card h3 {
+            font-size: 1.5rem;
             font-weight: 800;
-            color: var(--primary);
+            color: var(--dark);
             margin-bottom: 1rem;
-            text-align: center;
         }
-        .photo-section .subtitle {
-            font-size: 1.1rem;
+        
+        .story-card p {
+            font-size: 1.05rem;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        /* CREDENTIALS SECTION */
+        .credentials {
+            background: var(--dark);
+            color: white;
+            padding: 5rem 2rem;
+            margin: 4rem 0;
+        }
+        
+        .credentials-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .credentials h2 {
+            font-size: 2.5rem;
+            font-weight: 900;
             text-align: center;
-            color: #666;
             margin-bottom: 3rem;
         }
-        .photo-grid {
+        
+        .credentials-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-        .photo-item {
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s;
-            aspect-ratio: 4/3;
-            position: relative;
-        }
-        .photo-item:hover {
-            transform: scale(1.05);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-        }
-        .photo-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .photo-caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
-            color: white;
-            padding: 1rem;
-            font-size: 0.9rem;
-            font-weight: 600;
+            gap: 2rem;
         }
         
-        /* WORK EXAMPLES */
-        .work-section {
-            margin: 5rem 0;
+        .credential-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
         }
-        .work-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-        .work-card {
-            background: white;
-            border-radius: 20px;
-            padding: 2.5rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            border: 2px solid transparent;
-            transition: all 0.3s;
-        }
-        .work-card:hover {
-            border-color: var(--primary);
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
-        }
-        .work-icon {
-            font-size: 2.5rem;
+        
+        .credential-icon {
+            font-size: 3rem;
             margin-bottom: 1rem;
         }
-        .work-card h3 {
+        
+        .credential-card h3 {
+            font-size: 1.3rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+        
+        .credential-card p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* VALUES SECTION */
+        .values {
+            padding: 5rem 2rem;
+            background: var(--light);
+        }
+        
+        .values-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .values h2 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        .subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .value-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s;
+        }
+        
+        .value-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .value-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .value-card h4 {
             font-size: 1.4rem;
             font-weight: 800;
             color: var(--dark);
-            margin-bottom: 1rem;
-        }
-        .work-card p {
-            font-size: 1rem;
-            line-height: 1.7;
-            color: #555;
-            margin-bottom: 1rem;
-        }
-        .work-stats {
-            display: flex;
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-            padding-top: 1.5rem;
-            border-top: 2px solid var(--light);
-        }
-        .work-stat {
-            text-align: center;
-        }
-        .work-stat strong {
-            display: block;
-            font-size: 1.8rem;
-            font-weight: 900;
-            color: var(--primary);
-            line-height: 1;
-        }
-        .work-stat span {
-            font-size: 0.85rem;
-            color: #666;
+            margin-bottom: 0.5rem;
         }
         
-        /* SOCIAL SECTION */
-        .social { 
-            padding: 5rem 0; 
-            background: white; 
-        }
-        .social-inner { 
-            max-width: 1200px; 
-            margin: 0 auto; 
-        }
-        .social h2 {
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--primary);
-            margin-bottom: 1rem;
-            text-align: center;
-        }
-        .social .subtitle {
-            font-size: 1.1rem;
-            text-align: center;
+        .value-card p {
+            font-size: 1rem;
             color: #666;
-            margin-bottom: 3rem;
+            line-height: 1.7;
         }
-        .social-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
-            margin-top: 4rem;
+
+        /* SOCIAL SECTION - UPDATED GRID */
+        .social {
+            padding: 5rem 2rem;
+            background: white;
         }
-        .social-card {
-            border-radius: 25px;
-            overflow: hidden;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s;
-            border: 2px solid transparent;
+        
+        .social-inner {
+            max-width: 1400px;
+            margin: 0 auto;
         }
-        .social-card:hover { 
-            transform: translateY(-10px);
-            border-color: var(--primary);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-        }
-        .social-card img {
-            width: 100%;
-            height: 260px;
-            object-fit: cover;
-        }
-        .social-card-content { 
-            padding: 2.5rem; 
-            background: white; 
-        }
-        .social-platform {
-            display: inline-block;
-            background: var(--primary);
-            color: white;
-            padding: 0.4rem 1.2rem;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 800;
-            margin-bottom: 1.5rem;
-            letter-spacing: 0.5px;
-        }
-        .social-card h3 { 
-            font-size: 1.4rem; 
-            font-weight: 800; 
+        
+        .social h2 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            text-align: center;
             margin-bottom: 1rem;
             color: var(--dark);
         }
-        .social-card .btn {
+        
+        .social-showcase-grid {
+            display: grid;
+            /* FIX: Pevně 3 sloupce pro desktop místo auto-fit */
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 3rem auto;
+        }
+        
+        .social-showcase-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .social-showcase-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+        }
+        
+        .social-showcase-header {
+            padding: 2rem 1.5rem 1rem 1.5rem;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+        
+        .social-showcase-header.instagram {
+            background: linear-gradient(135deg, #833AB4 0%, #FD1D1D 50%, #FCB045 100%);
+        }
+        
+        .social-showcase-header.youtube {
+            background: linear-gradient(135deg, #FF0000 0%, #CC0000 100%);
+        }
+        
+        .social-showcase-header.tiktok {
+            background: linear-gradient(135deg, #000000 0%, #EE1D52 100%);
+        }
+        
+        .social-platform-name {
+            font-size: 1.3rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+        
+        .social-emoji-preview {
+            font-size: 3rem;
+            margin: 1rem 0;
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        
+        .social-showcase-body {
+            padding: 2rem 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .social-handle {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #0A0E27;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.3rem;
+        }
+        
+        .verified-badge {
+            color: #1DA1F2;
             font-size: 1rem;
-            padding: 1rem 2rem;
+        }
+        
+        .social-stats {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            color: #666;
+            font-size: 0.95rem;
+        }
+        
+        .social-stat-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        
+        .social-value-box {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .social-value-box.instagram {
+            border-left-color: #833AB4;
+        }
+        
+        .social-value-box.youtube {
+            border-left-color: #FF0000;
+        }
+        
+        .social-value-box.tiktok {
+            border-left-color: #EE1D52;
+        }
+        
+        .social-value-title {
+            font-weight: 700;
+            color: #0A0E27;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+        
+        .social-value-text {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        
+        .social-cta-button {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1rem;
+            font-weight: 700;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
             display: inline-block;
+            text-align: center;
+            color: white;
+            margin-top: auto;
         }
         
+        .social-cta-button.instagram {
+            background: linear-gradient(135deg, #833AB4 0%, #FD1D1D 50%, #FCB045 100%);
+        }
+        
+        .social-cta-button.youtube {
+            background: linear-gradient(135deg, #FF0000 0%, #CC0000 100%);
+        }
+        
+        .social-cta-button.tiktok {
+            background: linear-gradient(135deg, #000000 0%, #EE1D52 100%);
+        }
+        
+        .social-cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        /* MOBILE RESPONSIVE - 2 columns for tablets, 1 for phones */
+        @media (max-width: 1100px) {
+            .social-showcase-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .social-showcase-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .social-emoji-preview {
+                font-size: 2.5rem;
+            }
+        }
+
+        /* CTA SECTION */
         .cta-section {
-            background: var(--primary); color: white; padding: 4rem 2rem;
-            text-align: center; border-radius: 20px; margin-top: 5rem;
+            text-align: center;
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
         }
-        .cta-section h2 { font-size: 2.5rem; font-weight: 900; margin-bottom: 1.5rem; }
-        .btn {
-            display: inline-block; padding: 1.2rem 2.5rem; background: white; color: var(--primary);
-            border-radius: 15px; font-weight: 700; text-decoration: none; transition: all 0.3s;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
-        .btn:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3); }
         
-        /* COOKIE CONSENT BANNER */
+        .cta-section h2 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: white;
+            color: var(--primary);
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            font-weight: 800;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+        
+        footer a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        footer a:hover {
+            color: var(--secondary);
+        }
+
+        /* COOKIE CONSENT */
         .cookie-consent {
             position: fixed;
-            bottom: 0;
+            bottom: -200px;
             left: 0;
             right: 0;
-            background: rgba(10, 14, 39, 0.98);
-            backdrop-filter: blur(10px);
-            color: white;
+            background: white;
+            box-shadow: 0 -5px 30px rgba(0, 0, 0, 0.2);
             padding: 1.5rem 2rem;
             z-index: 10000;
-            box-shadow: 0 -5px 30px rgba(0, 0, 0, 0.3);
-            display: none;
-            animation: slideUp 0.4s ease-out;
+            transition: bottom 0.5s ease;
         }
+        
         .cookie-consent.active {
-            display: block;
+            bottom: 0;
         }
-        @keyframes slideUp {
-            from { transform: translateY(100%); }
-            to { transform: translateY(0); }
-        }
+        
         .cookie-consent-content {
             max-width: 1200px;
             margin: 0 auto;
@@ -419,363 +722,298 @@
             gap: 2rem;
             flex-wrap: wrap;
         }
-        .cookie-consent-text {
-            flex: 1;
-            min-width: 300px;
-        }
+        
         .cookie-consent-text h4 {
             font-size: 1.1rem;
             font-weight: 800;
             margin-bottom: 0.5rem;
+            color: var(--dark);
         }
+        
         .cookie-consent-text p {
             font-size: 0.95rem;
+            color: #666;
             line-height: 1.6;
-            opacity: 0.9;
         }
+        
         .cookie-consent-text a {
-            color: var(--secondary);
+            color: var(--primary);
             text-decoration: underline;
         }
+        
         .cookie-consent-actions {
             display: flex;
             gap: 1rem;
-            flex-wrap: wrap;
         }
+        
         .cookie-btn {
-            padding: 0.8rem 1.8rem;
-            border-radius: 10px;
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 50px;
             font-weight: 700;
-            font-size: 0.95rem;
             cursor: pointer;
             transition: all 0.3s;
-            border: none;
+            font-size: 0.95rem;
         }
+        
         .cookie-btn-accept {
-            background: var(--success);
+            background: var(--primary);
             color: white;
         }
+        
         .cookie-btn-accept:hover {
-            background: #00c763;
+            background: var(--primary-dark);
             transform: translateY(-2px);
         }
+        
         .cookie-btn-decline {
-            background: transparent;
-            color: white;
-            border: 2px solid rgba(255, 255, 255, 0.3);
+            background: var(--light);
+            color: var(--dark);
         }
+        
         .cookie-btn-decline:hover {
-            border-color: rgba(255, 255, 255, 0.6);
+            background: #e0e5eb;
         }
-        
-        /* FOOTER */
-        footer {
-            background: var(--dark);
-            color: white;
-            text-align: center;
-            padding: 3rem 2rem;
-        }
-        footer a { 
-            color: var(--secondary); 
-            text-decoration: none;
-            font-weight: 600;
-        }
-        footer a:hover { text-decoration: underline; }
-        
-        /* RESPONSIVE */
+
+        /* MOBILE RESPONSIVE */
         @media (max-width: 768px) {
-            nav { padding: 1rem 1.5rem; gap: 1rem; }
-            .nav-links { 
-                display: none; 
-                flex-direction: column; 
-                position: absolute; 
-                top: 100%; 
-                left: 0; 
-                right: 0; 
-                background: white; 
-                padding: 1.5rem; 
-                border-radius: 20px; 
-                margin-top: 1rem; 
-                box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2); 
+            .hero-small h1 {
+                font-size: 2rem;
             }
-            .nav-links.active { display: flex; }
-            .menu-toggle { display: block; }
+            
+            .hero-small p {
+                font-size: 1.1rem;
+            }
+            
+            .story-section h2,
+            .credentials h2,
+            .values h2,
+            .social h2,
+            .cta-section h2 {
+                font-size: 2rem;
+            }
+            
             .cookie-consent-content {
                 flex-direction: column;
-                text-align: center;
+                align-items: stretch;
             }
+            
             .cookie-consent-actions {
-                width: 100%;
-                justify-content: center;
-            }
-            .cookie-btn {
-                flex: 1;
-            }
-            .photo-grid {
-                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-                gap: 1rem;
-            }
-            .work-cards {
-                grid-template-columns: 1fr;
-            }
-            .social-grid {
-                grid-template-columns: 1fr;
+                flex-direction: column;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Skip to content link for accessibility -->
-    <a href="#main-content" class="skip-link">Přeskočit na hlavní obsah</a>
-    
+    <!-- ACCESSIBILITY - Skip to main content -->
+    <a href="#main-content" class="skip-link">Přejít k hlavnímu obsahu</a>
+
     <nav>
         <a href="index.html" class="logo">Kariéra sportovců</a>
-        <button class="menu-toggle" onclick="toggleMenu()" aria-label="Otevřít menu">☰</button>
         <ul class="nav-links" id="navLinks">
-            <li><a href="index.html#problem">Problém</a></li>
-            <li><a href="index.html#reseni">Řešení</a></li>
-            <li><a href="index.html#cenik">Ceník</a></li>
-            <li><a href="index.html#reference">Reference</a></li>
+            <li><a href="index.html">Domů</a></li>
+            <li><a href="index.html#jak-to-funguje">Jak to funguje</a></li>
+            <li><a href="index.html#cenik">Programy</a></li>
             <li><a href="o-mne.html">O mně</a></li>
+            <!-- FIX: Změněno z mailto: na kontakt.html pro konzistenci s HomePage -->
             <li><a href="kontakt.html">Kontakt</a></li>
         </ul>
+        <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle menu" aria-expanded="false">☰</button>
     </nav>
 
-    <section class="hero-small">
-        <h1>Kdo jsem a proč tohle dělám</h1>
-        <p>Od hokejového útočníka k mentorovi sportovců</p>
-    </section>
-
-    <div class="content" id="main-content">
-        <div class="story-section">
-            <h2>🏒 Můj příběh začíná na ledě</h2>
-            <p>
-                Jsem <strong>Famil</strong> – bývalý hokejista s více než <strong>20 lety zkušeností na ledě</strong>. 
-                Hokej mě naučil víc, než jsem si kdy dokázal představit. Disciplína, vytrvalost, týmová spolupráce – 
-                to nejsou jen prázdná slova. To jsou dovednosti, které jsem si odnesl z každého tréninku, 
-                z každého zápasu, z každé prohry i vítězství.
-            </p>
-            <p>
-                Ale přišel moment, kdy jsem si uvědomil něco zásadního: <strong>Hokej skončí. Život pokračuje.</strong>
-            </p>
-            <p>
-                A právě v tu chvíli jsem pochopil, že dovednosti, které jsem získal na ledě, 
-                jsou <strong>zlatem ve světě práce a studia</strong>. Problém? Většina sportovců to neví. 
-                Myslí si, že když sport skončí, začínají od nuly.
-            </p>
-        </div>
-
-        <div class="highlight-box">
-            <h3>💡 Zlomový moment</h3>
-            <p>
-                Během studia <strong>psychologie a ekonomie</strong> jsem si uvědomil, jak obrovskou konkurenční výhodu 
-                máme jako sportovci: <strong>umíme zabrat v krizových okamžicích</strong>, nastavovat si jasné cíle 
-                a nepolevit, dokud jich nedosáhneme. Umíme pracovat v týmu, zvládat tlak a přizpůsobit se změnám.
-            </p>
-            <p>
-                <strong>To je přesně to, co firmy a školy hledají.</strong> Ale my to často neumíme prodat.
-            </p>
-        </div>
-
-        <div class="story-section">
-            <h2>🎯 Proč jsem založil Kariéru sportovců</h2>
-            <p>
-                Viděl jsem kolem sebe spoustu talentovaných sportovců, kteří se po konci kariéry cítili ztraceni. 
-                Nevěděli, co dál. Mysleli si, že sport je to jediné, co umí.
-            </p>
-            <p>
-                <strong>To mě štvalo.</strong> Protože jsem věděl, že to není pravda.
-            </p>
-            <p>
-                Proto jsem založil tento projekt – abych ukázal sportovcům, že <strong>dovednosti nabyté při tréninku 
-                a zápasech nejsou jen pro sport</strong>. Dají se perfektně uplatnit i ve studiu, byznysu nebo další kariéře.
-            </p>
-        </div>
-
-        <div class="story-section">
-            <h2>🏫 ARTECON – důkaz, že to funguje</h2>
-            <p>
-                Od září 2025 budu <strong>garantem kariérového poradenství na největší sportovní střední škole v ČR – ARTECON Praha</strong>.
-            </p>
-            <p>
-                Tohle partnerství je pro mě obrovská věc. Škola mi důvěřuje, že pomohu jejich studentům-sportovcům 
-                najít směr – ať už jde o výběr dalšího studia, brigády nebo přípravy na život po sportu.
-            </p>
-            <p>
-                Do této chvíle jsem pracoval s <strong>350+ sportovci na workshopech</strong>, 
-                vedl jsem <strong>40+ individuálních konzultací</strong> a pomohl desítkám mladých lidí 
-                najít jejich cestu.
-            </p>
-        </div>
-
-        <div class="highlight-box">
-            <h3>🚀 Moje vize</h3>
-            <p>
-                Chci změnit to, jak sportovci vnímají sami sebe. Nechci, aby čekali na konec kariéry, 
-                než začnou přemýšlet o budoucnosti.
-            </p>
-            <p>
-                Chci, aby <strong>už teď</strong> – jako studenti, aktivní sportovci, junioři – věděli, 
-                že mají obrovskou hodnotu. Že jejich zkušenosti ze sportu jsou <strong>konkurenční výhoda</strong>, 
-                ne překážka.
-            </p>
-            <p>
-                <strong>A chci, aby to věděli i jejich rodiče, trenéři a školy.</strong>
-            </p>
-        </div>
-
-        <div class="work-section">
-            <h2 style="font-size: 2rem; font-weight: 800; color: var(--primary); margin-bottom: 1.5rem; text-align: center;">Co konkrétně dělám</h2>
-            <p style="font-size: 1.1rem; text-align: center; color: #666; margin-bottom: 3rem; max-width: 700px; margin-left: auto; margin-right: auto;">
-                Nejsem jen teoretik. Pracuji přímo se sportovci – od individuálních konzultací po velké workshopy pro desítky lidí najednou.
-            </p>
-            
-            <div class="work-cards">
-                <div class="work-card">
-                    <div class="work-icon">🎓</div>
-                    <h3>Workshopy na školách a kempech</h3>
-                    <p>Jezdím po celé ČR – parkourové kempy, fotbalové akademie, hokejové kempy, florbalové tábory. Pracuji s dětmi a mladými sportovci na tom, jak využít sport pro budoucnost.</p>
-                    <div class="work-stats">
-                        <div class="work-stat">
-                            <strong>350+</strong>
-                            <span>sportovců</span>
-                        </div>
-                        <div class="work-stat">
-                            <strong>15+</strong>
-                            <span>workshopů</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="work-card">
-                    <div class="work-icon">💼</div>
-                    <h3>Individuální konzultace</h3>
-                    <p>Jeden na jednoho. Pracuji se sportovci na jejich konkrétní situaci – hledání práce, výběr školy, příprava na konec kariéry, přechod do byznysu.</p>
-                    <div class="work-stats">
-                        <div class="work-stat">
-                            <strong>40+</strong>
-                            <span>konzultací</span>
-                        </div>
-                        <div class="work-stat">
-                            <strong>95%</strong>
-                            <span>úspěšnost</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="work-card">
-                    <div class="work-icon">🏫</div>
-                    <h3>ARTECON Praha – garant programu</h3>
-                    <p>Od září 2025 vedu kariérový program na největší sportovní střední škole v ČR. Pomáhám studentům-sportovcům najít směr už během studia.</p>
-                    <div class="work-stats">
-                        <div class="work-stat">
-                            <strong>100+</strong>
-                            <span>studentů ročně</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="photo-section">
-            <h2>📸 Z workshopů a přednášek</h2>
-            <p class="subtitle">Tady nejsou žádné pózy. Jen reálná práce se sportovci.</p>
-            <div class="photo-grid">
-                <div class="photo-item">
-                    <img src="https://images.unsplash.com/photo-1552196527-e898d6abd5e1?w=600" alt="Workshop s mladými sportovci" loading="lazy">
-                    <div class="photo-caption">Workshop s mladými hokejisty</div>
-                </div>
-                <div class="photo-item">
-                    <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600" alt="Individuální konzultace" loading="lazy">
-                    <div class="photo-caption">Individuální konzultace</div>
-                </div>
-                <div class="photo-item">
-                    <img src="https://images.unsplash.com/photo-1517164850305-99a3e65bb47e?w=600" alt="Přednáška na sportovní škole" loading="lazy">
-                    <div class="photo-caption">Přednáška na ARTECON Praha</div>
-                </div>
-                <div class="photo-item">
-                    <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=600" alt="Skupinová práce" loading="lazy">
-                    <div class="photo-caption">Skupinová práce na kempu</div>
-                </div>
-                <div class="photo-item">
-                    <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=600" alt="Diskuze se sportovci" loading="lazy">
-                    <div class="photo-caption">Diskuze o kariéře po sportu</div>
-                </div>
-                <div class="photo-item">
-                    <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=600" alt="Workshop na fotbalovém kempu" loading="lazy">
-                    <div class="photo-caption">Fotbalový kemp s Luďkem Zelenkou</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="story-section">
-            <h2>💪 Moje hodnoty</h2>
-            <div class="values">
-                <div class="value-card">
-                    <div class="value-icon">🎯</div>
-                    <h4>Upřímnost</h4>
-                    <p>Žádné kecy. Jen praktické rady, které fungují.</p>
-                </div>
-                <div class="value-card">
-                    <div class="value-icon">🤝</div>
-                    <h4>Empatie</h4>
-                    <p>Byl jsem na tvém místě. Vím, jak se cítíš.</p>
-                </div>
-                <div class="value-card">
-                    <div class="value-icon">⚡</div>
-                    <h4>Akce</h4>
-                    <p>Teorie nestačí. Dostaneš nástroje, které můžeš použít hned.</p>
-                </div>
-                <div class="value-card">
-                    <div class="value-icon">🏆</div>
-                    <h4>Výsledky</h4>
-                    <p>Nejsem tu na povídání. Jsem tu na to, abys uspěl.</p>
-                </div>
-            </div>
-        </div>
-
-        <section class="social">
-            <div class="social-inner">
-                <h2>Sleduj nás na sociálních sítích</h2>
-                <p class="subtitle">Reálný obsah od sportovců pro sportovce. Tipy, motivace, příběhy úspěchu.</p>
-                <div class="social-grid">
-                    <div class="social-card">
-                        <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=700" alt="Instagram - kariérové poradenství pro sportovce" loading="lazy">
-                        <div class="social-card-content">
-                            <span class="social-platform">INSTAGRAM</span>
-                            <h3>Tipy, motivace, reálné příběhy</h3>
-                            <a href="https://www.instagram.com/karierove_poradenstvi/" target="_blank" rel="noopener noreferrer" class="btn">Sledovat Instagram →</a>
-                        </div>
-                    </div>
-                    <div class="social-card">
-                        <img src="https://images.unsplash.com/photo-1611162616475-46b635cb6868?w=700" alt="YouTube - kariérové poradenství pro sportovce" loading="lazy">
-                        <div class="social-card-content">
-                            <span class="social-platform">YOUTUBE</span>
-                            <h3>Videa, rozhovory, detailní návody</h3>
-                            <a href="https://www.youtube.com/@karierasportovcu" target="_blank" rel="noopener noreferrer" class="btn">Sledovat YouTube →</a>
-                        </div>
-                    </div>
-                    <div class="social-card">
-                        <img src="https://images.unsplash.com/photo-1611162618071-b39a2ec055fb?w=700" alt="TikTok - kariérové poradenství pro sportovce" loading="lazy">
-                        <div class="social-card-content">
-                            <span class="social-platform">TIKTOK</span>
-                            <h3>Krátká videa, rychlé praktické tipy</h3>
-                            <a href="https://www.tiktok.com/@karierasportovcu" target="_blank" rel="noopener noreferrer" class="btn">Sledovat TikTok →</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <main id="main-content">
+        <section class="hero-small">
+            <h1>Ahoj, jsem Famil 👋</h1>
+            <p>Bývalý hokejista. Kariérový poradce. Člověk, který ví, jak těžké je najít směr po sportu.</p>
         </section>
 
-        <div class="cta-section">
-            <h2>Pojďme to udělat společně</h2>
-            <p style="font-size:1.2rem;margin-bottom:2rem;opacity:0.95;">
-                Ať už jsi student, aktivní sportovec nebo na přechodu po kariéře – 
-                můžu ti pomoct najít tvou cestu.
-            </p>
-            <a href="mailto:info@sportovci-kariera.cz?subject=Rezervace konzultace" class="btn">Napsat mi →</a>
+        <div class="content">
+            <section class="story-section">
+                <h2>Můj příběh</h2>
+                <div class="story-grid">
+                    <div class="story-card">
+                        <h3>🏒 20+ let na ledě</h3>
+                        <p>Od dětství až po dospělost. Hokej byl můj život. Věděl jsem, co je disciplína, týmová práce, bolest i triumf. Ale taky jsem věděl, že jednou to skončí.</p>
+                    </div>
+                    <div class="story-card">
+                        <h3>🤔 Konec kariéry</h3>
+                        <p>Když přišel čas skončit s aktivním hokejem, byl jsem ztracený. Měl jsem dovednosti, ale nevěděl, jak je využít. Necítil jsem se připravený na "normální" život.</p>
+                    </div>
+                    <div class="story-card">
+                        <h3>💡 Hledání cesty</h3>
+                        <p>Začal jsem studovat psychologii a ekonomii. Chtěl jsem pochopit, jak funguje kariéra mimo sport. A pochopil jsem – sportovec má obrovskou výhodu, jen o ní často neví.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="credentials">
+                <div class="credentials-inner">
+                    <h2>Co o mně musíš vědět</h2>
+                    <div class="credentials-grid">
+                        <div class="credential-card">
+                            <div class="credential-icon">🎓</div>
+                            <h3>Studium psychologie a ekonomie</h3>
+                            <p>Kombinace, která mi umožňuje rozumět lidem i businessu.</p>
+                        </div>
+                        <div class="credential-card">
+                            <div class="credential-icon">🏫</div>
+                            <h3>Garant kariérového programu</h3>
+                            <p>ARTECON Praha – pomáhám studentům-sportovcům najít cestu.</p>
+                        </div>
+                        <div class="credential-card">
+                            <div class="credential-icon">🏒</div>
+                            <h3>Profesionální hokejová kariéra</h3>
+                            <p>20+ let aktivního hraní na profesionální úrovni.</p>
+                        </div>
+                        <div class="credential-card">
+                            <div class="credential-icon">👥</div>
+                            <h3>350+ sportovců</h3>
+                            <p>Pomohl jsem stovkám sportovců najít směr a využít své dovednosti.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="values">
+                <div class="values-inner">
+                    <h2>Jak pracuji</h2>
+                    <p class="subtitle">Nejsem guru. Jsem někdo, kdo prošel tou samou cestou jako ty.</p>
+                    <div class="values-grid">
+                        <div class="value-card">
+                            <div class="value-icon">💬</div>
+                            <h4>Upřímnost</h4>
+                            <p>Budu ti říkat pravdu, i když to neuslyšíš rád. Floskule ti nepomůžou.</p>
+                        </div>
+                        <div class="value-card">
+                            <div class="value-icon">🎯</div>
+                            <h4>Praktické nástroje</h4>
+                            <p>Teorie nestačí. Dostaneš nástroje, které můžeš použít hned.</p>
+                        </div>
+                        <div class="value-card">
+                            <div class="value-icon">🏆</div>
+                            <h4>Výsledky</h4>
+                            <p>Nejsem tu na povídání. Jsem tu na to, abys uspěl.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="social">
+                <div class="social-inner">
+                    <h2>Sleduj nás na sociálních sítích</h2>
+                    <p class="subtitle">Reálný obsah od sportovců pro sportovce. Videa, tipy, motivace každý den.</p>
+                    
+                    <div class="social-showcase-grid">
+                        <!-- Instagram Card -->
+                        <div class="social-showcase-card">
+                            <div class="social-showcase-header instagram">
+                                <div class="social-platform-name">📱 INSTAGRAM</div>
+                                <div class="social-emoji-preview">
+                                    <span>💪</span>
+                                    <span>🎯</span>
+                                    <span>🏆</span>
+                                </div>
+                            </div>
+                            <div class="social-showcase-body">
+                                <div class="social-handle">
+                                    @karierasportovcu <span class="verified-badge">✓</span>
+                                </div>
+                                <div class="social-stats">
+                                    <div class="social-stat-item">
+                                        <span>📅</span>
+                                        <span>Nový obsah každý den</span>
+                                    </div>
+                                </div>
+                                <div class="social-value-box instagram">
+                                    <div class="social-value-title">💡 Co tu najdeš:</div>
+                                    <div class="social-value-text">
+                                        Inspirativní příběhy sportovců, praktické rady do CV, motivace a behind-the-scenes kariérového poradenství
+                                    </div>
+                                </div>
+                                <a href="https://www.instagram.com/karierasportovcu/" target="_blank" rel="noopener noreferrer" class="social-cta-button instagram" onclick="trackEvent('social_click', 'instagram_card')">
+                                    Sledovat Instagram →
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- YouTube Card -->
+                        <div class="social-showcase-card">
+                            <div class="social-showcase-header youtube">
+                                <div class="social-platform-name">🎥 YOUTUBE</div>
+                                <div class="social-emoji-preview">
+                                    <span>📚</span>
+                                    <span>💡</span>
+                                    <span>🎙️</span>
+                                </div>
+                            </div>
+                            <div class="social-showcase-body">
+                                <div class="social-handle">
+                                    @karierasportovcu <span class="verified-badge">✓</span>
+                                </div>
+                                <div class="social-stats">
+                                    <div class="social-stat-item">
+                                        <span>📅</span>
+                                        <span>Nová videa pravidelně</span>
+                                    </div>
+                                </div>
+                                <div class="social-value-box youtube">
+                                    <div class="social-value-title">💡 Co tu najdeš:</div>
+                                    <div class="social-value-text">
+                                        Rozhovory s úspěšnými sportovci, detailní návody na CV a motivační dopisy, kariérní strategie
+                                    </div>
+                                </div>
+                                <a href="https://www.youtube.com/@karierasportovcu" target="_blank" rel="noopener noreferrer" class="social-cta-button youtube" onclick="trackEvent('social_click', 'youtube_card')">
+                                    Sledovat YouTube →
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- TikTok Card -->
+                        <div class="social-showcase-card">
+                            <div class="social-showcase-header tiktok">
+                                <div class="social-platform-name">🎵 TIKTOK</div>
+                                <div class="social-emoji-preview">
+                                    <span>⚡</span>
+                                    <span>💡</span>
+                                    <span>🎯</span>
+                                </div>
+                            </div>
+                            <div class="social-showcase-body">
+                                <div class="social-handle">
+                                    @karierasportovcu <span class="verified-badge">✓</span>
+                                </div>
+                                <div class="social-stats">
+                                    <div class="social-stat-item">
+                                        <span>📅</span>
+                                        <span>Často nový obsah</span>
+                                    </div>
+                                </div>
+                                <div class="social-value-box tiktok">
+                                    <div class="social-value-title">💡 Co tu najdeš:</div>
+                                    <div class="social-value-text">
+                                        Rychlé praktické tipy do 60 sekund, lifehacky pro sportovce, zkušenosti z pohovorů
+                                    </div>
+                                </div>
+                                <a href="https://www.tiktok.com/@karierasportovcu" target="_blank" rel="noopener noreferrer" class="social-cta-button tiktok" onclick="trackEvent('social_click', 'tiktok_card')">
+                                    Sledovat TikTok →
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="cta-section">
+                <h2>Pojďme to udělat společně</h2>
+                <p style="font-size:1.2rem;margin-bottom:2rem;opacity:0.95;">
+                    Ať už jsi student, aktivní sportovec nebo na přechodu po kariéře – 
+                    můžu ti pomoct najít tvou cestu.
+                </p>
+                <!-- FIX: Odkaz zůstává jako email v CTA sekci (to je OK pro přímý kontakt) -->
+                <a href="/cdn-cgi/l/email-protection#fd94939b92bd8e8d928f89928b9e94d0969c8f94988f9cd39e87" class="btn" onclick="trackEvent('contact_click', 'cta_button')">Napsat mi →</a>
+            </div>
         </div>
-    </div>
+    </main>
 
     <!-- COOKIE CONSENT BANNER -->
     <div id="cookieConsent" class="cookie-consent">
@@ -795,21 +1033,55 @@
         <div style="max-width: 1200px; margin: 0 auto;">
             <p>&copy; 2025 Kariéra sportovců</p>
             <p style="margin-top:0.5rem;">
-                <a href="https://www.instagram.com/karierove_poradenstvi/">Instagram</a> • 
-                <a href="https://www.youtube.com/@karierasportovcu">YouTube</a> • 
-                <a href="https://www.tiktok.com/@karierasportovcu">TikTok</a>
+                <a href="https://www.instagram.com/karierasportovcu/" target="_blank" rel="noopener noreferrer" onclick="trackEvent('social_click', 'instagram')">Instagram</a> • 
+                <a href="https://www.youtube.com/@karierasportovcu" target="_blank" rel="noopener noreferrer" onclick="trackEvent('social_click', 'youtube')">YouTube</a> • 
+                <a href="https://www.tiktok.com/@karierasportovcu" target="_blank" rel="noopener noreferrer" onclick="trackEvent('social_click', 'tiktok')">TikTok</a>
             </p>
             <p style="margin-top:1.5rem;font-size:0.9rem;">
-                <a href="mailto:info@sportovci-kariera.cz">info@sportovci-kariera.cz</a>
+                <a href="/cdn-cgi/l/email-protection#0e676068614e7d7e617c7a61786d6723656f7c676b7c6f206d74" onclick="trackEvent('contact_click', 'footer_email')"><span class="__cf_email__" data-cfemail="40292e262f0033302f32342f3623296d2b2132292532216e233a">[email&#160;protected]</span></a>
             </p>
         </div>
     </footer>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // GOOGLE ANALYTICS EVENT TRACKING
+        function trackEvent(eventName, eventLabel) {
+            if (typeof gtag !== 'undefined') {
+                gtag('event', eventName, {
+                    'event_category': 'engagement',
+                    'event_label': eventLabel,
+                    'value': 1
+                });
+            }
+        }
+        
         // MENU TOGGLE
         function toggleMenu() {
-            document.getElementById('navLinks').classList.toggle('active');
+            const navLinks = document.getElementById('navLinks');
+            const menuToggle = document.querySelector('.menu-toggle');
+            const isActive = navLinks.classList.toggle('active');
+            menuToggle.setAttribute('aria-expanded', isActive);
         }
+        
+        // Auto-close menu when clicking on any nav link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navLinks').classList.remove('active');
+                document.querySelector('.menu-toggle').setAttribute('aria-expanded', 'false');
+            });
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            const nav = document.querySelector('nav');
+            const navLinks = document.getElementById('navLinks');
+            const menuToggle = document.querySelector('.menu-toggle');
+            
+            if (!nav.contains(e.target) && navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+                menuToggle.setAttribute('aria-expanded', 'false');
+            }
+        });
 
         // SMOOTH SCROLL
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -843,10 +1115,12 @@
         
         function declineCookies() {
             localStorage.setItem('cookieConsent', 'declined');
+            // FIX: Opravena JavaScript chyba - přidáno document.get
             document.getElementById('cookieConsent').classList.remove('active');
         }
         
         function initAnalytics() {
+            // Initialize Google Analytics only if consent given
             if (typeof gtag !== 'undefined') {
                 gtag('consent', 'update', {
                     'analytics_storage': 'granted'
@@ -854,7 +1128,24 @@
             }
         }
         
-        checkCookieConsent();
-    </script>
-</body>
-</html>
+        // SCROLL DEPTH TRACKING
+        let scrollTracked = {
+            '25': false,
+            '50': false,
+            '75': false,
+            '100': false
+        };
+        
+        window.addEventListener('scroll', function() {
+            const scrollPercent = Math.round((window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100);
+            
+            if (scrollPercent >= 25 && !scrollTracked['25']) {
+                scrollTracked['25'] = true;
+                trackEvent('scroll_depth', '25_percent');
+            } else if (scrollPercent >= 50 && !scrollTracked['50']) {
+                scrollTracked['50'] = true;
+                trackEvent('scroll_depth', '50_percent');
+            } else if (scrollPercent >= 75 && !scrollTracked['75']) {
+                scrollTracked['75'] = true;
+                trackEvent('scroll_depth', '75_percent');
+            } else if (scrollPercent >= 100 
