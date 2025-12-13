@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+
+    <title>Test osobnosti sportovce | Kariéra sportovců</title>
+    <meta name="description" content="Test osobnosti - Poznej své silné stránky.">
+    <meta name="robots" content="noindex, nofollow">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="shortcut icon" href="/favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NCXD6F7TWE"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-NCXD6F7TWE');
+    </script>
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html {
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --primary-dark: #0E1B2E;
+            --accent-gold: #C9A227;
+            --white: #FFFFFF;
+            --gray-light: #F2F2F2;
+            --gray-text: #666666;
+            --error: #E74C3C;
+            --success: #27AE60;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, system-ui, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #0E1B2E 0%, #1a2a44 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* ==================== LOGIN SECTION ==================== */
+        #loginSection {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem 5%;
+        }
+
+        #loginSection.hidden {
+            display: none;
+        }
+
+        .form-box {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 550px;
+            width: 100%;
+            padding: 3rem;
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .form-badge {
+            background: linear-gradient(135deg, var(--accent-gold), #d4a829);
+            color: var(--primary-dark);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .form-header h1 {
+            font-size: 2rem;
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-header p {
+            color: var(--gray-text);
+            font-size: 1rem;
+        }
+
+        /* Form */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--primary-dark);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.9rem 1.2rem;
+            border: 2px solid #E0E0E0;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+            box-shadow: 0 0 0 4px rgba(201, 162, 39, 0.1);
+        }
+
+        .form-group input.error {
+            border-color: var(--error);
+            background: #FFE5E5;
+        }
+
+        .code-input {
+            font-family: 'Courier New', monospace;
+            font-weight: 700;
+            text-align: center;
+            letter-spacing: 2px;
+        }
+
+        .code-hint {
+            font-size: 0.85rem;
+            color: var(--gray-text);
+            margin-top: 0.5rem;
+            font-style: italic;
+        }
+
+        /* Messages */
+        .message {
+            padding: 1rem 1.2rem;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+            display: none;
+        }
+
+        .message.error {
+            background: #FFE5E5;
+            color: var(--error);
+            border-left: 4px solid var(--error);
+            display: block;
+        }
+
+        .message.success {
+            background: #E8F5E9;
+            color: var(--success);
+            border-left: 4px solid var(--success);
+            display: block;
+        }
+
+        /* Button */
+        .btn-submit {
+            width: 100%;
+            padding: 1.2rem 2rem;
+            background: var(--accent-gold);
+            color: var(--primary-dark);
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: inherit;
+        }
+
+        .btn-submit:hover:not(:disabled) {
+            background: #B8941F;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(201, 162, 39, 0.4);
+        }
+
+        .btn-submit:disabled {
+            background: #ccc;
+            color: #888;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Info Box */
+        .info-box {
+            background: #E3F2FD;
+            border-left: 4px solid #2196F3;
+            padding: 1.2rem 1.5rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: #1565C0;
+        }
+
+        .info-box strong {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #0D47A1;
+        }
+
+        /* ==================== TEST SECTION ==================== */
+        #testSection {
+            display: none;
+            min-height: 100vh;
+            background: var(--gray-light);
+        }
+
+        #testSection.active {
+            display: block;
+        }
+
+        /* Progress Bar */
+        .progress-header {
+            background: white;
+            padding: 1.5rem 5%;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .progress-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .progress-text {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.8rem;
+            font-size: 0.9rem;
+            color: var(--gray-text);
+            font-weight: 600;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #E0E0E0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent-gold), #d4a829);
+            border-radius: 10px;
+            transition: width 0.4s ease;
+            box-shadow: 0 0 10px rgba(201, 162, 39, 0.5);
+        }
+
+        /* Test Container */
+        .test-container {
+            max-width: 900px;
+            margin: 3rem auto;
+            padding: 0 5%;
+        }
+
+        .test-box {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            padding: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .question-number {
+            color: var(--accent-gold);
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        .question-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 2.5rem;
+            line-height: 1.4;
+        }
+
+        .options-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .option {
+            background: var(--gray-light);
+            border: 3px solid transparent;
+            border-radius: 12px;
+            padding: 1.2rem 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            position: relative;
+        }
+
+        .option:hover {
+            background: #E8E8E8;
+            border-color: var(--accent-gold);
+            transform: translateX(5px);
+        }
+
+        .option.selected {
+            background: #FFF9E6;
+            border-color: var(--accent-gold);
+            box-shadow: 0 4px 15px rgba(201, 162, 39, 0.2);
+        }
+
+        .option-radio {
+            width: 24px;
+            height: 24px;
+            border: 3px solid #ccc;
+            border-radius: 50%;
+            flex-shrink: 0;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .option:hover .option-radio {
+            border-color: var(--accent-gold);
+        }
+
+        .option.selected .option-radio {
+            border-color: var(--accent-gold);
+            background: var(--accent-gold);
+        }
+
+        .option.selected .option-radio::after {
+            content: '✓';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: var(--primary-dark);
+            font-weight: 900;
+            font-size: 14px;
+        }
+
+        .option-text {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+        }
+
+        .option-value {
+            margin-left: auto;
+            color: var(--gray-text);
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        /* Navigation Buttons */
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2.5rem;
+            gap: 1rem;
+        }
+
+        .btn-nav {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: inherit;
+        }
+
+        .btn-back {
+            background: white;
+            color: var(--primary-dark);
+            border: 2px solid #E0E0E0;
+        }
+
+        .btn-back:hover:not(:disabled) {
+            background: var(--gray-light);
+            border-color: var(--primary-dark);
+        }
+
+        .btn-back:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .btn-next {
+            background: var(--accent-gold);
+            color: var(--primary-dark);
+            flex: 1;
+        }
+
+        .btn-next:hover:not(:disabled) {
+            background: #B8941F;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(201, 162, 39, 0.3);
+        }
+
+        .btn-next:disabled {
+            background: #ccc;
+            color: #888;
+            cursor: not-allowed;
+        }
+
+        /* Completion Screen */
+        .completion-screen {
+            display: none;
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+
+        .completion-screen.active {
+            display: block;
+        }
+
+        .completion-icon {
+            font-size: 5rem;
+            margin-bottom: 2rem;
+            animation: bounce 1s;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .completion-screen h1 {
+            font-size: 2.5rem;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+        }
+
+        .completion-screen p {
+            font-size: 1.2rem;
+            color: var(--gray-text);
+            line-height: 1.8;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .btn-home {
+            padding: 1rem 2rem;
+            background: var(--accent-gold);
+            color: var(--primary-dark);
+            border: none;
+            border-radius: 10px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-home:hover {
+            background: #B8941F;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(201, 162, 39, 0.3);
+        }
+
+        /* Loading Overlay */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(14, 27, 46, 0.95);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .loading-overlay.active {
+            display: flex;
+        }
+
+        .loading-content {
+            text-align: center;
+            color: white;
+        }
+
+        .spinner {
+            border: 4px solid rgba(201, 162, 39, 0.2);
+            border-top: 4px solid var(--accent-gold);
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1.5rem;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .loading-text {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .form-box {
+                padding: 2rem 1.5rem;
+            }
+
+            .form-header h1 {
+                font-size: 1.7rem;
+            }
+
+            .form-group input {
+                padding: 0.85rem 1.1rem;
+                font-size: 16px;
+            }
+
+            .btn-submit {
+                padding: 1.1rem 1.8rem;
+                font-size: 1.05rem;
+            }
+
+            .test-box {
+                padding: 2rem 1.5rem;
+            }
+
+            .question-text {
+                font-size: 1.2rem;
+            }
+
+            .option {
+                padding: 1rem 1.2rem;
+            }
+
+            .option-text {
+                font-size: 0.95rem;
+            }
+
+            .nav-buttons {
+                flex-direction: column-reverse;
+            }
+
+            .btn-nav {
+                width: 100%;
+            }
+
+            .completion-screen h1 {
+                font-size: 2rem;
+            }
+
+            .completion-icon {
+                font-size: 4rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #loginSection {
+                padding: 1.5rem 1rem;
+            }
+
+            .form-box {
+                padding: 1.5rem 1.2rem;
+            }
+
+            .form-header h1 {
+                font-size: 1.5rem;
+            }
+
+            .form-badge {
+                font-size: 0.75rem;
+                padding: 0.4rem 1.2rem;
+            }
+
+            .form-group label {
+                font-size: 0.9rem;
+            }
+
+            .form-group input {
+                padding: 0.8rem 1rem;
+                font-size: 16px;
+            }
+
+            .btn-submit {
+                padding: 1rem 1.5rem;
+                font-size: 1rem;
+            }
+
+            .info-box {
+                padding: 1rem 1.2rem;
+                font-size: 0.85rem;
+            }
+
+            .code-hint {
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 375px) {
+            .form-header h1 {
+                font-size: 1.3rem;
+            }
+
+            .form-group {
+                margin-bottom: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="loading-content">
+            <div class="spinner"></div>
+            <div class="loading-text">Zpracovávám...</div>
+        </div>
+    </div>
+
+    <!-- ==================== LOGIN SECTION ==================== -->
+    <section id="loginSection">
+        <div class="form-box">
+            <div class="form-header">
+                <div class="form-badge">Test osobnosti</div>
+                <h1>Vstup do testu</h1>
+                <p>Vyplň své údaje a zadej přístupový kód</p>
+            </div>
+
+            <!-- Messages -->
+            <div id="loginMessage" class="message"></div>
+
+            <!-- Form -->
+            <form id="accessForm">
+                <div class="form-group">
+                    <label for="firstName">Jméno *</label>
+                    <input type="text" id="firstName" required placeholder="Tvoje jméno">
+                </div>
+
+                <div class="form-group">
+                    <label for="lastName">Příjmení *</label>
+                    <input type="text" id="lastName" required placeholder="Tvoje příjmení">
+                </div>
+
+                <div class="form-group">
+                    <label for="sport">Sport *</label>
+                    <input type="text" id="sport" required placeholder="Jaký sport děláš/dělal">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" required placeholder="tvuj@email.cz">
+                </div>
+
+                <div class="form-group">
+                    <label for="accessCode">Přístupový kód *</label>
+                    <input type="text" id="accessCode" class="code-input" required placeholder="Zadej kód" maxlength="20">
+                    <div class="code-hint">Kód rozlišuje velká a malá písmena</div>
+                </div>
+
+                <button type="submit" class="btn-submit" id="submitBtn">
+                    Vstoupit do testu →
+                </button>
+
+                <div class="info-box">
+                    <strong>Co tě čeká:</strong>
+                    Test obsahuje 120 otázek a zabere přibližně 20 minut. Odpovídej upřímně – výsledky ti pomůžou lépe poznat sám sebe.
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- ==================== TEST SECTION ==================== -->
+    <section id="testSection">
+        <!-- Progress Header -->
+        <div class="progress-header">
+            <div class="progress-container">
+                <div class="progress-text">
+                    <span>Otázka <strong id="currentQuestion">1</strong> z <strong>120</strong></span>
+                    <span id="progressPercent">0%</span>
+                </div>
+                <div class="progress-bar">
+                    <div id="progressFill" class="progress-fill" style="width: 0%"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Test Container -->
+        <div class="test-container">
+            <div id="testBox" class="test-box">
+                <div class="question-number" id="questionNumber">Otázka 1</div>
+                <h2 class="question-text" id="questionText"></h2>
+
+                <div class="options-container" id="optionsContainer">
+                    <!-- Options will be generated by JavaScript -->
+                </div>
+
+                <div class="nav-buttons">
+                    <button class="btn-nav btn-back" id="btnBack" disabled>← Zpět</button>
+                    <button class="btn-nav btn-next" id="btnNext" disabled>Další →</button>
+                </div>
+            </div>
+
+            <!-- Completion Screen -->
+            <div id="completionScreen" class="test-box completion-screen">
+                <div class="completion-icon">🎉</div>
+                <h1>Děkujeme!</h1>
+                <p>
+                    Test byl dokončen. Výsledky zpracuji a ozvu se na uvedený email.
+                    <br><br>
+                    Díky za důvěru a těším se na další spolupráci!
+                </p>
+                <a href="index.html" class="btn-home">Zpět na hlavní stránku</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // ==================== CONSTANTS ====================
+        const VALID_CODE = 'SPORTOVEC27_';
+        const GOOGLE_SHEETS_WEBHOOK = "https://script.google.com/macros/s/AKfycbyhnQWh6dBd1v72aDznJNtqK6YQsr8FdyNbpr1t-W7cKknuroS-EvkO6bZA839R_s2Q/exec";
+
+        // ==================== USER DATA (stored in memory, not localStorage) ====================
+        let userData = {
+            firstName: '',
+            lastName: '',
+            sport: '',
+            email: ''
+        };
+
+        // ==================== TEST DATA ====================
+        const questions = [
+            "Dělám si starosti",
+            "Snadno si hledám kamarády",
+            "Mám živou představivost",
+            "Mám důvěru k druhým",
+            "Úspěšně dotahuju věci do konce",
+            "Snadno se naštvu",
+            "Miluju velké párty",
+            "Věřím v důležitost umění",
+            "Využívám ostatní pro své obohacení",
+            "Rád/a uklízím",
+            "Často se cítím smutně",
+            "Beru situace do vlastních rukou",
+            "Intenzivně cítím své emoce",
+            "Rád/a pomáhám ostatním",
+            "Dodržuju slovo",
+            "Je pro mě těžké navázat kontakt s ostatními",
+            "Jsem pořád zaneprázdněný/á",
+            "Preferuji pestrost před rutinou",
+            "Rád/a se porvu",
+            "Tvrdě pracuji",
+            "Často neřízeně utrácím/jím/chodím na párty",
+            "Miluju vzrušení",
+            "Rád/a čtu náročnou literaturu",
+            "Věřím, že jsem lepší než ostatní",
+            "Jsem vždy připravený/á",
+            "Lehce panikařím",
+            "Vyzařuji radost",
+            "Většinou volím liberální politické kandidáty nebo strany",
+            "Sympatizuji s lidmi bez domova",
+            "Skáču do věcí po hlavě",
+            "Obávám se nejhoršího",
+            "Cítím se příjemně v přítomnosti lidí",
+            "Užívám si divoké úlety do své fantazie",
+            "Věřím, že ostatní mají dobré úmysly",
+            "Exceluji v tom, co dělám",
+            "Je lehké mě podráždit",
+            "Na večírcích se bavím s mnoha různými lidmi",
+            "Vidím krásu ve věcech, kde si jí mnozí nevšimnou",
+            "Podvádím, abych se posunul dál",
+            "Často zapomínám vracet věci na původní místo",
+            "Nemám rád sebe sama",
+            "Snažím se ostatní vést",
+            "Cítím emoce ostatních",
+            "Bojím se o druhé",
+            "Říkám pravdu",
+            "Nerad/a k sobě přitahuji pozornost",
+            "Jsem pořád na cestách",
+            "Radši se držím věcí, které znám",
+            "Křičím na lidi",
+            "Dělám víc než je ode mne očekáváno",
+            "Málokdy si dopřávám příliš",
+            "Vyhledávám dobrodružství",
+            "Vyhýbám se filozofickým debatám",
+            "Myslím si o sobě, že jsem něco víc",
+            "Plním svoje plány",
+            "Jsem zahlcen událostmi",
+            "Velice se bavím",
+            "Věřím, že nic není jen dobré nebo jen špatné",
+            "Jsem empatický/á k těm, kdo jsou na tom hůř než já",
+            "Dělám unáhlená rozhodnutí",
+            "Bojím se mnoha věcí",
+            "Vyhýbám se kontaktu s ostatními",
+            "Rád/a sním s otevřenýma očima",
+            "Věřím tomu, co lidé říkají",
+            "Hladce zvládám úkoly",
+            "Ztrácím nervy",
+            "Jsem radši osamotě",
+            "Nemám rád/a poezii",
+            "Využívám ostatní",
+            "Ve svém pokoji mám binec",
+            "Jsem často psychicky na dně",
+            "Beru věci pod kontrolu",
+            "Málokdy si všímám svých emočních reakcí",
+            "Pocity ostatních mě nezajímají",
+            "Porušuju pravidla",
+            "Cítím se příjemně jen s kamarády",
+            "Ve svém volném čase toho hodně stihnu",
+            "Nemám rád/a změny",
+            "Urážím lidi",
+            "Dělám jen tolik, kolik je potřeba, nic navíc",
+            "Snadno odolávám pokušení",
+            "Užívám si bezohlednost",
+            "Těžko chápu abstraktní témata",
+            "Hodně si o sobě myslím",
+            "Plýtvám časem",
+            "Mám pocit že se nedokážu s věcmi vyrovnat",
+            "Miluju život",
+            "Většinou volím konzervativní politické kandidáty nebo strany",
+            "Problémy ostatních mě nezajímají",
+            "Spěchám do věcí",
+            "Je snadné mě vystresovat",
+            "Držím si ostatní dál od těla",
+            "Rád/a se ztrácím v myšlenkách",
+            "Nevěřím lidem",
+            "Vím, jak věci dotáhnout do konce",
+            "Nenechám se lehce otrávit",
+            "Vyhýbám se davům",
+            "Nerad chodím na umělecké výstavy",
+            "Narušuju ostatním plány",
+            "Pořád někde něco nechávám",
+            "Jsem se sebou spokojený/á",
+            "Čekám, až se někdo ujme velení",
+            "Nechápu lidi, kteří jsou snadno dojatí",
+            "Neplýtvám svůj čas na ostatní",
+            "Porušuji sliby",
+            "Složité sociální situace mi nevadí",
+            "Rád/a beru věci na pohodu",
+            "Držím se tradičních způsobů",
+            "Když mi někdo ukřivdí, vrátím jim to",
+            "Své práci nevěnuji valné úsilí ani čas",
+            "Dokážu ovládat své touhy",
+            "Chovám se divoce a šíleně",
+            "Teoretické diskuze mě nezajímají",
+            "Vychloubám se svými přednostmi",
+            "Je pro mě těžké něco začít",
+            "Pod tlakem se držím v klidu",
+            "Na život nahlížím z té lepší stránky",
+            "Věřím, že bychom měli být přísní vůči zločinu",
+            "Snažím se nemyslet na potřebné",
+            "Konám bez uvážení"
+        ];
+
+        const answerOptions = [
+            { text: "Rozhodně nesouhlasím", value: 1 },
+            { text: "Spíše nesouhlasím", value: 2 },
+            { text: "Nejsem si jistý/á", value: 3 },
+            { text: "Spíše souhlasím", value: 4 },
+            { text: "Rozhodně souhlasím", value: 5 }
+        ];
+
+        let currentQuestionIndex = 0;
+        let answers = new Array(120).fill(null);
+
+        // ==================== LOGIN PHASE ====================
+        const loginSection = document.getElementById('loginSection');
+        const testSection = document.getElementById('testSection');
+        const accessForm = document.getElementById('accessForm');
+        const loginMessage = document.getElementById('loginMessage');
+        const submitBtn = document.getElementById('submitBtn');
+
+        // Show message
+        function showLoginMessage(text, type = 'error') {
+            loginMessage.textContent = text;
+            loginMessage.className = `message ${type}`;
+            loginMessage.style.display = 'block';
+
+            if (type === 'error') {
+                setTimeout(() => {
+                    loginMessage.style.display = 'none';
+                }, 5000);
+            }
+        }
+
+        // Hide message
+        function hideLoginMessage() {
+            loginMessage.style.display = 'none';
+        }
+
+        // Form submit
+        accessForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            hideLoginMessage();
+
+            // Get form values
+            const firstName = document.getElementById('firstName').value.trim();
+            const lastName = document.getElementById('lastName').value.trim();
+            const sport = document.getElementById('sport').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const accessCode = document.getElementById('accessCode').value.trim();
+
+            // Validation
+            if (!firstName || !lastName || !sport || !email || !accessCode) {
+                showLoginMessage('Všechna pole jsou povinná.', 'error');
+                return;
+            }
+
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                showLoginMessage('Neplatný formát emailu.', 'error');
+                document.getElementById('email').classList.add('error');
+                return;
+            }
+
+            // Access code validation (case-sensitive)
+            if (accessCode !== VALID_CODE) {
+                showLoginMessage('Neplatný přístupový kód. Zkontroluj správné zadání (kód rozlišuje velká a malá písmena).', 'error');
+                document.getElementById('accessCode').classList.add('error');
+                return;
+            }
+
+            // All valid - save to memory
+            console.log('✓ Validace úspěšná');
+            console.log('Ukládám data do paměti:', {firstName, lastName, sport, email});
+
+            userData.firstName = firstName;
+            userData.lastName = lastName;
+            userData.sport = sport;
+            userData.email = email;
+
+            console.log('✓ Data uložena:', userData);
+
+            // Track event
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'access_code_valid', {
+                    'event_category': 'engagement'
+                });
+            }
+
+            // Show success and switch to test
+            showLoginMessage('Přístup povolen! Načítám test...', 'success');
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Načítám test...';
+
+            setTimeout(() => {
+                console.log('Přepínám na test');
+                loginSection.classList.add('hidden');
+                testSection.classList.add('active');
+                loadQuestion();
+                window.scrollTo({ top: 0 });
+            }, 1500);
+        });
+
+        // Remove error class on input
+        document.querySelectorAll('#accessForm input').forEach(input => {
+            input.addEventListener('input', () => {
+                input.classList.remove('error');
+            });
+        });
+
+        // ==================== TEST PHASE ====================
+        // Load question
+        function loadQuestion() {
+            const questionText = document.getElementById('questionText');
+            const questionNumber = document.getElementById('questionNumber');
+            const currentQuestionEl = document.getElementById('currentQuestion');
+            const progressFill = document.getElementById('progressFill');
+            const progressPercent = document.getElementById('progressPercent');
+            const optionsContainer = document.getElementById('optionsContainer');
+            const btnBack = document.getElementById('btnBack');
+            const btnNext = document.getElementById('btnNext');
+
+            // Update question text
+            questionText.textContent = questions[currentQuestionIndex];
+            questionNumber.textContent = `Otázka ${currentQuestionIndex + 1}`;
+            currentQuestionEl.textContent = currentQuestionIndex + 1;
+
+            // Update progress
+            const progress = ((currentQuestionIndex + 1) / 120) * 100;
+            progressFill.style.width = `${progress}%`;
+            progressPercent.textContent = `${Math.round(progress)}%`;
+
+            // Clear options
+            optionsContainer.innerHTML = '';
+
+            // Generate options
+            answerOptions.forEach((option, index) => {
+                const optionDiv = document.createElement('div');
+                optionDiv.className = 'option';
+                optionDiv.dataset.value = option.value;
+
+                if (answers[currentQuestionIndex] === option.value) {
+                    optionDiv.classList.add('selected');
+                }
+
+                optionDiv.innerHTML = `
+                    <div class="option-radio"></div>
+                    <div class="option-text">${option.text}</div>
+                    <div class="option-value">${option.value}</div>
+                `;
+
+                optionDiv.addEventListener('click', () => selectAnswer(option.value));
+
+                optionsContainer.appendChild(optionDiv);
+            });
+
+            // Update buttons
+            btnBack.disabled = currentQuestionIndex === 0;
+            btnNext.disabled = answers[currentQuestionIndex] === null;
+
+            // Update next button text
+            if (currentQuestionIndex === 119) {
+                btnNext.textContent = 'Dokončit test ✓';
+            } else {
+                btnNext.textContent = 'Další →';
+            }
+        }
+
+        // Select answer
+        function selectAnswer(value) {
+            answers[currentQuestionIndex] = value;
+
+            // Update UI
+            document.querySelectorAll('.option').forEach(opt => {
+                opt.classList.remove('selected');
+                if (parseInt(opt.dataset.value) === value) {
+                    opt.classList.add('selected');
+                }
+            });
+
+            // Enable next button
+            document.getElementById('btnNext').disabled = false;
+
+            // Auto-advance after 300ms
+            setTimeout(() => {
+                if (currentQuestionIndex < 119) {
+                    nextQuestion();
+                }
+            }, 300);
+        }
+
+        // Next question
+        function nextQuestion() {
+            // Check if current question is answered
+            if (answers[currentQuestionIndex] === null) {
+                alert(`Prosím vyber odpověď na aktuální otázku (${currentQuestionIndex + 1}/120) před přechodem na další.`);
+                return;
+            }
+
+            if (currentQuestionIndex < 119) {
+                currentQuestionIndex++;
+                loadQuestion();
+
+                // Scroll to top
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else {
+                // Submit test
+                submitTest();
+            }
+        }
+
+        // Previous question
+        function prevQuestion() {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                loadQuestion();
+
+                // Scroll to top
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        // Submit test (using Image beacon with GET request to bypass CORS)
+        function submitTest() {
+            console.log('=== ZAČÁTEK SUBMITTESTU ===');
+            console.log('1. Kontrola odpovědí...');
+
+            // Check if all questions answered
+            const unanswered = answers.findIndex(a => a === null);
+            if (unanswered !== -1) {
+                alert(`Prosím odpověz na všechny otázky. Chybí odpověď na otázku ${unanswered + 1}.`);
+                currentQuestionIndex = unanswered;
+                loadQuestion();
+                return;
+            }
+            console.log('✓ Všechny otázky odpovězeny');
+
+            // Show loading
+            const loadingOverlay = document.getElementById('loadingOverlay');
+            loadingOverlay.querySelector('.loading-text').textContent = 'Odesílám odpovědi...';
+            loadingOverlay.classList.add('active');
+
+            console.log('2. Načítám data z paměti...');
+            console.log('✓ firstName:', userData.firstName);
+            console.log('✓ lastName:', userData.lastName);
+            console.log('✓ sport:', userData.sport);
+            console.log('✓ email:', userData.email);
+
+            console.log('3. Připravuji data pro odeslání...');
+            // Prepare data
+            const testData = {
+                timestamp: new Date().toISOString(),
+                firstName: userData.firstName,
+                lastName: userData.lastName,
+                sport: userData.sport,
+                email: userData.email,
+                answers: answers
+            };
+            console.log('✓ testData připravena');
+            console.log('   - timestamp:', testData.timestamp);
+            console.log('   - firstName:', testData.firstName);
+            console.log('   - lastName:', testData.lastName);
+            console.log('   - sport:', testData.sport);
+            console.log('   - email:', testData.email);
+            console.log('   - počet odpovědí:', testData.answers.length);
+            console.log('   - první 5 odpovědí:', testData.answers.slice(0, 5));
+
+            console.log('4. Kóduji data pro GET request...');
+            // USE GET REQUEST WITH IMAGE BEACON - bypasses CORS
+            const encodedData = encodeURIComponent(JSON.stringify(testData));
+            const url = GOOGLE_SHEETS_WEBHOOK + '?data=' + encodedData;
+
+            console.log('5. Odesílám data pomocí Image beacon...');
+            console.log('   - URL délka:', url.length, 'znaků');
+            console.log('   - Webhook:', GOOGLE_SHEETS_WEBHOOK);
+
+            // Send data via image beacon (bypasses CORS)
+            const img = new Image();
+            img.onload = function() {
+                console.log('✓ Image beacon onload (data pravděpodobně odeslána)');
+            };
+            img.onerror = function() {
+                console.log('✓ Image beacon onerror (normální pro CORS - data odeslána)');
+            };
+            img.src = url;
+
+            // Track completion
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'test_completed', {
+                    'event_category': 'engagement',
+                    'value': 1
+                });
+            }
+
+            // Wait 2 seconds then show completion screen
+            setTimeout(() => {
+                console.log('✓ Data odeslána');
+
+                // Hide loading
+                loadingOverlay.classList.remove('active');
+
+                // Show completion screen
+                document.getElementById('testBox').style.display = 'none';
+                document.getElementById('completionScreen').classList.add('active');
+
+                // Scroll to top
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+
+                console.log('=== SUBMITTEST DOKONČEN ===');
+            }, 2000);
+        }
+
+        // Button event listeners
+        document.getElementById('btnNext').addEventListener('click', nextQuestion);
+        document.getElementById('btnBack').addEventListener('click', prevQuestion);
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            // Only handle keyboard shortcuts when test is active
+            if (!testSection.classList.contains('active')) return;
+
+            if (e.key === 'ArrowLeft' && currentQuestionIndex > 0) {
+                prevQuestion();
+            } else if (e.key === 'ArrowRight') {
+                nextQuestion();
+            } else if (e.key >= '1' && e.key <= '5') {
+                const value = parseInt(e.key);
+                selectAnswer(value);
+            }
+        });
+
+        // Prevent accidental page reload
+        window.addEventListener('beforeunload', (e) => {
+            if (testSection.classList.contains('active') && currentQuestionIndex > 0 && currentQuestionIndex < 119) {
+                e.preventDefault();
+                e.returnValue = 'Máš rozpracovaný test. Opravdu chceš odejít?';
+            }
+        });
+
+        // DEBUG FUNKCE - Spusť v konzoli: testWebhook()
+        window.testWebhook = function() {
+            console.log('=== TEST WEBHOOK FUNKCE ===');
+
+            const testData = {
+                timestamp: new Date().toISOString(),
+                firstName: "TEST",
+                lastName: "TESTOVACÍ",
+                sport: "Fotbal",
+                email: "test@example.com",
+                answers: Array(120).fill(3)
+            };
+
+            console.log('Testovací data:', testData);
+            console.log('Webhook URL:', GOOGLE_SHEETS_WEBHOOK);
+            console.log('Odesílám testovací data přes Image beacon...');
+
+            // USE GET REQUEST WITH IMAGE BEACON (same as submitTest)
+            const encodedData = encodeURIComponent(JSON.stringify(testData));
+            const url = GOOGLE_SHEETS_WEBHOOK + '?data=' + encodedData;
+
+            console.log('URL délka:', url.length, 'znaků');
+
+            // Send data via image beacon
+            const img = new Image();
+            img.onload = function() {
+                console.log('✓ Image beacon onload');
+            };
+            img.onerror = function() {
+                console.log('✓ Image beacon onerror (normální pro CORS)');
+            };
+            img.src = url;
+
+            console.log('✓ Data odeslána!');
+            alert('✓ Test odeslán! Zkontroluj Google Sheet za chvíli - měl by tam být nový řádek s testovacími daty.');
+        };
+
+        console.log('✓ Test aplikace načtena');
+        console.log('💡 DEBUG MODE: Pro otestování webhooku spusť v konzoli: testWebhook()');
+    </script>
+</body>
+</html>

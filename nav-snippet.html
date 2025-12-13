@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Přidání tlačítka Přihlášení do navigace</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, system-ui, sans-serif;
+            line-height: 1.7;
+            background: linear-gradient(135deg, #0E1B2E 0%, #1a2a44 100%);
+            min-height: 100vh;
+            padding: 3rem 2rem;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            color: #0E1B2E;
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            border-bottom: 4px solid #C9A227;
+            padding-bottom: 1rem;
+        }
+
+        .intro {
+            background: #E3F2FD;
+            border-left: 4px solid #2196F3;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+        }
+
+        h2 {
+            color: #0E1B2E;
+            font-size: 1.6rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        h3 {
+            color: #C9A227;
+            font-size: 1.2rem;
+            margin-top: 2rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .file-list {
+            background: #FFF9E6;
+            border-left: 4px solid #C9A227;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+
+        .file-list ul {
+            margin-left: 1.5rem;
+            margin-top: 0.8rem;
+        }
+
+        .file-list li {
+            margin: 0.5rem 0;
+        }
+
+        .code-section {
+            background: #f8f9fa;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .code-label {
+            background: #0E1B2E;
+            color: #C9A227;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        pre {
+            background: #1E1E1E;
+            color: #D4D4D4;
+            padding: 1.5rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .highlight {
+            background: #FFFACD;
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+            font-weight: 600;
+            color: #0E1B2E;
+        }
+
+        .success-box {
+            background: #E8F5E9;
+            border-left: 4px solid #4CAF50;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+        }
+
+        .warning-box {
+            background: #FFF3E0;
+            border-left: 4px solid #FF9800;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+        }
+
+        .step {
+            background: #E3F2FD;
+            padding: 1.2rem 1.5rem;
+            margin: 1rem 0;
+            border-radius: 8px;
+            border-left: 4px solid #2196F3;
+        }
+
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: #2196F3;
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            font-weight: 700;
+            margin-right: 1rem;
+            font-size: 1.1rem;
+        }
+
+        code {
+            background: #f0f0f0;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            color: #d63384;
+            font-size: 0.9rem;
+        }
+
+        .btn-copy {
+            background: #C9A227;
+            color: #0E1B2E;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-top: 1rem;
+            transition: all 0.3s;
+        }
+
+        .btn-copy:hover {
+            background: #B8941F;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(201, 162, 39, 0.4);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 2px solid #E0E0E0;
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1.5rem 1rem;
+            }
+
+            .container {
+                padding: 2rem 1.5rem;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            pre {
+                font-size: 0.8rem;
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📋 Návod: Přidání tlačítka "Přihlášení" do navigace</h1>
+
+        <div class="intro">
+            <strong>📌 Co tento návod řeší:</strong><br>
+            Tento soubor ti ukáže, jak přidat tlačítko <strong>"Přihlášení"</strong> do navigace na všech stránkách webu sportovci-kariera.cz.
+        </div>
+
+        <h2>📂 Soubory k úpravě</h2>
+
+        <div class="file-list">
+            <strong>Přidej tlačítko "Přihlášení" do těchto souborů:</strong>
+            <ul>
+                <li>✅ <code>index.html</code></li>
+                <li>✅ <code>o-mne.html</code></li>
+                <li>✅ <code>kontakt.html</code></li>
+                <li>✅ <code>bronzovy-program.html</code></li>
+                <li>✅ <code>stribrny-program.html</code></li>
+                <li>✅ <code>zlaty-program.html</code></li>
+                <li>✅ <code>clanky.html</code> (pokud existuje)</li>
+            </ul>
+        </div>
+
+        <div class="warning-box">
+            <strong>⚠️ NEPŘIDÁVEJ do těchto souborů:</strong><br>
+            <code>prihlaseni.html</code>, <code>member.html</code>, <code>test.html</code> - tyto stránky mají vlastní navigaci.
+        </div>
+
+        <hr style="margin: 3rem 0; border: none; border-top: 2px solid #E0E0E0;">
+
+        <h2>🔧 Postup přidání</h2>
+
+        <div class="step">
+            <span class="step-number">1</span>
+            <strong>Otevři HTML soubor</strong> v textovém editoru (např. VS Code, Sublime Text)
+        </div>
+
+        <div class="step">
+            <span class="step-number">2</span>
+            <strong>Najdi navigační seznam</strong> - hledej sekci <code>&lt;ul class="nav-links"&gt;</code>
+        </div>
+
+        <div class="step">
+            <span class="step-number">3</span>
+            <strong>Najdi poslední položku</strong> v seznamu - typicky <code>&lt;a href="kontakt.html"&gt;</code>
+        </div>
+
+        <div class="step">
+            <span class="step-number">4</span>
+            <strong>Přidej nový řádek</strong> <span class="highlight">PO poslední položce</span>, ale <span class="highlight">PŘED &lt;/ul&gt;</span>
+        </div>
+
+        <h2>📝 Kód k přidání</h2>
+
+        <div class="code-section">
+            <div class="code-label">HTML kód - zkopíruj a vlož</div>
+            <pre id="htmlCode">&lt;li&gt;&lt;a href="prihlaseni.html" class="nav-login"&gt;Přihlášení&lt;/a&gt;&lt;/li&gt;</pre>
+            <button class="btn-copy" onclick="copyCode('htmlCode')">📋 Zkopírovat kód</button>
+        </div>
+
+        <h2>📸 Příklad: Před a Po</h2>
+
+        <h3>PŘED - Původní navigace:</h3>
+        <div class="code-section">
+            <pre>&lt;ul class="nav-links" id="navLinks"&gt;
+    &lt;li&gt;&lt;a href="index.html"&gt;Domů&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="o-mne.html"&gt;O mně&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#jak-to-funguje"&gt;Jak to funguje&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="clanky.html"&gt;Články&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="kontakt.html" class="nav-cta"&gt;Začít →&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</pre>
+        </div>
+
+        <h3>PO - Nová navigace s tlačítkem Přihlášení:</h3>
+        <div class="code-section">
+            <pre>&lt;ul class="nav-links" id="navLinks"&gt;
+    &lt;li&gt;&lt;a href="index.html"&gt;Domů&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="o-mne.html"&gt;O mně&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#jak-to-funguje"&gt;Jak to funguje&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="clanky.html"&gt;Články&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="kontakt.html" class="nav-cta"&gt;Začít →&lt;/a&gt;&lt;/li&gt;
+    <span style="background: #FFFACD; padding: 2px 4px; font-weight: 700;">&lt;li&gt;&lt;a href="prihlaseni.html" class="nav-login"&gt;Přihlášení&lt;/a&gt;&lt;/li&gt;</span>
+&lt;/ul&gt;</pre>
+        </div>
+
+        <h2>🎨 CSS Styling (volitelné)</h2>
+
+        <p>Pokud chceš, aby tlačítko mělo speciální vzhled (zlatý rámeček), přidej tento CSS kód do sekce <code>&lt;style&gt;</code> v každém HTML souboru:</p>
+
+        <div class="code-section">
+            <div class="code-label">CSS kód - volitelný styling</div>
+            <pre id="cssCode">/* Styling pro tlačítko Přihlášení */
+.nav-login {
+    border: 2px solid #C9A227;
+    padding: 0.5rem 1.2rem !important;
+    border-radius: 8px;
+    color: #C9A227 !important;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.nav-login:hover {
+    background: #C9A227;
+    color: #0E1B2E !important;
+}</pre>
+            <button class="btn-copy" onclick="copyCode('cssCode')">📋 Zkopírovat CSS</button>
+        </div>
+
+        <div class="warning-box">
+            <strong>💡 Poznámka:</strong><br>
+            CSS styling je volitelný. Pokud ho nepřidáš, tlačítko bude mít standardní vzhled jako ostatní odkazy v navigaci.
+        </div>
+
+        <h2>✅ Kontrolní checklist</h2>
+
+        <div style="background: #f8f9fa; padding: 2rem; border-radius: 12px; margin: 2rem 0;">
+            <p><strong>Zaškrtni po dokončení každého kroku:</strong></p>
+            <ul style="list-style: none; margin-top: 1rem; margin-left: 0;">
+                <li style="margin: 0.8rem 0;">☐ Přidal/a jsem tlačítko do <code>index.html</code></li>
+                <li style="margin: 0.8rem 0;">☐ Přidal/a jsem tlačítko do <code>o-mne.html</code></li>
+                <li style="margin: 0.8rem 0;">☐ Přidal/a jsem tlačítko do <code>kontakt.html</code></li>
+                <li style="margin: 0.8rem 0;">☐ Přidal/a jsem tlačítko do <code>bronzovy-program.html</code></li>
+                <li style="margin: 0.8rem 0;">☐ Přidal/a jsem tlačítko do <code>stribrny-program.html</code></li>
+                <li style="margin: 0.8rem 0;">☐ Přidal/a jsem tlačítko do <code>zlaty-program.html</code></li>
+                <li style="margin: 0.8rem 0;">☐ (Volitelně) Přidal/a jsem CSS styling</li>
+                <li style="margin: 0.8rem 0;">☐ Otestoval/a jsem tlačítko v prohlížeči</li>
+                <li style="margin: 0.8rem 0;">☐ Tlačítko funguje na desktopu</li>
+                <li style="margin: 0.8rem 0;">☐ Tlačítko funguje v mobilním menu</li>
+            </ul>
+        </div>
+
+        <h2>🧪 Testování</h2>
+
+        <div class="step">
+            <span class="step-number">5</span>
+            <strong>Otevři soubor v prohlížeči</strong> a zkontroluj, že se tlačítko zobrazuje
+        </div>
+
+        <div class="step">
+            <span class="step-number">6</span>
+            <strong>Klikni na tlačítko "Přihlášení"</strong> - mělo by tě přesměrovat na <code>prihlaseni.html</code>
+        </div>
+
+        <div class="step">
+            <span class="step-number">7</span>
+            <strong>Zkontroluj mobilní verzi</strong> - otevři mobilní menu (hamburger) a over, že tlačítko tam je
+        </div>
+
+        <div class="success-box">
+            <strong>✅ Hotovo!</strong><br>
+            Pokud vidíš tlačítko "Přihlášení" v navigaci a po kliknutí tě přesměruje na přihlašovací stránku, vše funguje správně!
+        </div>
+
+        <h2>🐛 Řešení problémů</h2>
+
+        <h3>Tlačítko se nezobrazuje</h3>
+        <ul>
+            <li>Zkontroluj, že jsi přidal kód <strong>UVNITŘ</strong> <code>&lt;ul class="nav-links"&gt;</code></li>
+            <li>Zkontroluj, že je kód <strong>PŘED</strong> uzavíracím tagem <code>&lt;/ul&gt;</code></li>
+            <li>Vymažte cache prohlížeče: <code>Ctrl+F5</code> (Windows) nebo <code>Cmd+Shift+R</code> (Mac)</li>
+        </ul>
+
+        <h3>Tlačítko nefunguje (nepřesměruje)</h3>
+        <ul>
+            <li>Zkontroluj, že odkaz je <code>href="prihlaseni.html"</code> (bez překlepu)</li>
+            <li>Zkontroluj, že soubor <code>prihlaseni.html</code> existuje ve stejné složce</li>
+        </ul>
+
+        <h3>Tlačítko má divný styl</h3>
+        <ul>
+            <li>Zkontroluj, že jsi správně přidal CSS kód do <code>&lt;style&gt;</code> sekce</li>
+            <li>Nebo odstraň <code>class="nav-login"</code> a nech standardní styl</li>
+        </ul>
+
+        <div class="success-box" style="margin-top: 3rem;">
+            <strong>🎉 Gratulujeme!</strong><br>
+            Úspěšně jsi přidal/a přihlašovací tlačítko do navigace. Nyní mohou uživatelé snadno najít cestu k přihlášení a testu osobnosti.
+        </div>
+
+        <footer>
+            <p><strong>Kariéra sportovců</strong></p>
+            <p style="margin-top: 0.5rem; font-size: 0.9rem;">Kontakt: info@sportovci-kariera.cz</p>
+        </footer>
+    </div>
+
+    <script>
+        function copyCode(elementId) {
+            const codeElement = document.getElementById(elementId);
+            const code = codeElement.textContent;
+
+            navigator.clipboard.writeText(code).then(() => {
+                // Get button that was clicked
+                const button = event.target;
+                const originalText = button.textContent;
+
+                // Show success message
+                button.textContent = '✅ Zkopírováno!';
+                button.style.background = '#4CAF50';
+                button.style.color = 'white';
+
+                // Reset after 2 seconds
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.style.background = '#C9A227';
+                    button.style.color = '#0E1B2E';
+                }, 2000);
+            }).catch(err => {
+                alert('Chyba při kopírování. Zkopíruj kód ručně.');
+                console.error('Copy failed:', err);
+            });
+        }
+    </script>
+</body>
+</html>

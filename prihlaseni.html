@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Přesměrování na test | Kariéra sportovců</title>
+    <meta http-equiv="refresh" content="0; url=test.html">
+    <script>
+        // Immediate redirect
+        window.location.replace('test.html');
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0E1B2E 0%, #1a2a44 100%);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+        .message {
+            background: white;
+            color: #0E1B2E;
+            padding: 2rem 3rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+        .spinner {
+            border: 4px solid rgba(201, 162, 39, 0.2);
+            border-top: 4px solid #C9A227;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        a {
+            color: #C9A227;
+            font-weight: 700;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="message">
+        <div class="spinner"></div>
+        <h1>Přesměrovávám...</h1>
+        <p>Pokud nejsi přesměrován/a automaticky, <a href="test.html">klikni zde</a>.</p>
+    </div>
+</body>
+</html>

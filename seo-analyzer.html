@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEO Analyzer - Rozvoj sportovců</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', -apple-system, system-ui, sans-serif;
+            background: linear-gradient(135deg, #0E1B2E 0%, #1a2942 100%);
+            color: white;
+            padding: 2rem;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid rgba(201, 162, 39, 0.3);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: #C9A227;
+        }
+        
+        .subtitle {
+            color: rgba(255,255,255,0.7);
+            font-size: 1.1rem;
+        }
+        
+        .controls {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+        }
+        
+        .file-input {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            background: white;
+            color: #0E1B2E;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-bottom: 1rem;
+        }
+        
+        .btn {
+            background: #C9A227;
+            color: #0E1B2E;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+        }
+        
+        .btn:hover {
+            background: #00E676;
+            transform: translateY(-2px);
+        }
+        
+        .btn:disabled {
+            background: rgba(255,255,255,0.3);
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .results {
+            display: none;
+        }
+        
+        .results.show {
+            display: block;
+        }
+        
+        .score-card {
+            background: rgba(255,255,255,0.95);
+            color: #0E1B2E;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .score {
+            font-size: 4rem;
+            font-weight: 900;
+            margin: 1rem 0;
+        }
+        
+        .score.excellent { color: #00E676; }
+        .score.good { color: #C9A227; }
+        .score.poor { color: #ff4444; }
+        
+        .section {
+            background: rgba(255,255,255,0.95);
+            color: #0E1B2E;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .section h2 {
+            color: #0E1B2E;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #C9A227;
+        }
+        
+        .check-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            background: rgba(14, 27, 46, 0.05);
+            border-radius: 8px;
+            border-left: 4px solid transparent;
+        }
+        
+        .check-item.pass {
+            border-left-color: #00E676;
+        }
+        
+        .check-item.fail {
+            border-left-color: #ff4444;
+        }
+        
+        .check-item.warning {
+            border-left-color: #C9A227;
+        }
+        
+        .icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        
+        .check-content {
+            flex: 1;
+        }
+        
+        .check-title {
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+        
+        .check-desc {
+            color: rgba(14, 27, 46, 0.7);
+            font-size: 0.9rem;
+        }
+        
+        .recommendations {
+            background: rgba(255, 215, 0, 0.1);
+            border-left: 4px solid #C9A227;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+        }
+        
+        .recommendations h3 {
+            color: #C9A227;
+            margin-bottom: 0.5rem;
+        }
+        
+        .recommendations ul {
+            padding-left: 1.5rem;
+        }
+        
+        .recommendations li {
+            margin: 0.5rem 0;
+        }
+        
+        code {
+            background: rgba(14, 27, 46, 0.1);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .stat-box {
+            background: rgba(14, 27, 46, 0.05);
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 900;
+            color: #C9A227;
+        }
+        
+        .stat-label {
+            color: rgba(14, 27, 46, 0.7);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔍 SEO Analyzer</h1>
+            <p class="subtitle">Komplexní analýza SEO pro tvůj web</p>
+        </header>
+        
+        <div class="controls">
+            <input type="file" id="fileInput" class="file-input" accept=".html" multiple>
+            <button id="analyzeBtn" class="btn" onclick="analyzeFiles()">Analyzovat SEO</button>
+        </div>
+        
+        <div id="results" class="results">
+            <!-- Results will be inserted here -->
+        </div>
+    </div>
+    
+    <script>
+        let filesData = [];
+        
+        document.getElementById('fileInput').addEventListener('change', function(e) {
+            filesData = [];
+            const files = Array.from(e.target.files);
+            
+            files.forEach(file => {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    filesData.push({
+                        name: file.name,
+                        content: event.target.result
+                    });
+                };
+                reader.readAsText(file);
+            });
+        });
+        
+        function analyzeFiles() {
+            if (filesData.length === 0) {
+                alert('Prosím vyber HTML soubory k analýze');
+                return;
+            }
+            
+            const results = filesData.map(file => analyzeSingleFile(file));
+            displayResults(results);
+        }
+        
+        function analyzeSingleFile(file) {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(file.content, 'text/html');
+            
+            const checks = {
+                title: checkTitle(doc),
+                description: checkDescription(doc),
+                h1: checkH1(doc),
+                headings: checkHeadings(doc),
+                images: checkImages(doc),
+                links: checkLinks(doc),
+                canonical: checkCanonical(doc),
+                ogTags: checkOpenGraph(doc),
+                structuredData: checkStructuredData(file.content),
+                mobile: checkMobileOptimization(doc),
+                performance: checkPerformance(file.content),
+                accessibility: checkAccessibility(doc)
+            };
+            
+            const score = calculateScore(checks);
+            
+            return {
+                filename: file.name,
+                score: score,
+                checks: checks
+            };
+        }
+        
+        function checkTitle(doc) {
+            const title = doc.querySelector('title');
+            const titleText = title ? title.textContent : '';
+            const length = titleText.length;
+            
+            return {
+                pass: length >= 30 && length <= 60,
+                value: titleText,
+                length: length,
+                message: length === 0 ? 'Chybí title tag' :
+                        length < 30 ? `Title je příliš krátký (${length} znaků, doporučeno 30-60)` :
+                        length > 60 ? `Title je příliš dlouhý (${length} znaků, doporučeno 30-60)` :
+                        `Perfektní délka (${length} znaků)`,
+                recommendation: length < 30 ? 'Přidej více klíčových slov a context do title' : 
+                               length > 60 ? 'Zkrať title na 50-60 znaků' : null
+            };
+        }
+        
+        function checkDescription(doc) {
+            const meta = doc.querySelector('meta[name="description"]');
+            const desc = meta ? meta.getAttribute('content') : '';
+            const length = desc.length;
+            
+            return {
+                pass: length >= 120 && length <= 160,
+                value: desc,
+                length: length,
+                message: length === 0 ? 'Chybí meta description' :
+                        length < 120 ? `Description je příliš krátká (${length} znaků, doporučeno 120-160)` :
+                        length > 160 ? `Description je příliš dlouhá (${length} znaků, doporučeno 120-160)` :
+                        `Perfektní délka (${length} znaků)`,
+                recommendation: length < 120 ? 'Rozšiř description o více detailů a klíčových slov' :
+                               length > 160 ? 'Zkrať description na 150-160 znaků' : null
+            };
+        }
+        
+        function checkH1(doc) {
+            const h1Tags = doc.querySelectorAll('h1');
+            const count = h1Tags.length;
+            
+            return {
+                pass: count === 1,
+                count: count,
+                values: Array.from(h1Tags).map(h => h.textContent.trim()),
+                message: count === 0 ? 'Chybí H1 tag' :
+                        count > 1 ? `Příliš mnoho H1 tagů (${count}, měl by být jen 1)` :
+                        'H1 tag je správně použit',
+                recommendation: count === 0 ? 'Přidej jeden H1 tag na stránku' :
+                               count > 1 ? 'Ponechej pouze jeden H1 tag na stránku' : null
+            };
+        }
+        
+        function checkHeadings(doc) {
+            const h1 = doc.querySelectorAll('h1').length;
+            const h2 = doc.querySelectorAll('h2').length;
+            const h3 = doc.querySelectorAll('h3').length;
+            const h4 = doc.querySelectorAll('h4').length;
+            
+            const hasProperHierarchy = h1 > 0 && h2 > 0;
+            
+            return {
+                pass: hasProperHierarchy,
+                counts: { h1, h2, h3, h4 },
+                message: hasProperHierarchy ? 'Správná hierarchie nadpisů' : 'Chybí správná struktura nadpisů',
+                recommendation: !hasProperHierarchy ? 'Použij H1 pro hlavní nadpis a H2-H4 pro podnadpisy' : null
+            };
+        }
+        
+        function checkImages(doc) {
+            const images = doc.querySelectorAll('img');
+            const imagesWithoutAlt = Array.from(images).filter(img => !img.getAttribute('alt') || img.getAttribute('alt').trim() === '');
+            
+            return {
+                pass: imagesWithoutAlt.length === 0,
+                total: images.length,
+                withoutAlt: imagesWithoutAlt.length,
+                message: imagesWithoutAlt.length === 0 ? 
+                        `Všechny obrázky (${images.length}) mají alt text` :
+                        `${imagesWithoutAlt.length} z ${images.length} obrázků nemá alt text`,
+                recommendation: imagesWithoutAlt.length > 0 ? 
+                               'Přidej popisný alt text ke všem obrázkům pro accessibility a SEO' : null
+            };
+        }
+        
+        function checkLinks(doc) {
+            const links = doc.querySelectorAll('a[href]');
+            const externalLinks = Array.from(links).filter(a => {
+                const href = a.getAttribute('href');
+                return href && (href.startsWith('http://') || href.startsWith('https://'));
+            });
+            
+            const externalWithoutRel = externalLinks.filter(a => {
+                const rel = a.getAttribute('rel');
+                return !rel || (!rel.includes('noopener') && !rel.includes('noreferrer'));
+            });
+            
+            return {
+                pass: externalWithoutRel.length === 0,
+                total: links.length,
+                external: externalLinks.length,
+                needsFix: externalWithoutRel.length,
+                message: externalWithoutRel.length === 0 ?
+                        `Všechny externí odkazy (${externalLinks.length}) jsou správně označeny` :
+                        `${externalWithoutRel.length} externích odkazů potřebuje rel="noopener noreferrer"`,
+                recommendation: externalWithoutRel.length > 0 ?
+                               'Přidej rel="noopener noreferrer" k externím odkazům' : null
+            };
+        }
+        
+        function checkCanonical(doc) {
+            const canonical = doc.querySelector('link[rel="canonical"]');
+            
+            return {
+                pass: canonical !== null,
+                value: canonical ? canonical.getAttribute('href') : null,
+                message: canonical ? 'Canonical URL je nastaven' : 'Chybí canonical URL',
+                recommendation: !canonical ? 'Přidej <link rel="canonical"> pro prevenci duplicate content' : null
+            };
+        }
+        
+        function checkOpenGraph(doc) {
+            const ogTitle = doc.querySelector('meta[property="og:title"]');
+            const ogDesc = doc.querySelector('meta[property="og:description"]');
+            const ogImage = doc.querySelector('meta[property="og:image"]');
+            const ogUrl = doc.querySelector('meta[property="og:url"]');
+            
+            const hasAll = ogTitle && ogDesc && ogImage && ogUrl;
+            
+            return {
+                pass: hasAll,
+                tags: {
+                    title: !!ogTitle,
+                    description: !!ogDesc,
+                    image: !!ogImage,
+                    url: !!ogUrl
+                },
+                message: hasAll ? 'Všechny OG tagy jsou nastaveny' : 'Chybí některé Open Graph tagy',
+                recommendation: !hasAll ? 'Přidej všechny Open Graph tagy pro lepší sdílení na sociálních sítích' : null
+            };
+        }
+        
+        function checkStructuredData(content) {
+            const hasJsonLd = content.includes('application/ld+json');
+            const count = (content.match(/application\/ld\+json/g) || []).length;
+            
+            return {
+                pass: hasJsonLd,
+                count: count,
+                message: hasJsonLd ? `Nalezeno ${count} strukturovaných dat (JSON-LD)` : 'Chybí strukturovaná data',
+                recommendation: !hasJsonLd ? 'Přidej Schema.org strukturovaná data pro lepší zobrazení ve vyhledávání' : null
+            };
+        }
+        
+        function checkMobileOptimization(doc) {
+            const viewport = doc.querySelector('meta[name="viewport"]');
+            const viewportContent = viewport ? viewport.getAttribute('content') : '';
+            const hasViewport = viewportContent.includes('width=device-width');
+            
+            return {
+                pass: hasViewport,
+                message: hasViewport ? 'Viewport je správně nastaven' : 'Chybí nebo je špatně nastaven viewport',
+                recommendation: !hasViewport ? 'Přidej <meta name="viewport" content="width=device-width, initial-scale=1.0">' : null
+            };
+        }
+        
+        function checkPerformance(content) {
+            const size = new Blob([content]).size;
+            const sizeKB = (size / 1024).toFixed(2);
+            const isOptimal = size < 500 * 1024; // 500KB
+            
+            return {
+                pass: isOptimal,
+                sizeKB: sizeKB,
+                message: isOptimal ? 
+                        `Velikost souboru je optimální (${sizeKB} KB)` :
+                        `Soubor je příliš velký (${sizeKB} KB, doporučeno < 500 KB)`,
+                recommendation: !isOptimal ? 
+                               'Zvaž externalizaci CSS/JS a minifikaci kódu' : null
+            };
+        }
+        
+        function checkAccessibility(doc) {
+            const skipLink = doc.querySelector('a[href="#main-content"], a[href="#content"]');
+            const lang = doc.documentElement.getAttribute('lang');
+            
+            return {
+                pass: skipLink !== null && lang !== null,
+                hasSkipLink: !!skipLink,
+                hasLang: !!lang,
+                langValue: lang,
+                message: (skipLink && lang) ? 'Základní accessibility je implementována' :
+                        'Chybí některé accessibility prvky',
+                recommendation: (!skipLink || !lang) ? 
+                               'Přidej skip-to-content link a lang attribut na <html>' : null
+            };
+        }
+        
+        function calculateScore(checks) {
+            let total = 0;
+            let passed = 0;
+            
+            Object.values(checks).forEach(check => {
+                total++;
+                if (check.pass) passed++;
+            });
+            
+            return Math.round((passed / total) * 100);
+        }
+        
+        function displayResults(results) {
+            const resultsDiv = document.getElementById('results');
+            
+            const avgScore = Math.round(results.reduce((sum, r) => sum + r.score, 0) / results.length);
+            
+            let html = `
+                <div class="score-card">
+                    <h2>Celkové SEO Skóre</h2>
+                    <div class="score ${avgScore >= 80 ? 'excellent' : avgScore >= 60 ? 'good' : 'poor'}">
+                        ${avgScore}/100
+                    </div>
+                    <p>${avgScore >= 80 ? 'Výborné! Tvůj web má skvělé SEO' : 
+                         avgScore >= 60 ? 'Dobré! Několik vylepšení by ale pomohlo' :
+                         'Potřebuje zlepšení. Následuj doporučení níže'}</p>
+                </div>
+            `;
+            
+            results.forEach(result => {
+                html += generateFileReport(result);
+            });
+            
+            resultsDiv.innerHTML = html;
+            resultsDiv.classList.add('show');
+            
+            resultsDiv.scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        function generateFileReport(result) {
+            const { filename, score, checks } = result;
+            
+            let html = `
+                <div class="section">
+                    <h2>📄 ${filename}</h2>
+                    <div class="stats-grid">
+                        <div class="stat-box">
+                            <div class="stat-value">${score}</div>
+                            <div class="stat-label">SEO Skóre</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-value">${Object.values(checks).filter(c => c.pass).length}</div>
+                            <div class="stat-label">Úspěšné kontroly</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-value">${Object.values(checks).filter(c => !c.pass).length}</div>
+                            <div class="stat-label">Potřebuje opravu</div>
+                        </div>
+                    </div>
+                    
+                    ${generateCheckItem('Title Tag', checks.title)}
+                    ${generateCheckItem('Meta Description', checks.description)}
+                    ${generateCheckItem('H1 Nadpis', checks.h1)}
+                    ${generateCheckItem('Hierarchie Nadpisů', checks.headings)}
+                    ${generateCheckItem('Obrázky (Alt Text)', checks.images)}
+                    ${generateCheckItem('Externí Odkazy', checks.links)}
+                    ${generateCheckItem('Canonical URL', checks.canonical)}
+                    ${generateCheckItem('Open Graph Tags', checks.ogTags)}
+                    ${generateCheckItem('Strukturovaná Data', checks.structuredData)}
+                    ${generateCheckItem('Mobilní Optimalizace', checks.mobile)}
+                    ${generateCheckItem('Výkon', checks.performance)}
+                    ${generateCheckItem('Accessibility', checks.accessibility)}
+                </div>
+            `;
+            
+            return html;
+        }
+        
+        function generateCheckItem(title, check) {
+            const status = check.pass ? 'pass' : 'fail';
+            const icon = check.pass ? '✓' : '✗';
+            
+            return `
+                <div class="check-item ${status}">
+                    <div class="icon">${icon}</div>
+                    <div class="check-content">
+                        <div class="check-title">${title}</div>
+                        <div class="check-desc">${check.message}</div>
+                        ${check.recommendation ? `
+                            <div class="recommendations">
+                                <h3>💡 Doporučení:</h3>
+                                <p>${check.recommendation}</p>
+                            </div>
+                        ` : ''}
+                    </div>
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>

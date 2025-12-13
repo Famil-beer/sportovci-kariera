@@ -1,0 +1,1390 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Osobní Rozvoj Sportovců - Články o Charakteru, Mindset a Kariéře</title>
+    <meta name="description" content="Praktické články o osobním rozvoji sportovců. Jak využít disciplínu, charakter a mindset ze sportu pro vzdělání, první práci a kariéru díky sportu.">
+    <meta name="keywords" content="kariéra sportovců, články pro sportovce, životopis, pracovní pohovor, vzdělání po sportu, kariérní poradenství pro sportovce, přechod z aktivního sportu, první práce po sportu, co dělat po konci sportovní kariéry, studium při sportu, kariérní změna po sportu, druhá kariéra sportovce, život po sportovní kariéře, jak najít práci jako bývalý sportovec, kam jít po fotbalové kariéře, přenositelné dovednosti sportovců">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Články | Kariéra sportovců">
+    <meta property="og:description" content="Praktické články a tipy pro sportovce o kariéře, vzdělání a přechodu do pracovního života.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.sportovci-kariera.cz/clanky.html">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.sportovci-kariera.cz/clanky.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="shortcut icon" href="/favicon.png">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NCXD6F7TWE"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-NCXD6F7TWE');
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* 🎨 Brand primární paleta podle DESIGNER.md */
+            --primary-dark: #0E1B2E;  /* 70% - tmavá modrá (pozadí, header) */
+            --light: #FFFFFF;         /* 70% - bílá (sekce, texty na tmavém) */
+            --gray: #F2F2F2;          /* 20% - světle šedá (karty, oddělení) */
+            --accent: #C9A227;        /* 10% - zlatá (CTA, zvýraznění) */
+
+            /* Pomocné proměnné - zpětná kompatibilita */
+            --primary: #0E1B2E;       /* alias pro primary-dark */
+            --secondary: #C9A227;     /* alias pro accent */
+            --dark: #0A0E27;          /* barva textu */
+            --success: #C9A227;       /* změněno z zelené na zlatou (brand) */
+            --text: #2C3E50;          /* barva textu pro články */
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--light);
+            scroll-behavior: smooth;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* SKIP LINK */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--primary);
+            color: white;
+            padding: 8px;
+            text-decoration: none;
+            z-index: 100;
+        }
+        .skip-link:focus {
+            top: 0;
+        }
+
+        /* NAVIGATION - FLOATING PILL STYLE FROM INDEX.HTML */
+        nav {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 0.875rem 1.5rem;
+            border-radius: 50px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            display: flex;
+            flex-wrap: nowrap;
+            gap: 1.25rem;
+            align-items: center;
+            max-width: 90%;
+        }
+
+        .logo {
+            font-weight: 900;
+            font-size: 1.1rem;
+            color: var(--primary);
+            text-decoration: none;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-icon {
+            flex-shrink: 0;
+            width: 32px;
+            height: 32px;
+        }
+
+        .logo-text {
+            font-weight: 900;
+            font-size: 1.1rem;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: nowrap;
+            gap: 1.25rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            font-size: 0.875rem;
+            transition: color 0.3s;
+            white-space: nowrap;
+            word-break: keep-all;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        .nav-links .nav-cta {
+            background: #00E676;
+            color: var(--dark) !important;
+            padding: 0.6rem 1.2rem;
+            border-radius: 12px;
+            font-weight: 700;
+            transition: all 0.3s;
+        }
+        .nav-links .nav-cta:hover {
+            background: #00C853;
+            transform: translateY(-2px);
+            color: var(--dark) !important;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark);
+            min-width: 44px;
+            min-height: 44px;
+            padding: 0.5rem;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            transition: background 0.2s;
+            position: relative;
+            z-index: 10001;
+            -webkit-tap-highlight-color: rgba(14, 27, 46, 0.2);
+            touch-action: manipulation;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        .menu-toggle:hover {
+            background: rgba(14, 27, 46, 0.08);
+        }
+
+        .menu-toggle:active {
+            background: rgba(14, 27, 46, 0.15);
+        }
+
+        /* Mobile menu backdrop */
+        .menu-backdrop {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.25);
+            z-index: 9999;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .menu-backdrop.active {
+            display: block;
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* HERO SECTION - STEJNÝ STYL JAKO HOMEPAGE */
+        .hero-blog {
+            min-height: 60vh;
+            background: linear-gradient(135deg, #0E1B2E 0%, #1a2942 50%, rgba(201, 162, 39, 0.15) 100%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            padding: 8rem 2rem 4rem;
+            color: white;
+        }
+
+        .hero-blog::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 50%, rgba(255, 255, 255, 0.08) 0%, transparent 50%);
+            animation: float 25s ease-in-out infinite;
+            left: 0;
+            top: 0;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(-10%, -10%) rotate(0deg); }
+            50% { transform: translate(10%, 10%) rotate(180deg); }
+        }
+
+        .hero-blog-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-blog h1 {
+            font-size: clamp(2.5rem, 7vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 20px rgba(0, 0, 0, 0.3);
+            line-height: 1.1;
+        }
+
+        .hero-blog p {
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+            color: rgba(255, 255, 255, 0.95);
+            max-width: 800px;
+            margin: 0 auto;
+            text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
+            font-weight: 500;
+            line-height: 1.5;
+        }
+
+        /* CATEGORY FILTERS - UPDATED TO MATCH SITE BUTTONS */
+        .category-filters {
+            background: white;
+            padding: 1.5rem 2rem;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 100px;
+            z-index: 999;
+        }
+
+        .filters-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .filter-label {
+            font-weight: 700;
+            color: var(--dark);
+            font-size: 1rem;
+        }
+
+        .filter-btn {
+            padding: 0.7rem 1.5rem;
+            border: 2px solid rgba(14, 27, 46, 0.2);
+            background: white;
+            border-radius: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            color: var(--dark);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        .filter-btn:hover {
+            background: rgba(14, 27, 46, 0.05);
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .filter-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            box-shadow: 0 5px 20px rgba(14, 27, 46, 0.3);
+        }
+
+        .filter-btn:focus {
+            outline: 3px solid rgba(14, 27, 46, 0.4);
+            outline-offset: 2px;
+        }
+
+        /* ARTICLES CONTAINER */
+        .articles-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        /* FEATURED ARTICLE - UPDATED TO MATCH SITE CARDS */
+        .featured-article {
+            background: white;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            margin-bottom: 4rem;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .featured-article:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(14, 27, 46, 0.15);
+            border-color: var(--primary);
+        }
+
+        .featured-image {
+            position: relative;
+            overflow: hidden;
+            height: 450px;
+        }
+
+        .featured-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .featured-article:hover .featured-image img {
+            transform: scale(1.05);
+        }
+
+        .featured-badge {
+            position: absolute;
+            top: 1.5rem;
+            left: 1.5rem;
+            background: var(--warning);
+            color: var(--dark);
+            padding: 0.5rem 1.2rem;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 0.85rem;
+        }
+
+        .featured-content {
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .category-tag {
+            display: inline-block;
+            background: var(--secondary);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            width: fit-content;
+        }
+
+        .category-tag.vzdelani { background: #667EEA; }
+        .category-tag.prace { background: #F59E0B; }
+        .category-tag.kariera { background: #10B981; }
+        .category-tag.motivace { background: #EC4899; }
+        .category-tag.tipy { background: #8B5CF6; }
+        .category-tag.rozhovory { background: #EF4444; }
+
+        .featured-content h2 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .featured-content .excerpt {
+            font-size: 1.1rem;
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .article-meta {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .btn-read {
+            background: var(--primary);
+            color: white;
+            padding: 1.2rem 2.5rem;
+            border-radius: 15px;
+            text-decoration: none;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            width: fit-content;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(14, 27, 46, 0.2);
+        }
+
+        .btn-read:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(14, 27, 46, 0.3);
+        }
+
+        .btn-read:focus {
+            outline: 3px solid rgba(14, 27, 46, 0.5);
+            outline-offset: 3px;
+        }
+
+        /* ARTICLES GRID */
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .article-card {
+            background: white;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        .article-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(14, 27, 46, 0.15);
+            border-color: var(--primary);
+        }
+
+        .article-image {
+            position: relative;
+            height: 220px;
+            overflow: hidden;
+        }
+
+        .article-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .article-card:hover .article-image img {
+            transform: scale(1.1);
+        }
+
+        .article-body {
+            padding: 2rem;
+        }
+
+        .article-body h3 {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 0.8rem;
+            line-height: 1.3;
+        }
+
+        .article-body .excerpt {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .article-body .article-meta {
+            margin-bottom: 1rem;
+        }
+
+        .read-more {
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: gap 0.3s ease;
+        }
+
+        .read-more:focus {
+            outline: 3px solid rgba(14, 27, 46, 0.5);
+            outline-offset: 3px;
+            border-radius: 4px;
+        }
+
+        .article-card:hover .read-more {
+            gap: 1rem;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 4rem 2rem 2rem 2rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .footer-section h3 {
+            color: var(--secondary);
+            font-size: 1.1rem;
+            margin-bottom: 1.2rem;
+            font-weight: 700;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .footer-logo svg {
+            flex-shrink: 0;
+        }
+
+        .footer-logo h3 {
+            margin-bottom: 0;
+        }
+
+        .footer-about p {
+            color: rgba(255,255,255,0.8);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            display: inline-block;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+            transform: translateX(5px);
+        }
+
+        .footer-contact-info {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-contact-info li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: flex-start;
+            color: rgba(255,255,255,0.8);
+        }
+
+        .footer-contact-info li span {
+            margin-right: 0.5rem;
+            color: var(--secondary);
+        }
+
+        .footer-contact-info a {
+            color: rgba(255,255,255,0.9);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-contact-info a:hover {
+            color: var(--secondary);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .footer-social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .footer-social-link:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            color: rgba(255,255,255,0.6);
+        }
+
+        .footer-bottom p {
+            margin: 0.5rem 0;
+        }
+
+        .footer-bottom a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            margin: 0 0.5rem;
+        }
+
+        .footer-bottom a:hover {
+            color: var(--secondary);
+            text-decoration: underline;
+        }
+
+        /* RESPONSIVE */
+        /* Medium screens - hamburger menu for safety */
+        @media (max-width: 1150px) {
+            nav { padding: 0.875rem 1.25rem; gap: 1rem; max-width: 95%; }
+            .logo { font-size: 1rem; }
+            .nav-links { gap: 1rem; }
+            .nav-links a { font-size: 0.8125rem; }
+        }
+
+        @media (max-width: 1024px) {
+            nav {
+                padding: 1rem 1.5rem;
+                gap: 0.5rem;
+                width: 90%;
+                max-width: 90%;
+                z-index: 10000;
+            }
+
+            .logo {
+                flex-shrink: 0;
+                margin-right: auto;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: fixed;
+                top: 80px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 90%;
+                max-width: 500px;
+                background: white;
+                padding: 1.5rem;
+                border-radius: 20px;
+                margin: 0;
+                box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+                z-index: 10001;
+                pointer-events: none;
+            }
+
+            .nav-links.active {
+                display: flex !important;
+                pointer-events: auto;
+                visibility: visible;
+                opacity: 1;
+            }
+
+            .nav-links li {
+                width: 100%;
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 1rem 1.25rem;
+                width: 100%;
+                text-align: left;
+                cursor: pointer;
+                border-radius: 12px;
+                transition: background 0.2s;
+                -webkit-tap-highlight-color: rgba(14, 27, 46, 0.15);
+                pointer-events: auto;
+                position: relative;
+                z-index: 1;
+                color: var(--dark);
+                text-decoration: none;
+                font-size: 1rem;
+                font-weight: 600;
+            }
+
+            .nav-links a:hover,
+            .nav-links a:active {
+                background: rgba(14, 27, 46, 0.05);
+                color: var(--primary);
+            }
+
+            .menu-toggle {
+                display: flex;
+                flex-shrink: 0;
+                z-index: 10002;
+            }
+        }
+
+        @media (max-width: 968px) {
+            .articles-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+
+            .featured-article {
+                grid-template-columns: 1fr;
+            }
+
+            .featured-image {
+                height: 300px;
+            }
+
+            .featured-content {
+                padding: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                z-index: 10000;
+            }
+
+            .logo {
+                gap: 0.4rem;
+            }
+
+            .logo-icon {
+                width: 26px;
+                height: 26px;
+            }
+
+            .logo-text {
+                font-size: 0.95rem;
+            }
+
+            .menu-toggle {
+                font-size: 1.35rem;
+                min-width: 40px;
+                min-height: 40px;
+                z-index: 10002;
+            }
+
+            .nav-links {
+                top: 70px;
+                width: 95%;
+                padding: 1.25rem;
+            }
+
+            .nav-links a {
+                padding: 0.875rem 1rem;
+                font-size: 0.95rem;
+            }
+
+            .hero-blog {
+                min-height: 50vh;
+                padding: 6rem 1.5rem 3rem;
+            }
+
+            .hero-blog h1 {
+                font-size: 2rem;
+            }
+
+            .hero-blog p {
+                font-size: 1.1rem;
+            }
+
+            .category-filters {
+                top: 90px;
+                padding: 1rem 1.5rem;
+            }
+
+            .filters-container {
+                justify-content: center;
+            }
+
+            .featured-article {
+                grid-template-columns: 1fr;
+            }
+
+            .featured-image {
+                height: 300px;
+            }
+
+            .featured-content {
+                padding: 2rem;
+            }
+
+            .featured-content h2 {
+                font-size: 1.6rem;
+            }
+
+            .articles-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .articles-section {
+                padding: 3rem 1rem;
+            }
+
+            /* Footer responsive */
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
+            .footer-section {
+                text-align: center;
+            }
+
+            .footer-social {
+                justify-content: center;
+            }
+
+            .footer-links a:hover {
+                transform: none;
+            }
+
+            /* Global section padding fix */
+            section {
+                padding-left: 1rem !important;
+                padding-right: 1rem !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-blog {
+                padding: 6rem 1rem 3rem;
+                background-attachment: scroll;
+                min-height: 50vh;
+            }
+
+            .filter-btn {
+                font-size: 0.85rem;
+                padding: 0.6rem 1.2rem;
+            }
+
+            .featured-content {
+                padding: 1.5rem;
+            }
+
+            .article-body {
+                padding: 1.5rem;
+            }
+
+            .btn-read {
+                padding: 1rem 2rem;
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ACCESSIBILITY - Skip to main content -->
+    <a href="#main-content" class="skip-link">Přejít k hlavnímu obsahu</a>
+
+    <!-- Mobile menu backdrop -->
+    <div class="menu-backdrop" id="menuBackdrop"></div>
+
+    <nav>
+        <a href="index.html" class="logo">
+            <svg width="32" height="32" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="logo-icon">
+                <!-- Trojúhelník - síla a stabilita -->
+                <path d="M24 8 L38 28 L10 28 Z" fill="#C9A227"/>
+                <!-- Šipka nahoru - růst a směr -->
+                <path d="M24 8 L24 18 M24 8 L20 12 M24 8 L28 12" stroke="#0E1B2E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <!-- Základna - sport -->
+                <rect x="12" y="28" width="24" height="4" fill="#0E1B2E" rx="1"/>
+                <!-- Tři pilíře - disciplína, charakter, kontrola -->
+                <line x1="18" y1="32" x2="18" y2="40" stroke="#C9A227" stroke-width="2" stroke-linecap="round"/>
+                <line x1="24" y1="32" x2="24" y2="40" stroke="#C9A227" stroke-width="2" stroke-linecap="round"/>
+                <line x1="30" y1="32" x2="30" y2="40" stroke="#C9A227" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            <span class="logo-text">Rozvoj sportovců</span>
+        </a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Otevřít menu">☰</button>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Domů</a></li>
+            <li><a href="o-mne.html">O mně</a></li>
+            <li><a href="index.html#jak-to-funguje">Jak to funguje</a></li>
+            <li><a href="clanky.html">Články</a></li>
+            <li><a href="test.html">Přihlášení</a></li>
+            <li><a href="kontakt.html" class="nav-cta">Začít →</a></li>
+        </ul>
+    </nav>
+
+    <main id="main-content">
+        <!-- HERO SECTION -->
+        <section class="hero-blog">
+            <div class="hero-blog-content">
+                <h1>📚 Články pro sportovce</h1>
+                <p>Praktické rady, inspirace a tipy pro úspěšný přechod z aktivní sportovní kariéry do vzdělání a profesního života</p>
+            </div>
+        </section>
+
+        <!-- CATEGORY FILTERS -->
+        <div class="category-filters">
+            <div class="filters-container">
+                <span class="filter-label">Kategorie:</span>
+                <button class="filter-btn active" data-category="all">Všechny</button>
+                <button class="filter-btn" data-category="vzdelani">📚 Vzdělání</button>
+                <button class="filter-btn" data-category="prace">💼 První práce</button>
+                <button class="filter-btn" data-category="kariera">🎯 Kariéra</button>
+                <button class="filter-btn" data-category="motivace">💪 Motivace</button>
+                <button class="filter-btn" data-category="tipy">📝 Tipy</button>
+                <button class="filter-btn" data-category="rozhovory">👥 Rozhovory</button>
+            </div>
+        </div>
+
+        <!-- ARTICLES SECTION -->
+        <section class="articles-section">
+            <!-- FEATURED ARTICLE -->
+            <article class="featured-article" data-category="kariera">
+                <div class="featured-image">
+                    <span class="featured-badge">⭐ Doporučujeme</span>
+                    <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=800" alt="Bývalý sportovec v obchodním obleku" loading="lazy">
+                </div>
+                <div class="featured-content">
+                    <span class="category-tag kariera">🎯 Kariérní plánování</span>
+                    <h2>5 Nejčastějších Povolání Bývalých Profesionálních Sportovců</h2>
+                    <p class="excerpt">
+                        Nevíš, kam po sportovní kariéře? 30% sportovců míří do obchodu, 23% se stává trenéry. Zjisti, kam směřuje většina bývalých profesionálních sportovců a proč právě tam máš oproti ostatním obrovskou výhodu.
+                    </p>
+                    <div class="article-meta">
+                        <span class="meta-item">📅 20. 11. 2024</span>
+                        <span class="meta-item">⏱️ 10 min čtení</span>
+                        <span class="meta-item">👁️ 2 456 přečtení</span>
+                    </div>
+                    <a href="clanek-povolani-sportovcu.html" class="btn-read">Přečíst článek →</a>
+                </div>
+            </article>
+
+            <!-- ARTICLES GRID -->
+            <div class="articles-grid">
+                <!-- Article - NEW: Strach z přestupu -->
+                <article class="article-card" data-category="mindset">
+                    <div class="article-image">
+                        <img src="https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?w=600" alt="Sportovec před rozhodnutím - přestup do nového klubu" loading="lazy">
+                    </div>
+                    <div class="article-body">
+                        <span class="category-tag mindset">🧠 Motivace & mindset</span>
+                        <h3>Rok říkáš, že chceš přestoupit do lepšího klubu. Proč to pořád neděláš?</h3>
+                        <p class="excerpt">Chceš změnu navenek, ale vnitřně se držíš známého a bezpečného. Není to náhodou strach? Zjisti, co tě opravdu drží zpátky – a jak udělat ten krok konečně reálně.</p>
+                        <div class="article-meta">
+                            <span class="meta-item">📅 29. 11. 2024</span>
+                            <span class="meta-item">⏱️ 10 min</span>
+                        </div>
+                        <a href="clanek-strach-z-prestupu.html" class="read-more">Číst dál →</a>
+                    </div>
+                </article>
+
+                <!-- Article - NEW: Životopis pro sportovce -->
+                <article class="article-card" data-category="tipy">
+                    <div class="article-image">
+                        <img src="https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=600" alt="Psaní životopisu - práce na CV" loading="lazy">
+                    </div>
+                    <div class="article-body">
+                        <span class="category-tag tipy">📝 Praktické tipy</span>
+                        <h3>Jak napsat životopis jako sportovec (i bez pracovních zkušeností)</h3>
+                        <p class="excerpt">Nemáš pracovní zkušenosti mimo sport? Ukážeme ti, jak napsat životopis, který zaujme personalisty. 4 ukázky CV, struktura, tipy a příklady překladu sportu do byznysu.</p>
+                        <div class="article-meta">
+                            <span class="meta-item">📅 28. 11. 2024</span>
+                            <span class="meta-item">⏱️ 12 min</span>
+                        </div>
+                        <a href="clanek-zivotopis-pro-sportovce.html" class="read-more">Číst dál →</a>
+                    </div>
+                </article>
+
+                <!-- Article - NEW: Dovednosti sportovců -->
+                <article class="article-card" data-category="kariera">
+                    <div class="article-image">
+                        <img src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=600" alt="Tým při práci - bývalí sportovci" loading="lazy">
+                    </div>
+                    <div class="article-body">
+                        <span class="category-tag kariera">🎯 Kariérní plánování</span>
+                        <h3>Jaké dovednosti si sportovci odnesli ze sportu? Výzkum 237 lidí</h3>
+                        <p class="excerpt">Individuální vs týmoví sportovci: zajímavý rozdíl v dovednostech. Řešení problémů, rozhodování nebo komunikace? Zjisti, které tvoje sportovní zkušenosti jsou v práci nejvíc cenné.</p>
+                        <div class="article-meta">
+                            <span class="meta-item">📅 28. 11. 2024</span>
+                            <span class="meta-item">⏱️ 8 min</span>
+                        </div>
+                        <a href="clanek-dovednosti-sportovcu.html" class="read-more">Číst dál →</a>
+                    </div>
+                </article>
+
+                <!-- Article 1 -->
+                <article class="article-card" data-category="prace">
+                    <div class="article-image">
+                        <img src="https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=600" alt="Životopis na stole" loading="lazy">
+                    </div>
+                    <div class="article-body">
+                        <span class="category-tag prace">💼 První práce</span>
+                        <h3>5 tipů pro životopis sportovce, který zaujme personalisty</h3>
+                        <p class="excerpt">Sportovní úspěchy jsou skvělé, ale jak je prezentovat v životopise? Naučím tě, jak přeložit své sportovní zkušenosti do jazyka HR.</p>
+                        <div class="article-meta">
+                            <span class="meta-item">📅 10. 11. 2024</span>
+                            <span class="meta-item">⏱️ 5 min</span>
+                        </div>
+                        <a href="clanek-zivotopis.html" class="read-more">Číst dál →</a>
+                    </div>
+                </article>
+
+                <!-- Article 2 -->
+                <article class="article-card" data-category="vzdelani">
+                    <div class="article-image">
+                        <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=600" alt="Univerzitní kampus" loading="lazy">
+                    </div>
+                    <div class="article-body">
+                        <span class="category-tag vzdelani">📚 Vzdělání & školy</span>
+                        <h3>Nejlepší školy pro sportovce v Praze 2025</h3>
+                        <p class="excerpt">Kompletní přehled středních a vysokých škol v Praze, které nabízejí flexibilní režim pro aktivní sportovce. Včetně přijímaček a kontaktů.</p>
+                        <div class="article-meta">
+                            <span class="meta-item">📅 5. 11. 2024</span>
+                            <span class="meta-item">⏱️ 12 min</span>
+                        </div>
+                        <a href="clanek-skoly-praha.html" class="read-more">Číst dál →</a>
+                    </div>
+                </article>
+
+                <!-- Article 3 -->
+                <article class="article-card" data-category="prace">
+                    <div class="article-image">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600" alt="Pracovní pohovor" loading="lazy">
+                    </div>
+                    <div class="article-body">
+                        <span class="category-tag prace">💼 První práce</span>
+                        <h3>Jak se připravit na první pracovní pohovor</h3>
+                        <p class="excerpt">Pohovor není tak strašný, jak si myslíš. Naučím tě techniky, které ti pomůžou zvládnout každou otázku - i tu o tvých slabinách.</p>
+                        <div class="article-meta">
+                            <span class="meta-item">📅 1. 11. 2024</span>
+                            <span class="meta-item">⏱️ 6 min</span>
+                        </div>
+                        <a href="clanek-pohovor.html" class="read-more">Číst dál →</a>
+                    </div>
+                </article>
+
+                <!-- Article 4 -->
+                <article class="article-card" data-category="motivace">
+                    <div class="article-image">
+                        <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600" alt="Typů tréninku" loading="lazy">
+                    </div>
+                    <div class="article-body">
+                        <span class="category-tag motivace">💪 Motivace</span>
+                        <h3>3 Typy Tréninku: Který Sedí Tvé Osobnosti?</h3>
+                        <p class="excerpt">Zjisti, jaký typ tréninku tě nejvíc baví a co to říká o tvé osobnosti. Kondiční, technický nebo taktický? Pokud sport sedí s tvojí osobností, máš z poloviny vyhráno.</p>
+                        <div class="article-meta">
+                            <span class="meta-item">📅 18. 11. 2024</span>
+                            <span class="meta-item">⏱️ 7 min</span>
+                        </div>
+                        <a href="clanek-typy-treniku.html" class="read-more">Číst dál →</a>
+                    </div>
+                </article>
+
+                <!-- Article 5 -->
+                <article class="article-card" data-category="vzdelani">
+                    <div class="article-image">
+                        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600" alt="Student studující" loading="lazy">
+                    </div>
+                    <div class="article-body">
+                        <span class="category-tag vzdelani">📚 Vzdělání</span>
+                        <h3>Proč Sportovci Selhávají Po Kariéře: Chybějící Praxe</h3>
+                        <p class="excerpt">Většina sportovců má školu, ale po kariéře neví co dál. Problém není ve vzdělání, ale v tom, že chybí propojení s reálným světem práce.</p>
+                        <div class="article-meta">
+                            <span class="meta-item">📅 15. 11. 2024</span>
+                            <span class="meta-item">⏱️ 9 min</span>
+                        </div>
+                        <a href="clanek-vzdelavani-sportovcu.html" class="read-more">Číst dál →</a>
+                    </div>
+                </article>
+
+                <!-- Article 6 -->
+                <article class="article-card" data-category="tipy">
+                    <div class="article-image">
+                        <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=600" alt="Sportovec s telefonem" loading="lazy">
+                    </div>
+                    <div class="article-body">
+                        <span class="category-tag tipy">📝 Tipy</span>
+                        <h3>3 Chyby, Které Můžou Stát Kariéru</h3>
+                        <p class="excerpt">Dneska nestačí jen talent. Kluby sledují sportovce komplexně. Nevhodný obsah na sociálních sítích, špatné známky nebo krátkodobé myšlení můžou pokazit i nejlepší kariéru.</p>
+                        <div class="article-meta">
+                            <span class="meta-item">📅 12. 11. 2024</span>
+                            <span class="meta-item">⏱️ 8 min</span>
+                        </div>
+                        <a href="clanek-tri-chyby-sportovcu.html" class="read-more">Číst dál →</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+<footer style="background: var(--dark); color: var(--light); padding: 3rem 5%; text-align: center; border-top: 1px solid rgba(255,255,255,0.1);">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 2rem; align-items: center;">
+        <!-- Main Links -->
+        <div style="display: flex; gap: 2rem; flex-wrap: wrap; justify-content: center; align-items: center;">
+            <a href="index.html" style="color: var(--light); text-decoration: none; transition: color 0.3s;">Domů</a>
+            <a href="o-mne.html" style="color: var(--light); text-decoration: none; transition: color 0.3s;">O mně</a>
+            <a href="clanky.html" style="color: var(--light); text-decoration: none; transition: color 0.3s;">Články</a>
+            <a href="kontakt.html" style="color: var(--light); text-decoration: none; transition: color 0.3s;">Kontakt</a>
+            <a href="test.html" style="color: var(--secondary); font-weight: 700; text-decoration: none; padding: 0.5rem 1.2rem; background: rgba(201,162,39,0.1); border-radius: 8px; transition: all 0.3s;">Test osobnosti →</a>
+        </div>
+
+        <!-- Copyright -->
+        <div style="font-size: 0.9rem; color: rgba(255,255,255,0.6); border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.5rem; width: 100%;">
+            <p>© 2025 Rozvoj sportovců | Famil Amirov</p>
+        </div>
+    </div>
+</footer>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-content">
+                <!-- About Section -->
+                <div class="footer-section footer-about">
+                    <div class="footer-logo">
+                        <svg width="40" height="40" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 21C8 21 10 16 14 14C18 12 20 8 20 8" stroke="#C9A227" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M20 8L18 11M20 8L17 9" stroke="#C9A227" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="8" cy="21" r="2" fill="#00E676"/>
+                        </svg>
+                        <h3>Rozvoj sportovců pro sportovce</h3>
+                    </div>
+                    <p>Pomáháme sportovcům úspěšně přejít z aktivní sportovní kariéry do vzdělání a profesního života. Více než 50 spokojených klientů, 95% úspěšnost programů.</p>
+                    <div class="footer-social">
+                        <a href="https://www.instagram.com/karierove_poradenstvi/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Instagram">
+                            📷
+                        </a>
+                        <a href="https://www.youtube.com/@karierasportovcu" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="YouTube">
+                            ▶️
+                        </a>
+                        <a href="https://www.tiktok.com/@karierasportovcu" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="TikTok">
+                            🎵
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-section">
+                    <h3>Rychlé odkazy</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Domů</a></li>
+                        <li><a href="clanky.html">Články</a></li>
+                        <li><a href="o-mne.html">O mně</a></li>
+                        <li><a href="kontakt.html">Kontakt</a></li>
+                        <li><a href="index.html#faq">Časté otázky</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services -->
+                <div class="footer-section">
+                    <h3>Služby</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html#jak-to-funguje">Jak to funguje</a></li>
+                        <li><a href="index.html#sluzby">Co nabízím</a></li>
+                        <li><a href="prihlaseni.html" style="color: #C9A227; font-weight: 600;">Test osobnosti</a></li>
+                        <li><a href="kontakt.html">Začít</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="footer-section">
+                    <h3>Kontakt</h3>
+                    <ul class="footer-contact-info">
+                        <li>
+                            <span>✉️</span>
+                            <a href="mailto:info@sportovci-kariera.cz">info@sportovci-kariera.cz</a>
+                        </li>
+                        <li>
+                            <span>📍</span>
+                            <span>Praha, Česká republika</span>
+                        </li>
+                        <li>
+                            <span>🤝</span>
+                            <span>Partner: ARTECON Praha</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <p>&copy; 2025 Kariéra sportovců. Všechna práva vyhrazena.</p>
+                <p>
+                    <a href="ochrana-osobnich-udaju.html">Ochrana osobních údajů</a> |
+                    <a href="kontakt.html">Kontaktujte nás</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Články | Kariéra sportovců",
+        "description": "Praktické články o kariérním poradenství pro sportovce. Tipy pro vzdělání, první práci, životopisy a úspěšný přechod z aktivní sportovní kariéry.",
+        "url": "https://www.sportovci-kariera.cz/clanky.html",
+        "isPartOf": {
+            "@type": "WebSite",
+            "name": "Kariéra sportovců",
+            "url": "https://sportovci-kariera.cz"
+        },
+        "about": {
+            "@type": "Organization",
+            "name": "Kariéra sportovců",
+            "description": "Kariérové poradenství pro sportovce",
+            "url": "https://sportovci-kariera.cz",
+            "email": "info@sportovci-kariera.cz",
+            "sameAs": [
+                "https://www.instagram.com/karierove_poradenstvi/",
+                "https://www.youtube.com/@karierasportovcu",
+                "https://www.tiktok.com/@karierasportovcu"
+            ]
+        }
+    }
+    </script>
+
+    <script>
+        // MENU TOGGLE
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const backdrop = document.getElementById('menuBackdrop');
+            navLinks.classList.toggle('active');
+            backdrop.classList.toggle('active');
+        }
+
+        function closeMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const backdrop = document.getElementById('menuBackdrop');
+            navLinks.classList.remove('active');
+            backdrop.classList.remove('active');
+        }
+
+        // INITIALIZE ON PAGE LOAD
+        document.addEventListener('DOMContentLoaded', function() {
+            // Menu toggle button
+            const menuToggleBtn = document.querySelector('.menu-toggle');
+            if (menuToggleBtn) {
+                menuToggleBtn.addEventListener('click', toggleMenu);
+            }
+
+            // Close menu when clicking backdrop
+            const menuBackdrop = document.getElementById('menuBackdrop');
+            if (menuBackdrop) {
+                menuBackdrop.addEventListener('click', closeMenu);
+            }
+
+            // Auto-close menu when clicking on any nav link
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    closeMenu();
+                });
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener('click', (e) => {
+                const nav = document.querySelector('nav');
+                const navLinks = document.getElementById('navLinks');
+
+                if (nav && navLinks && !nav.contains(e.target) && navLinks.classList.contains('active')) {
+                    closeMenu();
+                }
+            });
+
+            // Close menu on ESC key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    const navLinks = document.getElementById('navLinks');
+                    if (navLinks && navLinks.classList.contains('active')) {
+                        closeMenu();
+                    }
+                }
+            });
+        });
+
+        // CATEGORY FILTER
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const articles = document.querySelectorAll('.article-card, .featured-article');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterBtns.forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                btn.classList.add('active');
+
+                const category = btn.dataset.category;
+
+                articles.forEach(article => {
+                    if (category === 'all') {
+                        article.style.display = '';
+                    } else {
+                        if (article.dataset.category === category) {
+                            article.style.display = '';
+                        } else {
+                            article.style.display = 'none';
+                        }
+                    }
+                });
+            });
+        });
+
+        // SMOOTH SCROLL
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

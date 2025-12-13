@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Zásady ochrany osobních údajů | Kariéra sportovců</title>
+    <meta name="description" content="Zásady ochrany osobních údajů a GDPR compliance pro Kariéra sportovců. Informace o cookies, Google Analytics a Formspree.">
+    <meta name="robots" content="noindex, follow">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.sportovci-kariera.cz/privacy-policy.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="shortcut icon" href="/favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            /* 🎨 Brand primární paleta podle DESIGNER.md */
+            --primary-dark: #0E1B2E;  /* 70% - tmavá modrá (pozadí, header) */
+            --light: #FFFFFF;         /* 70% - bílá (sekce, texty na tmavém) */
+            --gray: #F2F2F2;          /* 20% - světle šedá (karty, oddělení) */
+            --accent: #C9A227;        /* 10% - zlatá (CTA, zvýraznění) */
+
+            /* Pomocné proměnné - zpětná kompatibilita */
+            --primary: #0E1B2E;       /* alias pro primary-dark */
+            --dark: #0A0E27;          /* barva textu */
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, system-ui, sans-serif;
+            line-height: 1.8;
+            color: var(--dark);
+            background: white;
+        }
+
+        /* NAVIGATION */
+        nav {
+            position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(20px);
+            padding: 1rem 2rem; border-radius: 50px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1); z-index: 1000;
+            display: flex; gap: 2rem; align-items: center; max-width: 90%;
+        }
+        .logo {
+            font-weight: 900;
+            font-size: 1.1rem;
+            color: var(--primary);
+            text-decoration: none;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-icon {
+            flex-shrink: 0;
+            width: 32px;
+            height: 32px;
+        }
+
+        .logo-text {
+            font-weight: 900;
+            font-size: 1.1rem;
+        }
+        nav a { text-decoration: none; color: var(--dark); font-weight: 600; font-size: 0.9rem; transition: color 0.3s; }
+        nav a:hover { color: var(--primary); }
+
+        /* HERO */
+        .hero {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 10rem 2rem 4rem;
+            text-align: center;
+        }
+        .hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 900; margin-bottom: 1rem; }
+        .hero p { font-size: 1.1rem; opacity: 0.9; max-width: 600px; margin: 0 auto; }
+
+        /* CONTENT */
+        .content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section {
+            margin-bottom: 3rem;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 1rem;
+            margin-top: 2rem;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 0.8rem;
+            margin-top: 1.5rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+        }
+
+        ul {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+            font-size: 1.05rem;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+
+        a:hover {
+            color: var(--primary-dark);
+        }
+
+        .highlight-box {
+            background: var(--light);
+            border-left: 4px solid var(--primary);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+        }
+
+        .last-updated {
+            font-style: italic;
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                width: 90%;
+                padding: 1rem;
+                gap: 1rem;
+            }
+
+            .logo {
+                gap: 0.4rem;
+            }
+
+            .logo-icon {
+                width: 26px;
+                height: 26px;
+            }
+
+            .logo-text {
+                font-size: 0.95rem;
+            }
+
+            .content {
+                padding: 3rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="logo">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="logo-icon">
+                <path d="M8 21C8 21 10 16 14 14C18 12 20 8 20 8" stroke="#C9A227" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M20 8L18 11M20 8L17 9" stroke="#C9A227" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="8" cy="21" r="2" fill="#00E676"/>
+            </svg>
+            <span class="logo-text">Rozvoj sportovců</span>
+        </a>
+        <a href="index.html">Domů</a>
+        <a href="o-mne.html">O mně</a>
+        <a href="kontakt.html">Kontakt</a>
+    </nav>
+
+    <section class="hero">
+        <h1>Zásady ochrany osobních údajů</h1>
+        <p>Transparentnost a ochrana vašich dat je pro nás prioritou</p>
+    </section>
+
+    <div class="content">
+        <p class="last-updated">Poslední aktualizace: 24. listopadu 2024</p>
+
+        <div class="highlight-box">
+            <strong>TL;DR (Stručně):</strong> Sbíráme jen to, co potřebujeme. Používáme Google Analytics pro statistiky a Formspree pro kontaktní formulář. Vaše data neprodáváme třetím stranám. Můžete je kdykoliv smazat.
+        </div>
+
+        <div class="section">
+            <h2>1. Kdo jsme</h2>
+            <p><strong>Správce osobních údajů:</strong></p>
+            <ul>
+                <li>Název: Kariéra sportovců</li>
+                <li>Kontakt: <a href="mailto:info@sportovci-kariera.cz">info@sportovci-kariera.cz</a></li>
+                <li>Web: <a href="https://sportovci-kariera.cz">sportovci-kariera.cz</a></li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>2. Jaké údaje sbíráme</h2>
+
+            <h3>2.1 Kontaktní formulář</h3>
+            <p>Když nám pošlete zprávu přes kontaktní formulář, sbíráme:</p>
+            <ul>
+                <li>Jméno a příjmení</li>
+                <li>E-mailová adresa</li>
+                <li>Telefonní číslo (volitelné)</li>
+                <li>Obsah zprávy</li>
+            </ul>
+            <p><strong>Účel:</strong> Odpověď na váš dotaz a poskytnutí kariérního poradenství.</p>
+            <p><strong>Právní základ:</strong> Váš souhlas (čl. 6 odst. 1 písm. a) GDPR) nebo plnění smlouvy (čl. 6 odst. 1 písm. b) GDPR).</p>
+            <p><strong>Technologie:</strong> Formuláře zpracovává služba <a href="https://formspree.io" target="_blank" rel="noopener">Formspree</a> (certifikováno GDPR).</p>
+
+            <h3>2.2 Google Analytics</h3>
+            <p>Používáme Google Analytics 4 pro sledování návštěvnosti webu. Sbíráme:</p>
+            <ul>
+                <li>IP adresa (anonymizovaná)</li>
+                <li>Typ prohlížeče a zařízení</li>
+                <li>Navštívené stránky</li>
+                <li>Čas strávený na webu</li>
+                <li>Geografická poloha (země, město)</li>
+            </ul>
+            <p><strong>Účel:</strong> Zlepšení uživatelského zážitku a optimalizace obsahu webu.</p>
+            <p><strong>Právní základ:</strong> Váš souhlas (čl. 6 odst. 1 písm. a) GDPR).</p>
+            <p><strong>Poznámka:</strong> Analytics se aktivuje pouze po přijetí cookies. Můžete je kdykoliv odmítnout.</p>
+
+            <h3>2.3 Cookies</h3>
+            <p>Používáme následující typy cookies:</p>
+            <ul>
+                <li><strong>Nutné cookies:</strong> Pro základní fungování webu (např. uložení preference cookies)</li>
+                <li><strong>Analytické cookies:</strong> Google Analytics (pouze po vašem souhlasu)</li>
+            </ul>
+            <p>Cookies můžete kdykoliv smazat ve vašem prohlížeči nebo změnit preference na našem webu.</p>
+        </div>
+
+        <div class="section">
+            <h2>3. Jak dlouho data uchováváme</h2>
+            <ul>
+                <li><strong>Kontaktní formulář:</strong> 2 roky od poslední komunikace</li>
+                <li><strong>Google Analytics:</strong> 26 měsíců (automaticky)</li>
+                <li><strong>Cookies:</strong> 13 měsíců (Google Analytics)</li>
+            </ul>
+            <p>Po uplynutí doby všechna data automaticky smažeme.</p>
+        </div>
+
+        <div class="section">
+            <h2>4. Sdílení dat s třetími stranami</h2>
+            <p>Vaše data sdílíme pouze s těmito certifikovanými službami:</p>
+            <ul>
+                <li><strong>Formspree:</strong> Zpracování kontaktních formulářů (USA, EU-US Data Privacy Framework)</li>
+                <li><strong>Google Analytics:</strong> Analýza návštěvnosti (Google Ireland Ltd., EU)</li>
+            </ul>
+            <p><strong>Vaše data NIKDY neprodáváme marketingovým firmám ani třetím stranám.</strong></p>
+        </div>
+
+        <div class="section">
+            <h2>5. Vaše práva (GDPR)</h2>
+            <p>Máte následující práva:</p>
+            <ul>
+                <li><strong>Právo na přístup:</strong> Můžete požádat o kopii vašich dat</li>
+                <li><strong>Právo na opravu:</strong> Můžete opravit nesprávné údaje</li>
+                <li><strong>Právo na výmaz:</strong> Můžete požádat o smazání vašich dat ("právo být zapomenut")</li>
+                <li><strong>Právo na přenositelnost:</strong> Můžete získat data ve strojově čitelném formátu</li>
+                <li><strong>Právo odvolat souhlas:</strong> Můžete kdykoliv odvolat souhlas se zpracováním</li>
+                <li><strong>Právo podat stížnost:</strong> Můžete podat stížnost na Úřad pro ochranu osobních údajů (<a href="https://www.uoou.cz" target="_blank" rel="noopener">www.uoou.cz</a>)</li>
+            </ul>
+            <p>Pro uplatnění práv nás kontaktujte na: <a href="mailto:info@sportovci-kariera.cz">info@sportovci-kariera.cz</a></p>
+            <p><strong>Odpovíme do 30 dnů.</strong></p>
+        </div>
+
+        <div class="section">
+            <h2>6. Zabezpečení dat</h2>
+            <p>Používáme následující bezpečnostní opatření:</p>
+            <ul>
+                <li>SSL/TLS šifrování (HTTPS)</li>
+                <li>Bezpečné servery v EU</li>
+                <li>Pravidelné zálohy</li>
+                <li>Omezený přístup k datům (pouze oprávněné osoby)</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>7. Děti</h2>
+            <p>Naše služby jsou určeny osobám starším 15 let. Pokud zjistíme, že jsme neúmyslně získali údaje od dítěte mladšího 15 let, data okamžitě smažeme.</p>
+            <p>Rodiče mohou zakoupit programy pro své děti (studenty středních škol), v takovém případě zpracováváme údaje rodičů jako zákonných zástupců.</p>
+        </div>
+
+        <div class="section">
+            <h2>8. Změny těchto zásad</h2>
+            <p>Můžeme tyto zásady čas od času aktualizovat. O změnách vás budeme informovat na této stránce. Doporučujeme pravidelně kontrolovat tuto stránku.</p>
+            <p><strong>Datum poslední aktualizace najdete vždy nahoře.</strong></p>
+        </div>
+
+        <div class="section">
+            <h2>9. Kontakt</h2>
+            <p>Máte otázky k ochraně osobních údajů? Kontaktujte nás:</p>
+            <ul>
+                <li>📧 Email: <a href="mailto:info@sportovci-kariera.cz">info@sportovci-kariera.cz</a></li>
+                <li>🌐 Web: <a href="https://sportovci-kariera.cz">sportovci-kariera.cz</a></li>
+                <li>📷 Instagram: <a href="https://www.instagram.com/karierove_poradenstvi/" target="_blank" rel="noopener">@karierove_poradenstvi</a></li>
+            </ul>
+        </div>
+
+        <div class="highlight-box">
+            <strong>Děkujeme za důvěru!</strong> Vaše soukromí bereme vážně a zavazujeme se chránit vaše osobní údaje v souladu s GDPR a českými zákony.
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Kariéra sportovců | <a href="index.html">Domů</a> | <a href="kontakt.html">Kontakt</a></p>
+    </footer>
+</body>
+</html>

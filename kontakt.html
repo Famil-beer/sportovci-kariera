@@ -4,19 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Kontakt | Kariéra sportovců - První konzultace zdarma</title>
-    <meta name="description" content="Kontaktuj nás - první konzultace zdarma. Email: info@sportovci-kariera.cz. Pracoval jsem s 350+ sportovci. Pomůžu ti najít tvou cestu.">
-    <meta name="keywords" content="kontakt kariérní poradenství, konzultace pro sportovce zdarma, kariérový poradce sportovci kontakt">
-    
+    <title>Bezplatná konzultace | Osobní rozvoj sportovců | Famil Amirov</title>
+    <meta name="description" content="Rezervuj si bezplatnou 60minutovou konzultaci. Probereme tvou situaci a najdeme cestu dopředu. Email: info@sportovci-kariera.cz. 50+ sportovců.">
+    <meta name="keywords" content="bezplatná konzultace sportovec, osobní rozvoj sportovců kontakt, konzultace pro sportovce zdarma, Famil Amirov kontakt">
+
     <!-- Open Graph -->
-    <meta property="og:title" content="Kontakt | Kariéra sportovců - První konzultace zdarma">
-    <meta property="og:description" content="Rezervuj si první bezplatnou konzultaci. Bez závazků. 350+ sportovců, 95% úspěšnost.">
+    <meta property="og:title" content="Bezplatná konzultace | Osobní rozvoj sportovců">
+    <meta property="og:description" content="Rezervuj si bezplatnou 60minutovou konzultaci. Žádné závazky, jen upřímný rozhovor o tvé budoucnosti.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://sportovci-kariera.cz/kontakt.html">
-    
+    <meta property="og:url" content="https://www.sportovci-kariera.cz/kontakt.html">
+
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://sportovci-kariera.cz/kontakt.html">
-    
+    <link rel="canonical" href="https://www.sportovci-kariera.cz/kontakt.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="shortcut icon" href="/favicon.png">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -28,7 +35,7 @@
       "@type": "ContactPage",
       "name": "Kontakt - Kariéra sportovců",
       "description": "Kontaktní stránka pro kariérní poradenství sportovců. První konzultace zdarma.",
-      "url": "https://sportovci-kariera.cz/kontakt.html",
+      "url": "https://www.sportovci-kariera.cz/kontakt.html",
       "mainEntity": {
         "@type": "Organization",
         "name": "Kariéra sportovců",
@@ -43,25 +50,29 @@
     }
     </script>
     
-    <!-- Google Analytics - Replace G-XXXXXXXXXX with your actual ID -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NCXD6F7TWE"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-XXXXXXXXXX');
+      gtag('config', 'G-NCXD6F7TWE');
     </script>
     
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
-            --primary: #007BFF;
-            --primary-dark: #0056b3;
-            --secondary: #00D9FF;
-            --dark: #0A0E27;
-            --light: #F7F9FC;
-            --success: #00E676;
-            --warning: #FFD700;
+            /* 🎨 Brand primární paleta podle DESIGNER.md */
+            --primary-dark: #0E1B2E;  /* 70% - tmavá modrá (pozadí, header) */
+            --light: #FFFFFF;         /* 70% - bílá (sekce, texty na tmavém) */
+            --gray: #F2F2F2;          /* 20% - světle šedá (karty, oddělení) */
+            --accent: #C9A227;        /* 10% - zlatá (CTA, zvýraznění) */
+
+            /* Pomocné proměnné - zpětná kompatibilita */
+            --primary: #0E1B2E;       /* alias pro primary-dark */
+            --secondary: #C9A227;     /* alias pro accent */
+            --dark: #0A0E27;          /* barva textu */
+            --success: #C9A227;       /* změněno z zelené na zlatou (brand) */
         }
         body {
             font-family: 'Inter', -apple-system, system-ui, sans-serif;
@@ -92,7 +103,7 @@
             outline-offset: 2px;
         }
         button, a {
-            -webkit-tap-highlight-color: rgba(0, 123, 255, 0.3);
+            -webkit-tap-highlight-color: rgba(14, 27, 46, 0.3);
             touch-action: manipulation;
         }
         
@@ -100,47 +111,134 @@
         nav {
             position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
             background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(20px);
-            padding: 1rem 2rem; border-radius: 50px;
+            padding: 0.875rem 1.5rem; border-radius: 50px;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1); z-index: 1000;
-            display: flex; gap: 2rem; align-items: center; max-width: 90%;
+            display: flex; flex-wrap: nowrap; gap: 1.25rem; align-items: center; max-width: 90%;
         }
-        .logo { font-weight: 900; font-size: 1.2rem; color: var(--primary); text-decoration: none; }
-        .nav-links { display: flex; gap: 2rem; list-style: none; }
-        .nav-links a { text-decoration: none; color: var(--dark); font-weight: 600; font-size: 0.9rem; transition: color 0.3s; }
+        .logo {
+            font-weight: 900;
+            font-size: 1.1rem;
+            color: var(--primary);
+            text-decoration: none;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-icon {
+            flex-shrink: 0;
+            width: 32px;
+            height: 32px;
+        }
+
+        .logo-text {
+            font-weight: 900;
+            font-size: 1.1rem;
+        }
+        .nav-links { display: flex; flex-wrap: nowrap; gap: 1.25rem; list-style: none; }
+        .nav-links a { text-decoration: none; color: var(--dark); font-weight: 600; font-size: 0.875rem; transition: color 0.3s; white-space: nowrap; word-break: keep-all; overflow: hidden; text-overflow: ellipsis; }
         .nav-links a:hover { color: var(--primary); }
-        .menu-toggle { display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--dark); }
-        
-        /* HERO */
+        .nav-links .nav-cta {
+            background: #00E676;
+            color: var(--dark) !important;
+            padding: 0.6rem 1.2rem;
+            border-radius: 12px;
+            font-weight: 700;
+            transition: all 0.3s;
+        }
+        .nav-links .nav-cta:hover {
+            background: #00C853;
+            transform: translateY(-2px);
+            color: var(--dark) !important;
+        }
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark);
+            min-width: 44px;
+            min-height: 44px;
+            padding: 0.5rem;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            transition: background 0.2s;
+            position: relative;
+            z-index: 10001;
+            -webkit-tap-highlight-color: rgba(14, 27, 46, 0.2);
+            touch-action: manipulation;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+        .menu-toggle:hover {
+            background: rgba(14, 27, 46, 0.08);
+        }
+        .menu-toggle:active {
+            background: rgba(14, 27, 46, 0.15);
+        }
+
+        /* Mobile menu backdrop */
+        .menu-backdrop {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.25);
+            z-index: 9999;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .menu-backdrop.active {
+            display: block;
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* HERO - STEJNÝ STYL JAKO HOMEPAGE */
         .hero-small {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 10rem 2rem 4rem; text-align: center; color: white;
+            min-height: 50vh;
+            background: linear-gradient(135deg, #0E1B2E 0%, #1a2942 50%, rgba(201, 162, 39, 0.15) 100%);
+            padding: 10rem 2rem 4rem;
+            text-align: center;
+            color: white;
             position: relative;
             overflow: hidden;
         }
         .hero-small::before {
             content: '';
             position: absolute;
-            width: 150%;
-            height: 150%;
+            width: 100%;
+            height: 100%;
             background: radial-gradient(circle at 30% 50%, rgba(255, 255, 255, 0.08) 0%, transparent 50%);
             animation: float 25s ease-in-out infinite;
+            left: 0;
+            top: 0;
         }
         @keyframes float {
             0%, 100% { transform: translate(-10%, -10%) rotate(0deg); }
             50% { transform: translate(10%, 10%) rotate(180deg); }
         }
-        .hero-small h1 { 
-            font-size: clamp(2.5rem, 5vw, 4rem); 
-            font-weight: 900; 
+        .hero-small h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
             margin-bottom: 1rem;
             position: relative;
             z-index: 2;
+            text-shadow: 2px 2px 20px rgba(0, 0, 0, 0.3);
         }
-        .hero-small p { 
-            font-size: 1.3rem; 
-            opacity: 0.95;
+        .hero-small p {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.95);
             position: relative;
             z-index: 2;
+            text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
         }
         
         /* CONTENT */
@@ -214,7 +312,7 @@
             padding: 4rem 3rem; 
             border-radius: 25px;
             margin-bottom: 5rem;
-            border: 2px solid rgba(0, 123, 255, 0.1);
+            border: 2px solid rgba(14, 27, 46, 0.1);
         }
         .form-section h2 { 
             font-size: 2.2rem; 
@@ -254,7 +352,7 @@
         .form-group textarea:focus { 
             outline: none; 
             border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+            box-shadow: 0 0 0 3px rgba(14, 27, 46, 0.1);
         }
         .form-group textarea { resize: vertical; min-height: 150px; }
         .btn-submit {
@@ -268,11 +366,11 @@
             font-size: 1.2rem;
             cursor: pointer; 
             transition: all 0.3s; 
-            box-shadow: 0 10px 30px rgba(0, 123, 255, 0.3);
+            box-shadow: 0 10px 30px rgba(14, 27, 46, 0.3);
         }
         .btn-submit:hover { 
             transform: translateY(-3px); 
-            box-shadow: 0 15px 40px rgba(0, 123, 255, 0.4); 
+            box-shadow: 0 15px 40px rgba(14, 27, 46, 0.4); 
         }
         
         /* QUIZ TRIGGER */
@@ -468,34 +566,266 @@
         footer {
             background: var(--dark);
             color: white;
-            text-align: center;
-            padding: 3rem 2rem;
+            padding: 4rem 2rem 2rem 2rem;
         }
-        footer a { 
-            color: var(--secondary); 
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .footer-section h3 {
+            color: var(--secondary);
+            font-size: 1.1rem;
+            margin-bottom: 1.2rem;
+            font-weight: 700;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .footer-logo svg {
+            flex-shrink: 0;
+        }
+
+        .footer-logo h3 {
+            margin-bottom: 0;
+        }
+
+        .footer-about p {
+            color: rgba(255,255,255,0.8);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.8);
             text-decoration: none;
-            font-weight: 600;
+            transition: color 0.3s ease;
+            display: inline-block;
         }
-        footer a:hover { text-decoration: underline; }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+            transform: translateX(5px);
+        }
+
+        .footer-contact-info {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-contact-info li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: flex-start;
+            color: rgba(255,255,255,0.8);
+        }
+
+        .footer-contact-info li span {
+            margin-right: 0.5rem;
+            color: var(--secondary);
+        }
+
+        .footer-contact-info a {
+            color: rgba(255,255,255,0.9);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-contact-info a:hover {
+            color: var(--secondary);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .footer-social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .footer-social-link:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            color: rgba(255,255,255,0.6);
+        }
+
+        .footer-bottom p {
+            margin: 0.5rem 0;
+        }
+
+        .footer-bottom a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            margin: 0 0.5rem;
+        }
+
+        .footer-bottom a:hover {
+            color: var(--secondary);
+            text-decoration: underline;
+        }
         
         /* RESPONSIVE */
-        @media (max-width: 768px) {
-            nav { padding: 1rem 1.5rem; gap: 1rem; }
-            .nav-links { 
-                display: none; 
-                flex-direction: column; 
-                position: absolute; 
-                top: 100%; 
-                left: 0; 
-                right: 0; 
-                background: white; 
-                padding: 1.5rem; 
-                border-radius: 20px; 
-                margin-top: 1rem; 
-                box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2); 
+        /* Medium screens - hamburger menu for safety */
+        @media (max-width: 1150px) {
+            nav { padding: 0.875rem 1.25rem; gap: 1rem; max-width: 95%; }
+            .logo { font-size: 1rem; }
+            .nav-links { gap: 1rem; }
+            .nav-links a { font-size: 0.8125rem; }
+        }
+
+        @media (max-width: 1024px) {
+            nav {
+                padding: 1rem 1.5rem;
+                gap: 0.5rem;
+                width: 90%;
+                max-width: 90%;
+                z-index: 10000;
             }
-            .nav-links.active { display: flex; }
-            .menu-toggle { display: block; }
+
+            .logo {
+                flex-shrink: 0;
+                margin-right: auto;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: fixed;
+                top: 80px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 90%;
+                max-width: 500px;
+                background: white;
+                padding: 1.5rem;
+                border-radius: 20px;
+                margin: 0;
+                box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+                z-index: 10001;
+                pointer-events: none;
+            }
+
+            .nav-links.active {
+                display: flex !important;
+                pointer-events: auto;
+                visibility: visible;
+                opacity: 1;
+            }
+
+            .nav-links li {
+                width: 100%;
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 1rem 1.25rem;
+                width: 100%;
+                text-align: left;
+                cursor: pointer;
+                border-radius: 12px;
+                transition: background 0.2s;
+                -webkit-tap-highlight-color: rgba(14, 27, 46, 0.15);
+                pointer-events: auto;
+                position: relative;
+                z-index: 1;
+                color: var(--dark);
+                text-decoration: none;
+                font-size: 1rem;
+                font-weight: 600;
+            }
+
+            .nav-links a:hover,
+            .nav-links a:active {
+                background: rgba(14, 27, 46, 0.05);
+                color: var(--primary);
+            }
+
+            .menu-toggle {
+                display: flex;
+                flex-shrink: 0;
+                z-index: 10002;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                z-index: 10000;
+            }
+
+            .logo {
+                gap: 0.4rem;
+            }
+
+            .logo-icon {
+                width: 26px;
+                height: 26px;
+            }
+
+            .logo-text {
+                font-size: 0.95rem;
+            }
+
+            .menu-toggle {
+                font-size: 1.35rem;
+                min-width: 40px;
+                min-height: 40px;
+                z-index: 10002;
+            }
+
+            .nav-links {
+                top: 70px;
+                width: 95%;
+                padding: 1.25rem;
+            }
+
+            .nav-links a {
+                padding: 0.875rem 1rem;
+                font-size: 0.95rem;
+            }
+
             .contact-grid { grid-template-columns: 1fr; }
             .form-section { padding: 2rem 1.5rem; }
             .trust-mini { gap: 2rem; }
@@ -514,6 +844,24 @@
             .cookie-btn {
                 flex: 1;
             }
+
+            /* Footer responsive */
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
+            .footer-section {
+                text-align: center;
+            }
+
+            .footer-social {
+                justify-content: center;
+            }
+
+            .footer-links a:hover {
+                transform: none;
+            }
         }
     </style>
 </head>
@@ -521,29 +869,46 @@
     <!-- Skip to content link -->
     <a href="#main-content" class="skip-link">Přeskočit na hlavní obsah</a>
     
+    <!-- Mobile menu backdrop -->
+    <div class="menu-backdrop" id="menuBackdrop"></div>
+
     <nav>
-        <a href="index.html" class="logo">Kariéra sportovců</a>
-        <button class="menu-toggle" onclick="toggleMenu()" aria-label="Otevřít menu">☰</button>
+        <a href="index.html" class="logo">
+            <svg width="32" height="32" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="logo-icon">
+                <!-- Trojúhelník - síla a stabilita -->
+                <path d="M24 8 L38 28 L10 28 Z" fill="#C9A227"/>
+                <!-- Šipka nahoru - růst a směr -->
+                <path d="M24 8 L24 18 M24 8 L20 12 M24 8 L28 12" stroke="#0E1B2E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <!-- Základna - sport -->
+                <rect x="12" y="28" width="24" height="4" fill="#0E1B2E" rx="1"/>
+                <!-- Tři pilíře - disciplína, charakter, kontrola -->
+                <line x1="18" y1="32" x2="18" y2="40" stroke="#C9A227" stroke-width="2" stroke-linecap="round"/>
+                <line x1="24" y1="32" x2="24" y2="40" stroke="#C9A227" stroke-width="2" stroke-linecap="round"/>
+                <line x1="30" y1="32" x2="30" y2="40" stroke="#C9A227" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            <span class="logo-text">Rozvoj sportovců</span>
+        </a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Otevřít menu">☰</button>
         <ul class="nav-links" id="navLinks">
-            <li><a href="index.html#problem">Problém</a></li>
-            <li><a href="index.html#reseni">Řešení</a></li>
-            <li><a href="index.html#cenik">Ceník</a></li>
-            <li><a href="index.html#reference">Reference</a></li>
+            <li><a href="index.html">Domů</a></li>
             <li><a href="o-mne.html">O mně</a></li>
-            <li><a href="kontakt.html">Kontakt</a></li>
+            <li><a href="index.html#jak-to-funguje">Jak to funguje</a></li>
+            <li><a href="clanky.html">Články</a></li>
+            <li><a href="test.html">Přihlášení</a></li>
+            <li><a href="kontakt.html" class="nav-cta">Začít →</a></li>
         </ul>
     </nav>
 
     <section class="hero-small">
-        <h1>Pojďme to probrat</h1>
-        <p>První konzultace je zdarma. Bez závazků.</p>
+        <h1>Rezervuj si bezplatnou konzultaci</h1>
+        <p>60 minut online. Probereme tvou situaci a najdeme cestu dopředu. Žádné závazky.</p>
     </section>
 
     <div class="content" id="main-content">
         <!-- Trust Mini Bar -->
         <div class="trust-mini">
             <div class="trust-mini-item">
-                <strong>350+</strong>
+                <strong>50+</strong>
                 <span>Sportovců pomoženo</span>
             </div>
             <div class="trust-mini-item">
@@ -580,9 +945,34 @@
             </div>
         </div>
 
+        <!-- Calendly Embed -->
+        <div class="calendly-section" style="max-width: 900px; margin: 4rem auto; padding: 3rem 2rem; background: linear-gradient(135deg, rgba(14, 27, 46, 0.05) 0%, rgba(0, 217, 255, 0.05) 100%); border-radius: 20px; border: 2px solid var(--secondary);">
+            <h2 style="text-align: center; margin-bottom: 1rem; font-size: 2rem; color: var(--dark);">📅 Rezervuj si termín</h2>
+            <p style="text-align: center; font-size: 1.1rem; color: #666; margin-bottom: 2rem; line-height: 1.6;">Vyber si termín, který ti vyhovuje. Po rezervaci dostaneš potvrzení a odkaz na online hovor.</p>
+
+            <!-- Pravidla pro konzultaci -->
+            <div style="max-width: 600px; margin: 2rem auto; background: white; padding: 2rem; border-radius: 12px;">
+                <h4 style="font-size: 1.2rem; margin-bottom: 1rem; color: var(--dark);">Pravidla pro konzultaci:</h4>
+                <ul style="list-style: none; padding: 0; font-size: 1rem; line-height: 2; color: #333;">
+                    <li>✓ Buď v tiché místnosti bez rušení</li>
+                    <li>✓ Měj připravený papír a tužku na poznámky</li>
+                    <li>✓ Přijď s otevřenou hlavou</li>
+                    <li>✓ Buď připravený mluvit upřímně o své situaci</li>
+                    <li>✓ Rezervuj si čas – trvá 60 minut</li>
+                </ul>
+            </div>
+
+            <!-- Calendly inline widget begin -->
+            <div class="calendly-inline-widget" data-url="https://calendly.com/sportovci-kariera/screening?hide_gdpr_banner=1" style="min-width:320px;height:700px;"></div>
+            <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+            <!-- Calendly inline widget end -->
+
+            <p style="text-align: center; margin-top: 2rem; font-size: 0.95rem; color: #999;">Nemáš Calendly? Vyplň formulář níže a napíšu ti do 24 hodin.</p>
+        </div>
+
         <!-- Contact Form -->
         <div class="form-section">
-            <h2>Napiš mi přímo tady</h2>
+            <h2>Nebo mi napiš přímo</h2>
             <p class="form-subtitle">Vyplň formulář a ozvů se mi do 24 hodin</p>
             <form action="https://formspree.io/f/movyvdlr" method="POST">
                 <div class="form-group">
@@ -598,19 +988,8 @@
                     <input type="text" id="sport" name="sport" required placeholder="Např. Hokej, Fotbal, Atletika...">
                 </div>
                 <div class="form-group">
-                    <label for="program">Který program tě zajímá?</label>
-                    <select id="program" name="program">
-                        <option value="">Nevím zatím / Chci poradit</option>
-                        <option value="bronzovy">🥉 Bronzový (499 Kč)</option>
-                        <option value="stribrny">🥈 Stříbrný (1999 Kč)</option>
-                        <option value="zlaty">🥇 Zlatý (4999 Kč)</option>
-                        <option value="workshop">Workshop pro školu/klub</option>
-                        <option value="jine">Něco jiného</option>
-                    </select>
-                </div>
-                <div class="form-group">
                     <label for="message">S čím potřebuješ pomoct? *</label>
-                    <textarea id="message" name="message" required placeholder="Napiš mi svůj příběh... Konec kariéry? Studium? První práce? Cokoliv."></textarea>
+                    <textarea id="message" name="message" required placeholder="Napiš mi svůj příběh... Co teď řešíš? Směr, cíle, osobní brand, podnikání? Cokoliv."></textarea>
                 </div>
                 <button type="submit" class="btn-submit">Odeslat zprávu →</button>
                 <p style="text-align:center; margin-top:1rem; font-size:0.9rem; opacity:0.7;">
@@ -660,6 +1039,25 @@
         </div>
     </div>
 
+    <!-- FOOTER -->
+<footer style="background: var(--dark); color: var(--light); padding: 3rem 5%; text-align: center; border-top: 1px solid rgba(255,255,255,0.1);">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 2rem; align-items: center;">
+        <!-- Main Links -->
+        <div style="display: flex; gap: 2rem; flex-wrap: wrap; justify-content: center; align-items: center;">
+            <a href="index.html" style="color: var(--light); text-decoration: none; transition: color 0.3s;">Domů</a>
+            <a href="o-mne.html" style="color: var(--light); text-decoration: none; transition: color 0.3s;">O mně</a>
+            <a href="clanky.html" style="color: var(--light); text-decoration: none; transition: color 0.3s;">Články</a>
+            <a href="kontakt.html" style="color: var(--light); text-decoration: none; transition: color 0.3s;">Kontakt</a>
+            <a href="test.html" style="color: var(--secondary); font-weight: 700; text-decoration: none; padding: 0.5rem 1.2rem; background: rgba(201,162,39,0.1); border-radius: 8px; transition: all 0.3s;">Test osobnosti →</a>
+        </div>
+
+        <!-- Copyright -->
+        <div style="font-size: 0.9rem; color: rgba(255,255,255,0.6); border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.5rem; width: 100%;">
+            <p>© 2025 Rozvoj sportovců | Famil Amirov</p>
+        </div>
+    </div>
+</footer>
+
     <!-- COOKIE CONSENT BANNER -->
     <div id="cookieConsent" class="cookie-consent">
         <div class="cookie-consent-content">
@@ -675,37 +1073,170 @@
     </div>
 
     <footer>
-        <div style="max-width: 1200px; margin: 0 auto;">
-            <p>&copy; 2025 Kariéra sportovců</p>
-            <p style="margin-top:0.5rem;">
-                <a href="https://www.instagram.com/karierove_poradenstvi/">Instagram</a> • 
-                <a href="https://www.youtube.com/@karierasportovcu">YouTube</a> • 
-                <a href="https://www.tiktok.com/@karierasportovcu">TikTok</a>
-            </p>
-            <p style="margin-top:1.5rem;font-size:0.9rem;">
-                <a href="mailto:info@sportovci-kariera.cz">info@sportovci-kariera.cz</a>
-            </p>
+        <div class="footer-container">
+            <div class="footer-content">
+                <!-- About Section -->
+                <div class="footer-section footer-about">
+                    <div class="footer-logo">
+                        <svg width="40" height="40" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 21C8 21 10 16 14 14C18 12 20 8 20 8" stroke="#C9A227" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M20 8L18 11M20 8L17 9" stroke="#C9A227" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="8" cy="21" r="2" fill="#00E676"/>
+                        </svg>
+                        <h3>Rozvoj sportovců pro sportovce</h3>
+                    </div>
+                    <p>Pomáháme sportovcům úspěšně přejít z aktivní sportovní kariéry do vzdělání a profesního života. Více než 50 spokojených klientů, 95% úspěšnost programů.</p>
+                    <div class="footer-social">
+                        <a href="https://www.instagram.com/karierove_poradenstvi/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Instagram">
+                            📷
+                        </a>
+                        <a href="https://www.youtube.com/@karierasportovcu" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="YouTube">
+                            ▶️
+                        </a>
+                        <a href="https://www.tiktok.com/@karierasportovcu" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="TikTok">
+                            🎵
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-section">
+                    <h3>Rychlé odkazy</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Domů</a></li>
+                        <li><a href="clanky.html">Články</a></li>
+                        <li><a href="o-mne.html">O mně</a></li>
+                        <li><a href="kontakt.html">Kontakt</a></li>
+                        <li><a href="index.html#faq">Časté otázky</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services -->
+                <div class="footer-section">
+                    <h3>Služby</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html#jak-to-funguje">Jak to funguje</a></li>
+                        <li><a href="index.html#sluzby">Co nabízím</a></li>
+                        <li><a href="prihlaseni.html" style="color: #C9A227; font-weight: 600;">Test osobnosti</a></li>
+                        <li><a href="kontakt.html">Začít</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="footer-section">
+                    <h3>Kontakt</h3>
+                    <ul class="footer-contact-info">
+                        <li>
+                            <span>✉️</span>
+                            <a href="mailto:info@sportovci-kariera.cz">info@sportovci-kariera.cz</a>
+                        </li>
+                        <li>
+                            <span>📍</span>
+                            <span>Praha, Česká republika</span>
+                        </li>
+                        <li>
+                            <span>🤝</span>
+                            <span>Partner: ARTECON Praha</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <p>&copy; 2025 Kariéra sportovců. Všechna práva vyhrazena.</p>
+                <p>
+                    <a href="ochrana-osobnich-udaju.html">Ochrana osobních údajů</a> |
+                    <a href="kontakt.html">Kontaktujte nás</a>
+                </p>
+            </div>
         </div>
     </footer>
 
     <script>
         // MENU TOGGLE
         function toggleMenu() {
-            document.getElementById('navLinks').classList.toggle('active');
+            const navLinks = document.getElementById('navLinks');
+            const backdrop = document.getElementById('menuBackdrop');
+            navLinks.classList.toggle('active');
+            backdrop.classList.toggle('active');
         }
 
-        // SMOOTH SCROLL
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
-                    document.getElementById('navLinks').classList.remove('active');
+        function closeMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const backdrop = document.getElementById('menuBackdrop');
+            navLinks.classList.remove('active');
+            backdrop.classList.remove('active');
+        }
+
+        // INITIALIZE ON PAGE LOAD
+        document.addEventListener('DOMContentLoaded', function() {
+            // Menu toggle button
+            const menuToggleBtn = document.querySelector('.menu-toggle');
+            if (menuToggleBtn) {
+                menuToggleBtn.addEventListener('click', toggleMenu);
+            }
+
+            // Close menu when clicking backdrop
+            const menuBackdrop = document.getElementById('menuBackdrop');
+            if (menuBackdrop) {
+                menuBackdrop.addEventListener('click', closeMenu);
+            }
+
+            // Auto-close menu when clicking on any nav link
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    closeMenu();
+                });
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener('click', (e) => {
+                const nav = document.querySelector('nav');
+                const navLinks = document.getElementById('navLinks');
+
+                if (nav && navLinks && !nav.contains(e.target) && navLinks.classList.contains('active')) {
+                    closeMenu();
                 }
             });
+
+            // Close menu on ESC key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    const navLinks = document.getElementById('navLinks');
+                    if (navLinks && navLinks.classList.contains('active')) {
+                        closeMenu();
+                    }
+                }
+            });
+
+            // SMOOTH SCROLL
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                        closeMenu();
+                    }
+                });
+            });
+
+            // Check cookie consent on load
+            checkCookieConsent();
+
+            // Cookie consent buttons
+            const acceptCookiesBtn = document.getElementById('acceptCookiesBtn');
+            if (acceptCookiesBtn) {
+                acceptCookiesBtn.addEventListener('click', acceptCookies);
+            }
+
+            const declineCookiesBtn = document.getElementById('declineCookiesBtn');
+            if (declineCookiesBtn) {
+                declineCookiesBtn.addEventListener('click', declineCookies);
+            }
         });
-        
+
         // QUIZ (Link to homepage quiz)
         function openQuiz() {
             window.location.href = 'index.html#quiz';
