@@ -1,20 +1,25 @@
+# robots.txt pro sportovci-kariera.cz
 User-agent: *
 Allow: /
 
-# Sitemap location
+# Zakázat admin a technické stránky
+Disallow: /admin.html
+Disallow: /seo-analyzer.html
+Disallow: /logo-preview.html
+Disallow: /test.html
+Disallow: /test-redirects.html
+Disallow: /favicon-generator.html
+Disallow: /checklist-zivotopis.html
+
+# Zakázat staré WordPress URL struktury
+Disallow: /author/
+Disallow: /search/
+Disallow: /feed/
+Disallow: /?s=
+Disallow: /category/*/feed/
+
+# Zakázat přístup k backup adresářům
+Disallow: /backup_*/
+
+# Sitemap
 Sitemap: https://sportovci-kariera.cz/sitemap.xml
-
-# Block admin and test areas if they exist
-Disallow: /admin/
-Disallow: /test/
-Disallow: /tmp/
-
-# Allow all major search engines
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-# Be nice to crawlers
-Crawl-delay: 1

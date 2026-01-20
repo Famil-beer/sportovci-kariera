@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test 301 Přesměrování - sportovci-kariera.cz</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: #f5f5f5;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        h1 {
+            color: #0E1B2E;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        .subtitle {
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 16px;
+        }
+
+        .info-box {
+            background: #FFF9E6;
+            border-left: 4px solid #C9A227;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+        }
+
+        .info-box h3 {
+            color: #0E1B2E;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .redirect-section {
+            margin-bottom: 40px;
+        }
+
+        .redirect-section h2 {
+            color: #0E1B2E;
+            font-size: 22px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #C9A227;
+        }
+
+        .redirect-item {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr auto;
+            gap: 15px;
+            align-items: center;
+            padding: 15px;
+            margin-bottom: 10px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .redirect-item:hover {
+            background: #e9ecef;
+        }
+
+        .old-url {
+            color: #d32f2f;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            word-break: break-all;
+        }
+
+        .arrow {
+            color: #C9A227;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .new-url {
+            color: #2e7d32;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            word-break: break-all;
+        }
+
+        .test-btn {
+            background: #C9A227;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+
+        .test-btn:hover {
+            background: #b8912a;
+            transform: translateY(-2px);
+        }
+
+        .test-btn:active {
+            transform: translateY(0);
+        }
+
+        .status {
+            margin-top: 5px;
+            font-size: 12px;
+            color: #666;
+        }
+
+        .status.success {
+            color: #2e7d32;
+            font-weight: 600;
+        }
+
+        .status.error {
+            color: #d32f2f;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .redirect-item {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .arrow {
+                transform: rotate(90deg);
+            }
+        }
+    </style>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NCXD6F7TWE"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-NCXD6F7TWE');
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>🔀 Test 301 Přesměrování</h1>
+        <p class="subtitle">Nástroj pro testování všech redirectů na sportovci-kariera.cz</p>
+
+        <div class="info-box">
+            <h3>ℹ️ Jak to funguje?</h3>
+            <p>Klikni na tlačítko "Test" u kteréhokoliv přesměrování. Otevře se nová záložka se starou URL a měla by tě automaticky přesměrovat na novou URL.</p>
+            <p style="margin-top: 10px;"><strong>Poznámka:</strong> Redirecty fungují pouze na produkčním serveru (sportovci-kariera.cz), ne na lokálním PC.</p>
+        </div>
+
+        <!-- WordPress URL -->
+        <div class="redirect-section">
+            <h2>📁 WordPress URL (s trailing slash)</h2>
+
+            <div class="redirect-item">
+                <div class="old-url">/kontakt/</div>
+                <div class="arrow">→</div>
+                <div class="new-url">/kontakt.html</div>
+                <button class="test-btn" onclick="testRedirect('https://www.sportovci-kariera.cz/kontakt/')">Test</button>
+            </div>
+
+            <div class="redirect-item">
+                <div class="old-url">/cookies/</div>
+                <div class="arrow">→</div>
+                <div class="new-url">/ochrana-osobnich-udaju.html</div>
+                <button class="test-btn" onclick="testRedirect('https://www.sportovci-kariera.cz/cookies/')">Test</button>
+            </div>
+
+            <div class="redirect-item">
+                <div class="old-url">/o-mne/</div>
+                <div class="arrow">→</div>
+                <div class="new-url">/o-mne.html</div>
+                <button class="test-btn" onclick="testRedirect('https://www.sportovci-kariera.cz/o-mne/')">Test</button>
+            </div>
+
+            <div class="redirect-item">
+                <div class="old-url">/clanky/</div>
+                <div class="arrow">→</div>
+                <div class="new-url">/clanky.html</div>
+                <button class="test-btn" onclick="testRedirect('https://www.sportovci-kariera.cz/clanky/')">Test</button>
+            </div>
+        </div>
+
+        <!-- WordPress články -->
+        <div class="redirect-section">
+            <h2>📝 Staré WordPress články</h2>
+
+            <div class="redirect-item">
+                <div class="old-url">/prace-a-studium-pro-sportovce-3-2-2/</div>
+                <div class="arrow">→</div>
+                <div class="new-url">/clanek-vzdelavani-sportovcu.html</div>
+                <button class="test-btn" onclick="testRedirect('https://www.sportovci-kariera.cz/prace-a-studium-pro-sportovce-3-2-2/')">Test</button>
+            </div>
+
+            <div class="redirect-item">
+                <div class="old-url">/jak-se-pripravit-na-zivot-po-ukonceni-sportovni-kariery-zivot-po-sportu/</div>
+                <div class="arrow">→</div>
+                <div class="new-url">/clanek-povolani-sportovcu.html</div>
+                <button class="test-btn" onclick="testRedirect('https://www.sportovci-kariera.cz/jak-se-pripravit-na-zivot-po-ukonceni-sportovni-kariery-zivot-po-sportu/')">Test</button>
+            </div>
+
+            <div class="redirect-item">
+                <div class="old-url">/pruvodce-pro-sportovce-krok-po-kroku/</div>
+                <div class="arrow">→</div>
+                <div class="new-url">/index.html</div>
+                <button class="test-btn" onclick="testRedirect('https://www.sportovci-kariera.cz/pruvodce-pro-sportovce-krok-po-kroku/')">Test</button>
+            </div>
+
+            <div class="redirect-item">
+                <div class="old-url">/prechod-ze-sportu-do-prace/</div>
+                <div class="arrow">→</div>
+                <div class="new-url">/clanek-povolani-sportovcu.html</div>
+                <button class="test-btn" onclick="testRedirect('https://www.sportovci-kariera.cz/prechod-ze-sportu-do-prace/')">Test</button>
+            </div>
+
+            <div class="redirect-item">
+                <div class="old-url">/karierni-poradenstvi-pro-skoly/</div>
+                <div class="arrow">→</div>
+                <div class="new-url">/o-mne.html</div>
+                <button class="test-btn" onclick="testRedirect('https://www.sportovci-kariera.cz/karierni-poradenstvi-pro-skoly/')">Test</button>
+            </div>
+        </div>
+
+        <!-- Kontaktní stránky -->
+        <div class="redirect-section">
+            <h2>📧 Staré kontaktní stránky</h2>
+
+            <div class="redirect-item">
+                <div class="old-url">/bcd31-contact-us/</div>
+                <div class="arrow">→</div>
+                <div class="new-url">/kontakt.html</div>
+                <button class="test-btn" onclick="testRedirect('https://www.sportovci-kariera.cz/bcd31-contact-us/')">Test</button>
+            </div>
+
+            <div class="redirect-item">
+                <div class="old-url">/contact/</div>
+                <div class="arrow">→</div>
+                <div class="new-url">/kontakt.html</div>
+                <button class="test-btn" onclick="testRedirect('https://www.sportovci-kariera.cz/contact/')">Test</button>
+            </div>
+        </div>
+
+        <!-- Anglické články -->
+        <div class="redirect-section">
+            <h2>🌍 Staré anglické články</h2>
+
+            <div class="redirect-item">
+                <div class="old-url">/how-analytics-can-fuel-your-marketing-success/</div>
+                <div class="arrow">→</div>
+                <div class="new-url">/index.html</div>
+                <button class="test-btn" onclick="testRedirect('https://www.sportovci-kariera.cz/how-analytics-can-fuel-your-marketing-success/')">Test</button>
+            </div>
+
+            <div class="redirect-item">
+                <div class="old-url">/the-future-of-marketing-automation/</div>
+                <div class="arrow">→</div>
+                <div class="new-url">/index.html</div>
+                <button class="test-btn" onclick="testRedirect('https://www.sportovci-kariera.cz/the-future-of-marketing-automation/')">Test</button>
+            </div>
+        </div>
+
+        <!-- WordPress author pages -->
+        <div class="redirect-section">
+            <h2>👤 WordPress author pages</h2>
+
+            <div class="redirect-item">
+                <div class="old-url">/author/famil/</div>
+                <div class="arrow">→</div>
+                <div class="new-url">/o-mne.html</div>
+                <button class="test-btn" onclick="testRedirect('https://www.sportovci-kariera.cz/author/famil/')">Test</button>
+            </div>
+        </div>
+
+        <!-- WordPress search URLs -->
+        <div class="redirect-section">
+            <h2>🔍 WordPress search URLs</h2>
+
+            <div class="redirect-item">
+                <div class="old-url">/search/sportovci/</div>
+                <div class="arrow">→</div>
+                <div class="new-url">/clanky.html</div>
+                <button class="test-btn" onclick="testRedirect('https://www.sportovci-kariera.cz/search/sportovci/')">Test</button>
+            </div>
+
+            <div class="redirect-item">
+                <div class="old-url">/?s=kariera</div>
+                <div class="arrow">→</div>
+                <div class="new-url">/clanky.html</div>
+                <button class="test-btn" onclick="testRedirect('https://www.sportovci-kariera.cz/?s=kariera')">Test</button>
+            </div>
+        </div>
+
+        <!-- Feed URLs -->
+        <div class="redirect-section">
+            <h2>📡 WordPress feed URLs (410 Gone)</h2>
+
+            <div class="redirect-item">
+                <div class="old-url">/feed/</div>
+                <div class="arrow">→</div>
+                <div class="new-url">410 Gone</div>
+                <button class="test-btn" onclick="testRedirect('https://www.sportovci-kariera.cz/feed/')">Test</button>
+            </div>
+
+            <div class="redirect-item">
+                <div class="old-url">/category/marketing/feed/</div>
+                <div class="arrow">→</div>
+                <div class="new-url">410 Gone</div>
+                <button class="test-btn" onclick="testRedirect('https://www.sportovci-kariera.cz/category/marketing/feed/')">Test</button>
+            </div>
+        </div>
+
+        <!-- Neexistující články -->
+        <div class="redirect-section">
+            <h2>❌ Neexistující články</h2>
+
+            <div class="redirect-item">
+                <div class="old-url">/clanek-skoly-praha.html</div>
+                <div class="arrow">→</div>
+                <div class="new-url">/clanky.html</div>
+                <button class="test-btn" onclick="testRedirect('https://www.sportovci-kariera.cz/clanek-skoly-praha.html')">Test</button>
+            </div>
+
+            <div class="redirect-item">
+                <div class="old-url">/clanek-linkedin.html</div>
+                <div class="arrow">→</div>
+                <div class="new-url">/clanky.html</div>
+                <button class="test-btn" onclick="testRedirect('https://www.sportovci-kariera.cz/clanek-linkedin.html')">Test</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function testRedirect(url) {
+            // Otevřít URL v nové záložce
+            window.open(url, '_blank');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,1341 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+
+    <title>Osobní Vedení 1:1 | Mentoring pro Ambiciózní Sportovce | První Hovor Zdarma</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="images/logo/logo-icon-only.svg">
+    <link rel="shortcut icon" href="images/logo/logo-icon-only.svg">
+
+    <meta name="description" content="Individuální mentoring 1:1 pro sportovce, kteří chtějí víc. První hovor ZDARMA. 50+ sportovců už dosáhlo svých cílů.">
+    <meta name="keywords" content="mentoring 1:1 sportovci, individuální kouč, osobní vedení sportovec, kariérní poradenství premium">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Osobní Vedení 1:1 | Pro Ambiciózní Sportovce">
+    <meta property="og:description" content="Individuální mentoring pro sportovce, kteří chtějí víc. První hovor ZDARMA.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sportovci-kariera.cz/osobni-vedeni.html">
+    <meta property="og:image" content="https://sportovci-kariera.cz/images/famil-hero.jpg">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.sportovci-kariera.cz/osobni-vedeni.html">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NCXD6F7TWE"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-NCXD6F7TWE');
+    </script>
+
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        /* ========================================
+           OSOBNÍ VEDENÍ - FINAL VERSION
+           ======================================== */
+
+        /* Hero Section */
+        .mentoring-hero {
+            background: linear-gradient(135deg, #0E1B2E 0%, #1a2d47 100%);
+            min-height: 90vh;
+            padding: 10rem 2rem 6rem;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+        }
+
+        .mentoring-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 30% 40%, rgba(201, 162, 39, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 70% 60%, rgba(201, 162, 39, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .mentoring-hero::after {
+            content: '';
+            position: absolute;
+            right: 5%;
+            top: 20%;
+            width: 200px;
+            height: 300px;
+            background: url("data:image/svg+xml,%3Csvg width='200' height='300' viewBox='0 0 200 300' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M100 0L60 120H140L100 300L160 140H80L100 0Z' fill='white' fill-opacity='0.03'/%3E%3C/svg%3E") no-repeat center;
+            background-size: contain;
+            opacity: 0.5;
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.05); }
+        }
+
+        .mentoring-hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .mentoring-hero-text h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 4.5rem;
+            color: white;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            letter-spacing: 0.02em;
+        }
+
+        .mentoring-hero-text h1 .highlight {
+            color: var(--accent);
+        }
+
+        .mentoring-hero-text .big-benefit {
+            font-size: 1.8rem;
+            color: white;
+            margin-bottom: 2rem;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        .mentoring-hero-text .big-benefit .free {
+            color: var(--accent);
+            font-size: 2.2rem;
+            text-transform: uppercase;
+        }
+
+        .mentoring-hero-text p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .mentoring-hero-image {
+            position: relative;
+        }
+
+        .mentoring-hero-image img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            margin-left: auto;
+            display: block;
+        }
+
+        .hero-cta-btn {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--primary-dark);
+            padding: 1.5rem 3.5rem;
+            border-radius: 15px;
+            font-weight: 800;
+            font-size: 1.3rem;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+            margin-top: 2rem;
+            cursor: pointer;
+            box-shadow: 0 15px 40px rgba(201, 162, 39, 0.4);
+            border: none;
+        }
+
+        .hero-cta-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(201, 162, 39, 0.5);
+        }
+
+        /* Social Proof Section */
+        .social-proof {
+            background: white;
+            padding: 4rem 2rem;
+            box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.05);
+        }
+
+        .social-proof-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            text-align: center;
+        }
+
+        .proof-item {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .proof-item:nth-child(1) { animation-delay: 0.1s; }
+        .proof-item:nth-child(2) { animation-delay: 0.3s; }
+        .proof-item:nth-child(3) { animation-delay: 0.5s; }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .proof-number {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 4rem;
+            color: var(--accent);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .proof-text {
+            font-size: 1.1rem;
+            color: rgba(10, 14, 39, 0.8);
+            font-weight: 600;
+        }
+
+        /* Topics Section - VYLEPŠENÝ */
+        .topics-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 8rem 2rem;
+        }
+
+        .topics-section h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3.5rem;
+            color: var(--primary-dark);
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .topics-section h2 .highlight {
+            color: var(--accent);
+        }
+
+        .topics-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: rgba(10, 14, 39, 0.7);
+            margin-bottom: 4rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .topics-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .topics-grid-secondary {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .topic-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(14, 27, 46, 0.08);
+            border: 2px solid #e0e0e0;
+            transition: all 0.3s ease;
+        }
+
+        .topic-card.featured {
+            border: 2px solid var(--accent);
+            background: linear-gradient(135deg, rgba(201, 162, 39, 0.05) 0%, white 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .topic-card.featured::before {
+            content: '⭐';
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            font-size: 2rem;
+            opacity: 0.3;
+        }
+
+        .topic-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(14, 27, 46, 0.15);
+            border-color: var(--accent);
+        }
+
+        .topic-card h3 {
+            font-size: 1.6rem;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .topic-card p {
+            font-size: 1.1rem;
+            color: rgba(10, 14, 39, 0.75);
+            line-height: 1.8;
+        }
+
+        /* Process Section - OPRAVENÝ KONTRAST */
+        .process-section {
+            background: linear-gradient(135deg, #0E1B2E 0%, #1a2d47 100%);
+            padding: 8rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .process-section::before {
+            content: '';
+            position: absolute;
+            right: 10%;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 300px;
+            height: 450px;
+            background: url("data:image/svg+xml,%3Csvg width='300' height='450' viewBox='0 0 200 300' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M100 0L60 120H140L100 300L160 140H80L100 0Z' fill='white' fill-opacity='0.02'/%3E%3C/svg%3E") no-repeat center;
+            background-size: contain;
+            opacity: 0.3;
+            pointer-events: none;
+        }
+
+        .process-section h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3.5rem;
+            color: white;
+            text-align: center;
+            margin-bottom: 5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .process-steps {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .process-step {
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            gap: 2.5rem;
+            margin-bottom: 3rem;
+            align-items: start;
+            opacity: 0;
+            animation: slideInLeft 0.8s ease-out forwards;
+        }
+
+        .process-step:nth-child(1) { animation-delay: 0.2s; }
+        .process-step:nth-child(2) { animation-delay: 0.4s; }
+        .process-step:nth-child(3) { animation-delay: 0.6s; }
+        .process-step:nth-child(4) { animation-delay: 0.8s; }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .step-number {
+            width: 100px;
+            height: 100px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3rem;
+            color: var(--primary-dark);
+            font-weight: 900;
+            box-shadow: 0 10px 30px rgba(201, 162, 39, 0.4);
+        }
+
+        .step-content h3 {
+            font-size: 1.9rem;
+            color: white;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .step-content p {
+            font-size: 1.15rem;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.8;
+        }
+
+        .step-detail {
+            background: rgba(201, 162, 39, 0.15);
+            padding: 1.2rem 1.5rem;
+            border-radius: 10px;
+            margin-top: 1.2rem;
+            border-left: 3px solid var(--accent);
+        }
+
+        .step-detail {
+            color: white;
+            font-size: 1.05rem;
+        }
+
+        .step-detail strong {
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        /* About Section */
+        .about-mentoring {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 8rem 2rem;
+        }
+
+        .about-content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3rem;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+        }
+
+        .about-text h2 .script {
+            font-family: 'Manrope', sans-serif;
+            font-style: italic;
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 2.2rem;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            color: rgba(10, 14, 39, 0.75);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text strong {
+            color: var(--primary-dark);
+            font-weight: 700;
+        }
+
+        .testimonial-quote {
+            background: var(--gray);
+            padding: 2rem;
+            border-left: 4px solid var(--accent);
+            border-radius: 12px;
+            margin: 2rem 0;
+        }
+
+        .testimonial-quote p {
+            font-style: italic;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-quote .author {
+            font-weight: 700;
+            color: var(--primary-dark);
+            font-style: normal;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(14, 27, 46, 0.15);
+        }
+
+        /* FAQ Section - STEJNÝ VIZUÁL JAKO HOMEPAGE */
+        .faq-section {
+            padding: 7rem 2rem;
+            background: var(--light);
+        }
+
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-section h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3.5rem;
+            color: var(--primary-dark);
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .faq-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: rgba(10, 14, 39, 0.7);
+            margin-bottom: 4rem;
+        }
+
+        .faq-list {
+            margin-top: 4rem;
+        }
+
+        .faq-item {
+            background: white;
+            border-radius: 20px;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+            border: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .faq-item:hover {
+            border-color: var(--primary);
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: 2rem 2.5rem;
+            background: none;
+            border: none;
+            text-align: left;
+            font-size: 1.25rem;
+            font-weight: 800;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s;
+            color: var(--dark);
+        }
+
+        .faq-question:hover {
+            background: var(--light);
+        }
+
+        .faq-icon {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            transition: transform 0.3s;
+            flex-shrink: 0;
+            margin-left: 1rem;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .faq-answer-inner {
+            padding: 0 2.5rem 2rem;
+            font-size: 1.08rem;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .faq-answer-inner strong {
+            color: var(--dark);
+            font-weight: 700;
+        }
+
+        /* CTA Button Section */
+        .cta-button-section {
+            background: linear-gradient(135deg, #0E1B2E 0%, #1a2d47 100%);
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .cta-button-section h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3.5rem;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .cta-button-section h2 .highlight {
+            color: var(--accent);
+        }
+
+        .cta-button-section p {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .urgency-note-cta {
+            background: rgba(201, 162, 39, 0.15);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 2.5rem;
+            border: 2px solid var(--accent);
+            color: white;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .urgency-note-cta strong {
+            color: var(--accent);
+            font-size: 1.2rem;
+        }
+
+        /* Form Modal */
+        .form-modal {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(10, 14, 39, 0.85);
+            backdrop-filter: blur(5px);
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .form-modal.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .form-modal-content {
+            background: white;
+            margin: 5% auto;
+            padding: 4rem;
+            border-radius: 24px;
+            max-width: 700px;
+            position: relative;
+            animation: slideDown 0.4s ease-out;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .form-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 2rem;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--dark);
+            cursor: pointer;
+            background: none;
+            border: none;
+            line-height: 1;
+            transition: color 0.3s;
+        }
+
+        .form-close:hover {
+            color: var(--accent);
+        }
+
+        .form-header h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3rem;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .form-header .highlight {
+            color: var(--accent);
+        }
+
+        .form-header p {
+            font-size: 1.1rem;
+            color: rgba(10, 14, 39, 0.7);
+            line-height: 1.7;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--primary-dark);
+            margin-bottom: 0.7rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1.2rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            font-family: 'Manrope', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 4px rgba(201, 162, 39, 0.1);
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .form-submit {
+            width: 100%;
+            background: linear-gradient(135deg, var(--accent) 0%, #d4ae3a 100%);
+            color: white;
+            padding: 1.4rem;
+            border: none;
+            border-radius: 14px;
+            font-weight: 800;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 12px 40px rgba(201, 162, 39, 0.3);
+        }
+
+        .form-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 16px 50px rgba(201, 162, 39, 0.4);
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 1024px) {
+            .mentoring-hero-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .mentoring-hero-text {
+                text-align: center;
+            }
+
+            .mentoring-hero-image img {
+                margin: 0 auto;
+            }
+
+            .about-content-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .process-step {
+                grid-template-columns: 80px 1fr;
+                gap: 1.5rem;
+            }
+
+            .step-number {
+                width: 80px;
+                height: 80px;
+                font-size: 2.5rem;
+            }
+
+            .social-proof-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .topics-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .topics-grid-secondary {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mentoring-hero {
+                padding: 7rem 1.5rem 4rem;
+                min-height: auto;
+            }
+
+            .mentoring-hero-text h1 {
+                font-size: 2.8rem;
+            }
+
+            .mentoring-hero-text .big-benefit {
+                font-size: 1.4rem;
+            }
+
+            .mentoring-hero-text .big-benefit .free {
+                font-size: 1.8rem;
+            }
+
+            .form-modal-content {
+                padding: 2.5rem 2rem;
+                margin: 10% 5%;
+            }
+
+            .topics-section h2,
+            .process-section h2,
+            .faq-section h2,
+            .about-text h2,
+            .cta-button-section h2 {
+                font-size: 2.5rem;
+            }
+
+            .process-step {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .step-number {
+                margin: 0 auto 1.5rem;
+            }
+
+            .topic-card {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip to content link for accessibility -->
+    <a href="#main-content" class="skip-link">Přeskočit na hlavní obsah</a>
+
+    <!-- Mobile menu backdrop -->
+    <div class="menu-backdrop" id="menuBackdrop"></div>
+
+    <nav>
+        <a href="index.html" class="logo">
+            <img src="images/logo/logo-sportovci-kariera.svg" alt="Kariéra sportovců" class="logo-image" style="height: 40px; width: auto;">
+        </a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Otevřít menu">☰</button>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Domů</a></li>
+            <li><a href="o-mne.html">O mně</a></li>
+            <li><a href="sluzby.html">Služby</a></li>
+            <li><a href="clanky.html">Články</a></li>
+            <li><a href="test.html">Přihlášení</a></li>
+            <li><a href="kontakt.html" class="nav-cta">Začít →</a></li>
+        </ul>
+    </nav>
+
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="mentoring-hero">
+            <div class="mentoring-hero-content">
+                <div class="mentoring-hero-text">
+                    <h1>
+                        Osobní vedení <span class="highlight">1:1</span>
+                    </h1>
+                    <p class="big-benefit">
+                        Pro sportovce, kteří chtějí víc.<br>
+                        První hovor <span class="free">ZDARMA</span>.
+                    </p>
+                    <p>Individuální mentoring na míru. Propracujeme tvůj směr, cíle a konkrétní kroky. 50+ sportovců už dosáhlo svých cílů.</p>
+                    <button onclick="openFormModal()" class="hero-cta-btn">Rezervovat zdarma hovor →</button>
+                </div>
+                <div class="mentoring-hero-image">
+                    <img src="images/famil-hero.jpg" alt="Famil Amirov - Mentoring pro sportovce" loading="eager">
+                </div>
+            </div>
+        </section>
+
+        <!-- Social Proof Section -->
+        <section class="social-proof">
+            <div class="social-proof-content">
+                <div class="proof-item">
+                    <span class="proof-number">50+</span>
+                    <p class="proof-text">Sportovců pomoženo</p>
+                </div>
+                <div class="proof-item">
+                    <span class="proof-number">100%</span>
+                    <p class="proof-text">První hovor zdarma</p>
+                </div>
+                <div class="proof-item">
+                    <span class="proof-number">24h</span>
+                    <p class="proof-text">Odpověď na zprávu</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Topics Section -->
+        <section class="topics-section">
+            <h2>S čím ti můžu <span class="highlight">pomoct</span>?</h2>
+            <p class="topics-subtitle">
+                Nejčastější témata individuálního vedení
+            </p>
+
+            <div class="topics-grid">
+                <div class="topic-card featured">
+                    <h3>Nevím, kam dál</h3>
+                    <p>Končí kariéra nebo už nechceš jen sport? Zmapujeme, co umíš díky sportu, a najdeme směr, který má smysl.</p>
+                </div>
+
+                <div class="topic-card featured">
+                    <h3>Hledám novou práci</h3>
+                    <p>Potřebuješ práci nebo brigádu během sportu? Společně najdeme, co sedí, a připravíme se (životopis, LinkedIn, pohovor).</p>
+                </div>
+
+                <div class="topic-card featured">
+                    <h3>Konec kariéry</h3>
+                    <p>Blíží se konec a nevíš, co bude potom? Připravíme plán, abys měl jasno, kam jít a jak na to.</p>
+                </div>
+            </div>
+
+            <div class="topics-grid-secondary">
+                <div class="topic-card">
+                    <h3>Přestup do lepšího klubu</h3>
+                    <p>Chceš přestoupit výš nebo do zahraničí? Pomůžu ti s přípravou, jednáním a rozhodováním.</p>
+                </div>
+
+                <div class="topic-card">
+                    <h3>Hledání sponzora</h3>
+                    <p>Reprezentuješ a potřebuješ sponzora? Ukážu ti, jak oslovit firmy a jak se prezentovat.</p>
+                </div>
+
+                <div class="topic-card">
+                    <h3>Osobní brand</h3>
+                    <p>Pro špičkové sportovce, kteří chtějí vybudovat vliv a osobní značku během aktivní kariéry.</p>
+                </div>
+
+                <div class="topic-card">
+                    <h3>Práce se stresem</h3>
+                    <p>Vybereme návyky a techniky pro zvládání tlaku, stresu a náročných situací.</p>
+                </div>
+
+                <div class="topic-card">
+                    <h3>Zranění a hlava</h3>
+                    <p>Práce s hlavou během zranění. Jak zůstat pozitivní a připravit se na návrat.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process Section -->
+        <section class="process-section">
+            <h2>Jak to probíhá</h2>
+
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>První hovor ZDARMA</h3>
+                        <p>Online přes Google Meet nebo Zoom. Zjistíme, kde jsi a kam chceš. Bez závazků.</p>
+                        <div class="step-detail">
+                            <strong>Délka:</strong> 20-30 minut | <strong>Formát:</strong> Online | <strong>Cena:</strong> 0 Kč
+                        </div>
+                    </div>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Zmapujeme situaci a vizi</h3>
+                        <p>Co funguje, co ne. Kam chceš směřovat, co je pro tebe důležité. Najdeme tvé silné stránky díky sportu.</p>
+                        <div class="step-detail">
+                            <strong>Co dostaneš:</strong> Jasno v tom, co umíš a kam jít
+                        </div>
+                    </div>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Vytvoříme akční plán</h3>
+                        <p>Konkrétní kroky, cíle a termíny. Žádné obecné rady, jen jasný plán, co dělat.</p>
+                        <div class="step-detail">
+                            <strong>Co dostaneš:</strong> Písemný akční plán na míru
+                        </div>
+                    </div>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Jdeme do akce společně</h3>
+                        <p>Podpora při realizaci. Pravidelné hovory, ladění plánu, propojení s lidmi. Nejsi v tom sám.</p>
+                        <div class="step-detail">
+                            <strong>Délka:</strong> 3-6 měsíců (individuální) | <strong>Formát:</strong> 1-2 hovory měsíčně + WhatsApp podpora
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About / Story Section -->
+        <section class="about-mentoring">
+            <div class="about-content-grid">
+                <div class="about-text">
+                    <h2>
+                        Proč já?<br>
+                        <span class="script">Protože jsem si tím prošel sám</span>
+                    </h2>
+
+                    <p>
+                        <strong>15 let jsem hrál hokej profesionálně.</strong> Trénink, zápasy, cestování, tlak, zranění. Prošel jsem si tím všechno.
+                    </p>
+
+                    <p>
+                        Když jsem končil, nevěděl jsem, co dál. Nikdo mi to neukázal. Musel jsem to zjistit sám. A právě proto teď pomáhám sportovcům, kteří řeší stejné otázky.
+                    </p>
+
+                    <p>
+                        Nejsem expert, který ti řekne, co máš dělat. <strong>Jsem parťák, který tě provede tím, co řešíš.</strong> Ukážu ti, co umíš díky sportu. Pomůžu ti najít směr. Propojím tě s lidmi, kteří ti můžou pomoct.
+                    </p>
+
+                    <p>
+                        Dnes pracuji na <strong>největší sportovní škole v ČR (ARTECON Praha)</strong> jako garant kariérového programu. Pomohol jsem 50+ sportovcům najít směr mimo hřiště.
+                    </p>
+
+                    <div class="testimonial-quote">
+                        <p>
+                            "S Familem jsme našli obor, který mě baví, připravili životopis a trénovali pohovor. Dnes mám jednu práci, která mě naplňuje víc než ty tři dohromady."
+                        </p>
+                        <p class="author">— Martin, ex-hokejista, 26 let</p>
+                    </div>
+                </div>
+
+                <div class="about-image">
+                    <img src="images/famil-portrait.jpg" alt="Famil Amirov - Kariérový kouč pro sportovce" loading="lazy">
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <div class="faq-container">
+                <h2>Časté otázky</h2>
+                <p class="faq-subtitle">Vše, co potřebuješ vědět před prvním hovorem</p>
+
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>Kolik to stojí?</span>
+                            <span class="faq-icon" aria-hidden="true">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner">
+                                <strong>První hovor je ZDARMA (20-30 min).</strong> Zjistíme, kde jsi a jak ti můžu pomoct. Pak společně rozhodneme, jestli pokračujeme.<br><br>
+                                Dlouhodobá spolupráce (3-6 měsíců): <strong>Individuální cena podle rozsahu.</strong> Řekneme si ji upřímně na prvním hovoru.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>Jak dlouho to trvá?</span>
+                            <span class="faq-icon" aria-hidden="true">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner">
+                                První hovor: <strong>20-30 minut</strong><br>
+                                Dlouhodobá spolupráce: <strong>3-6 měsíců</strong> (1-2 hovory měsíčně + WhatsApp podpora)<br><br>
+                                Záleží na tom, co řešíš. Někdo potřebuje jen 2 měsíce na hledání práce, jiný 6 měsíců na kompletní změnu směru.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>Musím se zavázat dlouhodobě?</span>
+                            <span class="faq-icon" aria-hidden="true">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner">
+                                <strong>Ne.</strong> První hovor je zdarma a nezávazný. Pak se společně rozhodneme, jestli ti můžu pomoct a jestli ti to sedí. Nikdo tě k ničemu netlačí.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>Co když mi to nepomůže?</span>
+                            <span class="faq-icon" aria-hidden="true">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner">
+                                Pokud po prvním měsíci vidíš, že ti to nedává smysl, můžeme skončit. Bez keců, bez výmluv. <strong>Chci pomoct jen těm, kterým opravdu pomoct můžu.</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>Pro koho to NENÍ?</span>
+                            <span class="faq-icon" aria-hidden="true">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner">
+                                Pokud:<br>
+                                • Chceš rychlé řešení za týden<br>
+                                • Nechceš pracovat na sobě<br>
+                                • Hledáš zázračný trik<br>
+                                • Čekáš, že ti řeknu, co máš dělat<br><br>
+                                <strong>Tohle není pro tebe.</strong> Tohle je pro sportovce, kteří chtějí opravdu najít směr a jsou ochotní na tom makať.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Button Section -->
+        <section class="cta-button-section">
+            <h2>Připraven na <span class="highlight">osobní vedení</span>?</h2>
+            <p>Rezervuj si první hovor zdarma. Zjistíme, kde jsi a jak ti můžu pomoct.</p>
+
+            <div class="urgency-note-cta">
+                <strong>⚠️ Kapacita omezena:</strong> Beru max 5 nových klientů měsíčně, abych měl čas na každého.
+            </div>
+
+            <button onclick="openFormModal()" class="hero-cta-btn">Rezervovat zdarma hovor →</button>
+        </section>
+    </main>
+
+    <!-- Form Modal -->
+    <div id="formModal" class="form-modal">
+        <div class="form-modal-content">
+            <button class="form-close" onclick="closeFormModal()">&times;</button>
+
+            <div class="form-header">
+                <h2>Rezervuj si <span class="highlight">ZDARMA</span> hovor</h2>
+                <p>Ozvu se ti do 24 hodin a domluvíme si první hovor. Online přes Google Meet nebo Zoom.</p>
+            </div>
+
+            <form action="https://formspree.io/f/movyvdlr" method="POST">
+                <div class="form-group">
+                    <label for="name">Jméno a příjmení *</label>
+                    <input type="text" id="name" name="name" required placeholder="Jan Novák">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required placeholder="jan.novak@email.cz">
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Telefon</label>
+                    <input type="tel" id="phone" name="phone" placeholder="+420 123 456 789">
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Co řešíš? S čím ti můžu pomoct? *</label>
+                    <textarea id="message" name="message" required placeholder="Napiš mi upřímně, co právě řešíš...&#10;&#10;Např: 'Končím s fotbalem za rok a nevím, co dál. Chtěl bych najít práci, která má smysl, ale nevím kde začít.'"></textarea>
+                </div>
+
+                <button type="submit" class="form-submit">Odeslat a rezervovat hovor →</button>
+
+                <p style="text-align:center; margin-top:1.5rem; font-size:0.9rem; color:#666;">
+                    * Odesláním souhlasíš se zpracováním osobních údajů
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-content">
+                <!-- About Section -->
+                <div class="footer-section footer-about">
+                    <div class="footer-logo">
+                        <svg width="40" height="40" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 21C8 21 10 16 14 14C18 12 20 8 20 8" stroke="#C9A227" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M20 8L18 11M20 8L17 9" stroke="#C9A227" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="8" cy="21" r="2" fill="#00E676"/>
+                        </svg>
+                        <h3>Rozvoj sportovců</h3>
+                    </div>
+                    <p>Nejsem expert nad tebou – jsem parťák vedle tebe. Ukážu ti, co umíš, najdeme kam jít, propojím tě s lidmi. Nejsi v tom sám. 50+ sportovců.</p>
+                    <div class="footer-social">
+                        <a href="https://www.instagram.com/karierasportovcu/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Instagram">
+                            IG
+                        </a>
+                        <a href="https://www.youtube.com/@karierasportovcu" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="YouTube">
+                            YT
+                        </a>
+                        <a href="https://www.tiktok.com/@karierasportovcu" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="TikTok">
+                            TT
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-section">
+                    <h3>Rychlé odkazy</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Domů</a></li>
+                        <li><a href="clanky.html">Články</a></li>
+                        <li><a href="o-mne.html">O mně</a></li>
+                        <li><a href="kontakt.html">Kontakt</a></li>
+                        <li><a href="index.html#faq">Časté otázky</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services -->
+                <div class="footer-section">
+                    <h3>Služby</h3>
+                    <ul class="footer-links">
+                        <li><a href="sluzby.html">Služby</a></li>
+                        <li><a href="index.html#jak-to-funguje">Jak to funguje</a></li>
+                        <li><a href="test.html" style="color: #C9A227; font-weight: 600;">Test osobnosti</a></li>
+                        <li><a href="kontakt.html">Začít</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="footer-section">
+                    <h3>Kontakt</h3>
+                    <ul class="footer-contact-info">
+                        <li>
+                            <a href="mailto:info@sportovci-kariera.cz">info@sportovci-kariera.cz</a>
+                        </li>
+                        <li>
+                            <span>Praha, Česká republika</span>
+                        </li>
+                        <li>
+                            <span>Partner: ARTECON Praha</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <p>&copy; 2025 Kariéra sportovců. Všechna práva vyhrazena.</p>
+                <p>
+                    <a href="ochrana-osobnich-udaju.html">Ochrana osobních údajů</a> |
+                    <a href="kontakt.html">Kontaktujte nás</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts.js"></script>
+
+    <script>
+        // Form Modal Functions
+        function openFormModal() {
+            document.getElementById('formModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+
+            // Track event
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'form_modal_opened', {
+                    'event_category': 'mentoring',
+                    'event_label': 'osobni_vedeni_modal'
+                });
+            }
+        }
+
+        function closeFormModal() {
+            document.getElementById('formModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal on ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeFormModal();
+            }
+        });
+
+        // Close modal when clicking outside
+        document.getElementById('formModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeFormModal();
+            }
+        });
+
+        // Track form submission
+        document.querySelector('form').addEventListener('submit', function() {
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'form_submission', {
+                    'event_category': 'mentoring',
+                    'event_label': 'osobni_vedeni_form_v3',
+                    'value': 1
+                });
+            }
+        });
+
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const faqItem = button.parentElement;
+                const isActive = faqItem.classList.contains('active');
+
+                // Close all FAQ items
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                    item.querySelector('.faq-answer').style.maxHeight = null;
+                    item.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+                });
+
+                // Open clicked item if it wasn't active
+                if (!isActive) {
+                    faqItem.classList.add('active');
+                    const answer = faqItem.querySelector('.faq-answer');
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                    button.setAttribute('aria-expanded', 'true');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -58,7 +58,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     
     <!-- Structured Data - Person Schema -->
     <script type="application/ld+json">
@@ -247,17 +247,17 @@
             color: var(--primary);
         }
         .nav-links .nav-cta {
-            background: #C9A227;
-            color: white !important;
+            background: #00E676;
+            color: var(--dark) !important;
             padding: 0.6rem 1.2rem;
             border-radius: 12px;
             font-weight: 700;
             transition: all 0.3s;
         }
         .nav-links .nav-cta:hover {
-            background: #A88520;
+            background: #00C853;
             transform: translateY(-2px);
-            color: white !important;
+            color: var(--dark) !important;
         }
 
         .menu-toggle {
@@ -426,13 +426,12 @@
 
         /* HERO SECTION - STEJNÝ STYL JAKO HOMEPAGE */
         .hero-small {
-            min-height: 60vh;
+            min-height: 50vh;
             padding: 10rem 2rem 4rem;
+            text-align: center;
             background: linear-gradient(135deg, #0E1B2E 0%, #1a2942 50%, rgba(201, 162, 39, 0.15) 100%);
             position: relative;
             overflow: hidden;
-            display: flex;
-            align-items: center;
         }
 
         .hero-small::before {
@@ -451,22 +450,6 @@
             50% { transform: translate(10%, 10%) rotate(180deg); }
         }
 
-        .hero-small-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 2;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            width: 100%;
-        }
-
-        .hero-small-text {
-            text-align: left;
-        }
-
         .hero-small h1 {
             font-size: 3rem;
             font-weight: 900;
@@ -474,27 +457,18 @@
             margin-bottom: 1rem;
             line-height: 1.2;
             text-shadow: 2px 2px 20px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 2;
         }
 
         .hero-small p {
             font-size: 1.3rem;
             color: rgba(255, 255, 255, 0.95);
+            max-width: 700px;
             text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
-            margin: 0;
-        }
-
-        .hero-small-image {
             position: relative;
             z-index: 2;
-        }
-
-        .hero-small-image img {
-            width: 100%;
-            max-width: 500px;
-            height: auto;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            object-fit: cover;
+            margin: 0 auto;
         }
 
         /* CONTENT SECTIONS */
@@ -1119,34 +1093,10 @@
 
         /* MOBILE RESPONSIVE */
         @media (max-width: 768px) {
-            .hero-small {
-                min-height: auto;
-                padding: 8rem 1.5rem 4rem;
-            }
-
-            .hero-small-content {
-                grid-template-columns: 1fr;
-                gap: 2.5rem;
-            }
-
-            .hero-small-text {
-                text-align: center;
-            }
-
-            .hero-small-image {
-                order: 2;
-                display: flex;
-                justify-content: center;
-            }
-
-            .hero-small-image img {
-                max-width: 350px;
-            }
-
             .hero-small h1 {
                 font-size: 2rem;
             }
-
+            
             .hero-small p {
                 font-size: 1.1rem;
             }
@@ -1203,7 +1153,7 @@
         <ul class="nav-links" id="navLinks">
             <li><a href="index.html">Domů</a></li>
             <li><a href="o-mne.html">O mně</a></li>
-            <li><a href="sluzby.html">Služby</a></li>
+            <li><a href="index.html#jak-to-funguje">Jak to funguje</a></li>
             <li><a href="clanky.html">Články</a></li>
             <li><a href="test.html">Přihlášení</a></li>
             <li><a href="kontakt.html" class="nav-cta">Začít →</a></li>
@@ -1212,15 +1162,8 @@
 
     <main id="main-content">
         <section class="hero-small">
-            <div class="hero-small-content">
-                <div class="hero-small-text">
-                    <h1>Ahoj, jsem Famil 👋</h1>
-                    <p>Bývalý hokejista. Kariérový poradce. Člověk, který ví, jak těžké je najít směr.</p>
-                </div>
-                <div class="hero-small-image">
-                    <img src="images/famil-portrait.jpg" alt="Famil Amirov - Bývalý hokejista a kariérový poradce" loading="eager">
-                </div>
-            </div>
+            <h1>Ahoj, jsem Famil 👋</h1>
+            <p>Bývalý hokejista. Kariérový poradce. Člověk, který ví, jak těžké je najít směr po sportu.</p>
         </section>
 
         <div class="content">
@@ -1232,12 +1175,12 @@
                         <p>Od dětství až po dospělost. Hokej byl můj život. Věděl jsem, co je disciplína, týmová práce, bolest i triumf. Ale taky jsem věděl, že jednou to skončí.</p>
                     </div>
                     <div class="story-card">
-                        <h3>🤔 Konec hokeje</h3>
-                        <p>Když přišel čas skončit s hokejem, byl jsem ztracený. Měl jsem dovednosti, ale nevěděl, jak je využít. Necítil jsem se připravený.</p>
+                        <h3>🤔 Konec kariéry</h3>
+                        <p>Když přišel čas skončit s aktivním hokejem, byl jsem ztracený. Měl jsem dovednosti, ale nevěděl, jak je využít. Necítil jsem se připravený na "normální" život.</p>
                     </div>
                     <div class="story-card">
                         <h3>💡 Hledání cesty</h3>
-                        <p>Začal jsem studovat psychologii a ekonomii. Chtěl jsem pochopit, jak funguje svět mimo sport. Pochopil jsem – sportovec má obrovskou výhodu. Jen o ní často neví.</p>
+                        <p>Začal jsem studovat psychologii a ekonomii. Chtěl jsem pochopit, jak funguje kariéra mimo sport. A pochopil jsem – sportovec má obrovskou výhodu, jen o ní často neví.</p>
                     </div>
                 </div>
             </section>
@@ -1264,7 +1207,7 @@
                         <div class="credential-card">
                             <div class="credential-icon">👥</div>
                             <h3>50+ sportovců</h3>
-                            <p>Pomohl jsem 50+ sportovcům najít směr a využít dovednosti.</p>
+                            <p>Pomohl jsem stovkám sportovců najít směr a využít své dovednosti.</p>
                         </div>
                     </div>
                 </div>
@@ -1297,7 +1240,7 @@
             <section class="social">
                 <div class="social-inner">
                     <h2>Sleduj nás na sociálních sítích</h2>
-                    <p class="subtitle">Reálný obsah pro sportovce. Videa, tipy, motivace každý den.</p>
+                    <p class="subtitle">Reálný obsah od sportovců pro sportovce. Videa, tipy, motivace každý den.</p>
                     
                     <div class="social-showcase-grid">
                         <!-- Instagram Card -->
@@ -1402,7 +1345,8 @@
             <div class="cta-section">
                 <h2>Pojďme to udělat společně</h2>
                 <p style="font-size:1.2rem;margin-bottom:2rem;opacity:0.95;">
-                    Student, aktivní sportovec, nebo plánuješ změnu – můžu ti pomoct najít směr.
+                    Ať už jsi student, aktivní sportovec nebo na přechodu po kariéře – 
+                    můžu ti pomoct najít tvou cestu.
                 </p>
                 <!-- FIX: Odkaz změněn na kontaktní stránku -->
                 <a href="kontakt.html" class="btn" onclick="trackEvent('contact_click', 'cta_button')">Napsat mi →</a>
@@ -1410,6 +1354,24 @@
         </div>
     </main>
 
+    <!-- FOOTER -->
+<footer style="background: var(--dark); color: var(--light); padding: 3rem 5%; text-align: center; border-top: 1px solid rgba(255,255,255,0.1);">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 2rem; align-items: center;">
+        <!-- Main Links -->
+        <div style="display: flex; gap: 2rem; flex-wrap: wrap; justify-content: center; align-items: center;">
+            <a href="index.html" style="color: var(--light); text-decoration: none; transition: color 0.3s;">Domů</a>
+            <a href="o-mne.html" style="color: var(--light); text-decoration: none; transition: color 0.3s;">O mně</a>
+            <a href="clanky.html" style="color: var(--light); text-decoration: none; transition: color 0.3s;">Články</a>
+            <a href="kontakt.html" style="color: var(--light); text-decoration: none; transition: color 0.3s;">Kontakt</a>
+            <a href="test.html" style="color: var(--secondary); font-weight: 700; text-decoration: none; padding: 0.5rem 1.2rem; background: rgba(201,162,39,0.1); border-radius: 8px; transition: all 0.3s;">Test osobnosti →</a>
+        </div>
+
+        <!-- Copyright -->
+        <div style="font-size: 0.9rem; color: rgba(255,255,255,0.6); border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.5rem; width: 100%;">
+            <p>© 2025 Rozvoj sportovců | Famil Amirov</p>
+        </div>
+    </div>
+</footer>
 
     <!-- COOKIE CONSENT BANNER -->
     <div id="cookieConsent" class="cookie-consent">
@@ -1431,17 +1393,22 @@
                 <!-- About Section -->
                 <div class="footer-section footer-about">
                     <div class="footer-logo">
-                        <img src="images/logo/logo-sportovci-kariera-dark.svg" alt="Kariéra sportovců" style="height: 40px; width: auto;">
+                        <svg width="40" height="40" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 21C8 21 10 16 14 14C18 12 20 8 20 8" stroke="#C9A227" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M20 8L18 11M20 8L17 9" stroke="#C9A227" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="8" cy="21" r="2" fill="#00E676"/>
+                        </svg>
+                        <h3>Rozvoj sportovců pro sportovce</h3>
                     </div>
-                    <p>Pomáháme sportovcům úspěšně přejít z aktivní sportovní kariéry do vzdělání a profesního života. Více než 50 spokojených klientů.</p>
+                    <p>Pomáháme sportovcům úspěšně přejít z aktivní sportovní kariéry do vzdělání a profesního života. Více než 50 spokojených klientů..</p>
                     <div class="footer-social">
-                        <a href="https://www.instagram.com/karierasportovcu/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Instagram">
+                        <a href="https://www.instagram.com/karierove_poradenstvi/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Instagram" onclick="trackEvent('social_click', 'instagram')">
                             📷
                         </a>
-                        <a href="https://www.youtube.com/@karierasportovcu" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="YouTube">
+                        <a href="https://www.youtube.com/@karierasportovcu" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="YouTube" onclick="trackEvent('social_click', 'youtube')">
                             ▶️
                         </a>
-                        <a href="https://www.tiktok.com/@karierasportovcu" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="TikTok">
+                        <a href="https://www.tiktok.com/@karierasportovcu" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="TikTok" onclick="trackEvent('social_click', 'tiktok')">
                             🎵
                         </a>
                     </div>
@@ -1452,7 +1419,6 @@
                     <h3>Rychlé odkazy</h3>
                     <ul class="footer-links">
                         <li><a href="index.html">Domů</a></li>
-                        <li><a href="sluzby.html">Služby</a></li>
                         <li><a href="clanky.html">Články</a></li>
                         <li><a href="o-mne.html">O mně</a></li>
                         <li><a href="kontakt.html">Kontakt</a></li>
@@ -1464,9 +1430,9 @@
                 <div class="footer-section">
                     <h3>Služby</h3>
                     <ul class="footer-links">
-                        <li><a href="sluzby.html">Digitální produkty</a></li>
-                        <li><a href="osobni-vedeni.html" style="color: #C9A227; font-weight: 600;">Osobní vedení 1:1</a></li>
-                        <li><a href="test.html">Test osobnosti</a></li>
+                        <li><a href="index.html#jak-to-funguje">Jak to funguje</a></li>
+                        <li><a href="index.html#sluzby">Co nabízím</a></li>
+                        <li><a href="prihlaseni.html" style="color: #C9A227; font-weight: 600;">Test osobnosti</a></li>
                         <li><a href="kontakt.html">Začít</a></li>
                     </ul>
                 </div>
@@ -1477,7 +1443,7 @@
                     <ul class="footer-contact-info">
                         <li>
                             <span>✉️</span>
-                            <a href="mailto:info@sportovci-kariera.cz">info@sportovci-kariera.cz</a>
+                            <a href="mailto:info@sportovci-kariera.cz" onclick="trackEvent('contact_click', 'footer_email')">info@sportovci-kariera.cz</a>
                         </li>
                         <li>
                             <span>📍</span>
@@ -1654,16 +1620,4 @@
             } else if (scrollPercent >= 75 && !scrollTracked['75']) {
                 scrollTracked['75'] = true;
                 trackEvent('scroll_depth', '75_percent');
-            } else if (scrollPercent >= 100 && !scrollTracked['100']) {
-                scrollTracked['100'] = true;
-                trackEvent('scroll_depth', '100_percent');
-            }
-        });
-    </script>
-
-    <!-- Sticky CTA for mobile -->
-    <div class="sticky-cta-mobile">
-        <a href="kontakt.html" class="btn-sticky">Chci konzultaci →</a>
-    </div>
-</body>
-</html>
+            } else if (scrollPercent >= 100 

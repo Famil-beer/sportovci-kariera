@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zlatý program - 2 999 Kč | Kariéra sportovců</title>
+    <meta name="description" content="Zlatý VIP program za 2 999 Kč. Individuální mentoring, dlouhodobé vedení, kompletní plán přechodu po kariéře.">
+    <link rel="canonical" href="https://www.sportovci-kariera.cz/zlaty-program.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #007BFF;
+            --gold: #FFD700;
+            --dark: #0A0E27;
+            --light: #F7F9FC;
+        }
+        body {
+            font-family: 'Inter', -apple-system, system-ui, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: white;
+        }
+        nav {
+            position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(20px);
+            padding: 0.875rem 1.5rem; border-radius: 50px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1); z-index: 1000;
+            display: flex; flex-wrap: nowrap; gap: 1.25rem; align-items: center; max-width: 90%;
+        }
+        .logo { font-weight: 900; font-size: 1.1rem; color: var(--primary); text-decoration: none; white-space: nowrap; }
+        nav a { text-decoration: none; color: var(--dark); font-weight: 600; font-size: 0.875rem; white-space: nowrap; word-break: keep-all; overflow: hidden; text-overflow: ellipsis; }
+        .hero-program {
+            background: linear-gradient(135deg, var(--gold), #E5C100);
+            padding: 10rem 2rem 4rem; text-align: center; color: #000;
+        }
+        .badge {
+            display: inline-block; background: rgba(0, 0, 0, 0.15);
+            padding: 0.5rem 1.5rem; border-radius: 50px; font-weight: 700;
+            margin-bottom: 1rem; border: 1px solid rgba(0, 0, 0, 0.2);
+        }
+        .hero-program h1 { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 900; margin-bottom: 1rem; }
+        .price-big { font-size: 4rem; font-weight: 900; margin: 1rem 0; }
+        .hero-program p { font-size: 1.3rem; opacity: 0.9; margin-bottom: 2rem; }
+        .btn {
+            display: inline-block; padding: 1.2rem 3rem;
+            background: #000; color: var(--gold); border-radius: 15px;
+            font-weight: 700; font-size: 1.1rem; text-decoration: none;
+            transition: all 0.3s; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4); }
+        .content { max-width: 1000px; margin: 0 auto; padding: 6rem 2rem; }
+        .section { margin-bottom: 5rem; }
+        .section h2 { font-size: 2.5rem; font-weight: 900; color: var(--dark); margin-bottom: 2rem; }
+        .section p { font-size: 1.15rem; line-height: 1.9; color: var(--dark); opacity: 0.85; margin-bottom: 1.5rem; }
+        .checklist {
+            background: white; padding: 2.5rem; border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+        .checklist h3 { font-size: 1.8rem; font-weight: 800; color: var(--gold); margin-bottom: 2rem; }
+        .checklist ul { list-style: none; }
+        .checklist li {
+            padding: 1rem 0; font-size: 1.1rem; border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            display: flex; align-items: center; gap: 1rem;
+        }
+        .checklist li::before { content: "✓"; color: var(--gold); font-weight: 900; font-size: 1.5rem; }
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 4rem 2rem 2rem 2rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .footer-section h3 {
+            color: #00D9FF;
+            font-size: 1.1rem;
+            margin-bottom: 1.2rem;
+            font-weight: 700;
+        }
+
+        .footer-about p {
+            color: rgba(255,255,255,0.8);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            display: inline-block;
+        }
+
+        .footer-links a:hover {
+            color: #00D9FF;
+            transform: translateX(5px);
+        }
+
+        .footer-contact-info {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-contact-info li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: flex-start;
+            color: rgba(255,255,255,0.8);
+        }
+
+        .footer-contact-info li span {
+            margin-right: 0.5rem;
+            color: #00D9FF;
+        }
+
+        .footer-contact-info a {
+            color: rgba(255,255,255,0.9);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-contact-info a:hover {
+            color: #00D9FF;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .footer-social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .footer-social-link:hover {
+            background: #00D9FF;
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            color: rgba(255,255,255,0.6);
+        }
+
+        .footer-bottom p {
+            margin: 0.5rem 0;
+        }
+
+        .footer-bottom a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            margin: 0 0.5rem;
+        }
+
+        .footer-bottom a:hover {
+            color: #00D9FF;
+            text-decoration: underline;
+        }
+
+        /* COOKIE CONSENT */
+        .cookie-consent {
+            position: fixed; bottom: 0; left: 0; right: 0;
+            background: rgba(10, 14, 39, 0.98); backdrop-filter: blur(10px);
+            color: white; padding: 1.5rem 2rem; z-index: 10000;
+            box-shadow: 0 -5px 30px rgba(0, 0, 0, 0.3); display: none;
+        }
+        .cookie-consent.active { display: block; }
+        .cookie-consent-content {
+            max-width: 1200px; margin: 0 auto;
+            display: flex; justify-content: space-between; align-items: center;
+            gap: 2rem; flex-wrap: wrap;
+        }
+        .cookie-consent-text { flex: 1; min-width: 300px; }
+        .cookie-consent-text h4 { font-size: 1.1rem; font-weight: 800; margin-bottom: 0.5rem; }
+        .cookie-consent-text p { font-size: 0.95rem; line-height: 1.6; opacity: 0.9; }
+        .cookie-consent-text a { color: #00D9FF; text-decoration: underline; }
+        .cookie-consent-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+        .cookie-btn {
+            padding: 0.8rem 1.8rem; border-radius: 10px;
+            font-weight: 700; font-size: 0.95rem; cursor: pointer;
+            transition: all 0.3s; border: none;
+        }
+        .cookie-btn-accept { background: #00E676; color: white; }
+        .cookie-btn-accept:hover { background: #00c763; transform: translateY(-2px); }
+        .cookie-btn-decline { background: transparent; color: white; border: 2px solid rgba(255, 255, 255, 0.3); }
+        .cookie-btn-decline:hover { border-color: rgba(255, 255, 255, 0.6); }
+
+        /* Medium screens - hamburger menu for safety */
+        @media (max-width: 1150px) {
+            nav { padding: 0.875rem 1.25rem; gap: 1rem; max-width: 95%; }
+            .logo { font-size: 1rem; }
+            nav a { font-size: 0.8125rem; }
+        }
+
+        @media (max-width: 1024px) {
+            nav { padding: 1rem 1.5rem; gap: 1rem; }
+        }
+
+        @media (max-width: 768px) {
+            nav { width: 90%; padding: 1rem; gap: 1rem; }
+            .cookie-consent-content { flex-direction: column; text-align: center; }
+            .cookie-consent-actions { width: 100%; justify-content: center; }
+            .cookie-btn { flex: 1; }
+
+            /* Footer responsive */
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
+            .footer-section {
+                text-align: center;
+            }
+
+            .footer-social {
+                justify-content: center;
+            }
+
+            .footer-links a:hover {
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="logo">KARIÉRA SPORTOVCŮ</a>
+        <a href="index.html">Domů</a>
+        <a href="index.html#programy">Programy</a>
+        <a href="clanky.html">Články</a>
+        <a href="o-mne.html">O mně</a>
+        <a href="kontakt.html">Kontakt</a>
+    </nav>
+    <section class="hero-program">
+        <div class="badge">👑 VIP ZLATÝ PROGRAM</div>
+        <h1>Kompletní cesta</h1>
+        <div class="price-big">2 999 Kč</div>
+        <p>Individuální mentoring na míru. Pro sportovce, kteří to myslí vážně.</p>
+        <a href="https://form.simpleshop.cz/Kb7Rm/buy/" class="btn" target="_blank" rel="noopener noreferrer">Koupit VIP program →</a>
+    </section>
+    <div class="content">
+        <div class="section">
+            <h2>Tohle je pro tebe, pokud...</h2>
+            <p>✓ Chceš <strong>dlouhodobého mentora</strong>, ne jen jednorázovou konzultaci</p>
+            <p>✓ Stojíš na rozcestí a potřebuješ <strong>kompletní plán na 3-6 měsíců</strong></p>
+            <p>✓ Chceš <strong>skutečnou změnu</strong>, ne jen teoretické rady</p>
+            <p>✓ Bereš to <strong>vážně</strong> a jsi připraven do toho dát energii</p>
+        </div>
+        <div class="checklist">
+            <h3>Kompletní obsah Zlatého programu</h3>
+            <ul>
+                <li>Vše ze stříbrného programu (CV, motivační dopis, první měsíce v práci...)</li>
+                <li>Individuální mentoring (3-6 měsíců podle tebe)</li>
+                <li>Kompletní akční plán na 3-6 měsíců dopředu</li>
+                <li>Osobní vedení projektu (najdeme školu/brigádu/práci)</li>
+                <li>Týdenní check-iny (udržíme tě v tempu)</li>
+                <li>Plán přechodu po kariéře (pokud končíš)</li>
+                <li>Networking (představím tě lidem z mé sítě)</li>
+                <li>Prioritní podpora (odpovídám do 24h)</li>
+            </ul>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-content">
+                <!-- About Section -->
+                <div class="footer-section footer-about">
+                    <h3>Kariéra sportovců</h3>
+                    <p>Pomáháme sportovcům úspěšně přejít z aktivní sportovní kariéry do vzdělání a profesního života. Více než 350 spokojených klientů, 95% úspěšnost programů.</p>
+                    <div class="footer-social">
+                        <a href="https://www.instagram.com/karierove_poradenstvi/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Instagram">
+                            📷
+                        </a>
+                        <a href="https://www.youtube.com/@karierasportovcu" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="YouTube">
+                            ▶️
+                        </a>
+                        <a href="https://www.tiktok.com/@karierasportovcu" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="TikTok">
+                            🎵
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-section">
+                    <h3>Rychlé odkazy</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Domů</a></li>
+                        <li><a href="clanky.html">Články</a></li>
+                        <li><a href="o-mne.html">O mně</a></li>
+                        <li><a href="kontakt.html">Kontakt</a></li>
+                        <li><a href="#faq">Časté otázky</a></li>
+                    </ul>
+                </div>
+
+                <!-- Programs -->
+                <div class="footer-section">
+                    <h3>Programy</h3>
+                    <ul class="footer-links">
+                        <li><a href="bronzovy-program.html">Bronzový program</a></li>
+                        <li><a href="stribrny-program.html">Stříbrný program</a></li>
+                        <li><a href="zlaty-program.html">Zlatý program</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="footer-section">
+                    <h3>Kontakt</h3>
+                    <ul class="footer-contact-info">
+                        <li>
+                            <span>✉️</span>
+                            <a href="mailto:info@sportovci-kariera.cz">info@sportovci-kariera.cz</a>
+                        </li>
+                        <li>
+                            <span>📍</span>
+                            <span>Praha, Česká republika</span>
+                        </li>
+                        <li>
+                            <span>🤝</span>
+                            <span>Partner: ARTECON Praha</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <p>&copy; 2025 Kariéra sportovců. Všechna práva vyhrazena.</p>
+                <p>
+                    <a href="ochrana-osobnich-udaju.html">Ochrana osobních údajů</a> |
+                    <a href="kontakt.html">Kontaktujte nás</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- COOKIE CONSENT BANNER -->
+    <div id="cookieConsent" class="cookie-consent">
+        <div class="cookie-consent-content">
+            <div class="cookie-consent-text">
+                <h4>🍪 Používáme cookies</h4>
+                <p>Tento web používá soubory cookies pro zlepšení uživatelského zážitku. Více informací v <a href="privacy-policy.html">Zásadách ochrany osobních údajů</a>.</p>
+            </div>
+            <div class="cookie-consent-actions">
+                <button onclick="acceptCookies()" class="cookie-btn cookie-btn-accept">Přijmout</button>
+                <button onclick="declineCookies()" class="cookie-btn cookie-btn-decline">Odmítnout</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // COOKIE CONSENT MANAGEMENT
+        function checkCookieConsent() {
+            const consent = localStorage.getItem('cookieConsent');
+            if (!consent) {
+                setTimeout(() => {
+                    document.getElementById('cookieConsent').classList.add('active');
+                }, 1000);
+            }
+        }
+
+        function acceptCookies() {
+            localStorage.setItem('cookieConsent', 'accepted');
+            document.getElementById('cookieConsent').classList.remove('active');
+        }
+
+        function declineCookies() {
+            localStorage.setItem('cookieConsent', 'declined');
+            document.getElementById('cookieConsent').classList.remove('active');
+        }
+
+        // Run on page load
+        checkCookieConsent();
+    </script>
+</body>
+</html>

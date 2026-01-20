@@ -1,0 +1,33 @@
+{
+    "name": "Partiák pro sportovce",
+    "short_name": "Partiák",
+    "description": "Nejsem expert nad tebou – jsem partiák vedle tebe. Pomoc sportovcům s kariérou mimo hřiště.",
+    "icons": [
+        {
+            "src": "/favicon-16x16.png",
+            "sizes": "16x16",
+            "type": "image/png"
+        },
+        {
+            "src": "/favicon-32x32.png",
+            "sizes": "32x32",
+            "type": "image/png"
+        },
+        {
+            "src": "/apple-touch-icon.png",
+            "sizes": "180x180",
+            "type": "image/png"
+        },
+        {
+            "src": "/favicon.svg",
+            "sizes": "any",
+            "type": "image/svg+xml",
+            "purpose": "any maskable"
+        }
+    ],
+    "theme_color": "#0E1B2E",
+    "background_color": "#0E1B2E",
+    "display": "standalone",
+    "start_url": "/",
+    "scope": "/"
+}

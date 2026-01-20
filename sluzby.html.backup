@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+
+    <title>Služby | Osobní Rozvoj Sportovců</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="images/logo/logo-icon-only.svg">
+    <link rel="shortcut icon" href="images/logo/logo-icon-only.svg">
+
+    <meta name="description" content="Chceš začít sám s e-booky nebo potřebuješ osobní vedení? Vyber si cestu, která ti sedí – digitální produkty nebo individuální konzultace.">
+    <meta name="keywords" content="kariérní poradenství sportovci, e-book pro sportovce, individuální konzultace sportovec, kariéra po sportu">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Služby | Osobní Rozvoj Sportovců">
+    <meta property="og:description" content="Vyber si cestu – digitální produkty nebo osobní vedení.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sportovci-kariera.cz/sluzby.html">
+    <meta property="og:image" content="https://sportovci-kariera.cz/images/og-image.jpg">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.sportovci-kariera.cz/sluzby.html">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NCXD6F7TWE"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-NCXD6F7TWE');
+    </script>
+
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        /* ========================================
+           SERVICES PAGE - SPECIFIC STYLES
+           ======================================== */
+
+        /* Hero Section - Split Design */
+        .services-hero {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, #1a2d47 100%);
+            padding: 8rem 2rem 6rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .services-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(201, 162, 39, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(201, 162, 39, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .services-hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .services-hero h1 {
+            font-size: 4.5rem;
+            color: white;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .services-hero p {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 0;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Split Cards Section */
+        .split-services {
+            max-width: 1400px;
+            margin: -4rem auto 6rem;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .service-path {
+            background: white;
+            border-radius: 24px;
+            padding: 3.5rem;
+            box-shadow: 0 20px 60px rgba(14, 27, 46, 0.12);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid transparent;
+        }
+
+        .service-path:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 30px 80px rgba(14, 27, 46, 0.18);
+            border-color: var(--accent);
+        }
+
+        .service-path::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 200px;
+            height: 200px;
+            background: var(--accent);
+            opacity: 0.05;
+            border-radius: 50%;
+            transform: translate(40%, -40%);
+            transition: all 0.6s ease;
+        }
+
+        .service-path:hover::before {
+            transform: translate(30%, -30%) scale(1.3);
+            opacity: 0.08;
+        }
+
+        .service-path-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--accent) 0%, #d4ae3a 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+            transform: rotate(-5deg);
+            transition: transform 0.4s ease;
+        }
+
+        .service-path:hover .service-path-icon {
+            transform: rotate(0deg) scale(1.05);
+        }
+
+        .service-path-icon svg {
+            width: 42px;
+            height: 42px;
+            color: white;
+            stroke-width: 2.5;
+        }
+
+        .service-path h2 {
+            font-size: 2.8rem;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+            letter-spacing: 0.02em;
+        }
+
+        .service-path-subtitle {
+            font-size: 1.15rem;
+            color: rgba(10, 14, 39, 0.7);
+            margin-bottom: 2.5rem;
+            line-height: 1.7;
+        }
+
+        .service-path-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            background: var(--accent);
+            color: white;
+            padding: 1.1rem 2.5rem;
+            border-radius: 14px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.05rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 24px rgba(201, 162, 39, 0.3);
+        }
+
+        .service-path-cta:hover {
+            transform: translateX(5px);
+            box-shadow: 0 12px 32px rgba(201, 162, 39, 0.4);
+            background: #d4ae3a;
+        }
+
+        /* Products Grid */
+        .products-section {
+            max-width: 1400px;
+            margin: 0 auto 8rem;
+            padding: 0 2rem;
+        }
+
+        .products-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .products-header h2 {
+            font-size: 3.5rem;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+        }
+
+        .products-header p {
+            font-size: 1.2rem;
+            color: rgba(10, 14, 39, 0.7);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 12px 40px rgba(14, 27, 46, 0.08);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid transparent;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(14, 27, 46, 0.15);
+            border-color: var(--accent);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 280px;
+            background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image::after {
+            content: 'E-BOOK';
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3rem;
+            color: rgba(14, 27, 46, 0.08);
+            letter-spacing: 0.1em;
+            position: absolute;
+            transform: rotate(-15deg);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--accent);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .product-content {
+            padding: 2rem;
+        }
+
+        .product-title {
+            font-size: 1.8rem;
+            color: var(--primary-dark);
+            margin-bottom: 0.8rem;
+            line-height: 1.3;
+        }
+
+        .product-description {
+            font-size: 1rem;
+            color: rgba(10, 14, 39, 0.7);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .product-price {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+        }
+
+        .product-cta {
+            display: block;
+            text-align: center;
+            background: var(--primary-dark);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .product-cta:hover {
+            background: #1a2d47;
+            transform: scale(1.02);
+        }
+
+        /* Consultation CTA Section */
+        .consultation-cta {
+            max-width: 1200px;
+            margin: 0 auto 8rem;
+            padding: 0 2rem;
+        }
+
+        .consultation-banner {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, #1a2d47 100%);
+            border-radius: 28px;
+            padding: 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .consultation-banner::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(201, 162, 39, 0.15) 0%, transparent 70%);
+            transform: translate(-50%, -50%);
+        }
+
+        .consultation-banner-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .consultation-banner h2 {
+            font-size: 3.5rem;
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .consultation-banner p {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 2.5rem;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .consultation-banner-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            background: var(--accent);
+            color: white;
+            padding: 1.3rem 3rem;
+            border-radius: 16px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.15rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 12px 40px rgba(201, 162, 39, 0.4);
+        }
+
+        .consultation-banner-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 16px 50px rgba(201, 162, 39, 0.5);
+            background: #d4ae3a;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 1024px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .services-hero {
+                padding: 6rem 1.5rem 4rem;
+            }
+
+            .services-hero h1 {
+                font-size: 3rem;
+            }
+
+            .services-hero p {
+                font-size: 1.1rem;
+            }
+
+            .split-services {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                margin-top: -3rem;
+            }
+
+            .service-path {
+                padding: 2.5rem;
+            }
+
+            .service-path h2 {
+                font-size: 2.2rem;
+            }
+
+            .products-header h2 {
+                font-size: 2.5rem;
+            }
+
+            .consultation-banner {
+                padding: 3rem 2rem;
+            }
+
+            .consultation-banner h2 {
+                font-size: 2.5rem;
+            }
+        }
+
+        /* Scroll Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-in {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip to content link for accessibility -->
+    <a href="#main-content" class="skip-link">Přeskočit na hlavní obsah</a>
+
+    <nav>
+        <a href="index.html" class="logo">
+            <img src="images/logo/logo-sportovci-kariera.svg" alt="Kariéra sportovců" class="logo-image" style="height: 40px; width: auto;">
+        </a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Otevřít menu">☰</button>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Domů</a></li>
+            <li><a href="o-mne.html">O mně</a></li>
+            <li><a href="sluzby.html">Služby</a></li>
+            <li><a href="clanky.html">Články</a></li>
+            <li><a href="test.html">Přihlášení</a></li>
+            <li><a href="kontakt.html" class="nav-cta">Začít →</a></li>
+        </ul>
+    </nav>
+
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="services-hero">
+            <div class="services-hero-content">
+                <h1>Vyber si svou cestu</h1>
+                <p>Chceš začít sám nebo potřebuješ osobní vedení? Obě cesty fungují – záleží, co ti víc sedí.</p>
+            </div>
+        </section>
+
+        <!-- Split Services Section -->
+        <section class="split-services">
+            <!-- Path 1: Products -->
+            <div class="service-path animate-in">
+                <div class="service-path-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                    </svg>
+                </div>
+                <h2>Chci začít sám</h2>
+                <p class="service-path-subtitle">E-booky a nástroje, které tě provedou krok za krokem. Studuj ve svém tempu, aplikuj hned.</p>
+                <a href="#produkty" class="service-path-cta">
+                    Prohlédnout e-booky
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Path 2: Consultation -->
+            <div class="service-path animate-in" style="animation-delay: 0.15s;">
+                <div class="service-path-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                </div>
+                <h2>Chci osobní vedení</h2>
+                <p class="service-path-subtitle">Individuální konzultace nebo dlouhodobá spolupráce. Společně najdeme tvou cestu a půjdeme ji krok za krokem.</p>
+                <a href="konzultace.html" class="service-path-cta">
+                    Domluvit konzultaci
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </a>
+            </div>
+        </section>
+
+        <!-- Products Section -->
+        <section class="products-section" id="produkty">
+            <div class="products-header animate-in">
+                <h2>Digitální produkty</h2>
+                <p>Praktické e-booky s konkrétními kroky. Stáhneš, přečteš, aplikuješ. Bez zbytečností.</p>
+            </div>
+
+            <div class="products-grid">
+                <!-- Product 1 - Hlava ve hře -->
+                <div class="product-card animate-in">
+                    <div class="product-image">
+                        <!-- TODO: doplnit obrázek cover knihy -->
+                        <span class="product-badge">Nový E-book</span>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Hlava ve hře: 25 mentálních technik</h3>
+                        <p class="product-description">25 mentálních technik pro sportovce. Dech, vizualizace, všímavost, feedback a vedení. Každá technika má návod, čas a prostor na poznámky.</p>
+                        <div class="product-price">499 Kč</div>
+                        <a href="hlava-ve-hre.html" class="product-cta">Zjistit více →</a>
+                    </div>
+                </div>
+
+                <!-- Další e-booky připravujeme -->
+                <div class="product-card animate-in" style="animation-delay: 0.1s; opacity: 0.6;">
+                    <div class="product-image" style="background: linear-gradient(135deg, #e8e8e8 0%, #d8d8d8 100%);">
+                        <span class="product-badge" style="background: #999;">Připravujeme</span>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Další e-book už brzy</h3>
+                        <p class="product-description">Pracujeme na dalších praktických nástrojích pro sportovce. Sleduj Instagram nebo YouTube pro novinky.</p>
+                        <div class="product-price" style="color: #999;">Připravujeme</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Consultation CTA -->
+        <section class="consultation-cta">
+            <div class="consultation-banner animate-in">
+                <div class="consultation-banner-content">
+                    <h2>Potřebuješ víc než e-book?</h2>
+                    <p>Individuální konzultace nebo dlouhodobá spolupráce. Společně najdeme tvou cestu a půjdeme ji společně.</p>
+                    <a href="konzultace.html" class="consultation-banner-cta">
+                        Domluvit konzultaci
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h4>Kariéra sportovců</h4>
+                <p>Pomáhám sportovcům najít směr mimo hřiště. Ukážu ti, co umíš, najdeme kam jít a propojím tě s lidmi.</p>
+            </div>
+            <div class="footer-column">
+                <h4>Rychlé odkazy</h4>
+                <ul>
+                    <li><a href="index.html">Domů</a></li>
+                    <li><a href="o-mne.html">O mně</a></li>
+                    <li><a href="sluzby.html">Služby</a></li>
+                    <li><a href="kontakt.html">Kontakt</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Sleduj mě</h4>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/karierasportovcu" target="_blank" aria-label="Instagram">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.youtube.com/@karierasportovcu" target="_blank" aria-label="YouTube">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.tiktok.com/@karierasportovcu" target="_blank" aria-label="TikTok">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Kariéra sportovců. Všechna práva vyhrazena.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        if (menuToggle && navLinks) {
+            menuToggle.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+                menuToggle.classList.toggle('active');
+            });
+        }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for scroll animations
+        const animateElements = document.querySelectorAll('.animate-in');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        animateElements.forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
